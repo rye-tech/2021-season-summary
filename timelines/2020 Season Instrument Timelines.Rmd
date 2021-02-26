@@ -1,0 +1,145 @@
+---
+title: "2020 Season Instrument Timelines"
+author: "Ryan J. Hartnett"
+date: "last update: `r format(Sys.Date(), format = '%d %B %Y')`"
+output:
+  prettydoc::html_pretty:
+    theme: tactile
+    highlight: github
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Events
+
+## Instruments
+
+### Seabird Inc. SeaFET V1 with V2 software upgrade
+<br>
+
+### Seabird Inc. SeaCAT 16 Conductivity Temperature Depth (CTD) with SBE 63 Aandera Optode Dissolved Oxygen (DO) and dual Chlorophyll-Turbidity (chl/turb) Fluorometer ECO-FLNTUS by WetLabs Inc.
+<br>
+
+### Seabird Inc. SeapHOx SeaFET V2 combined with an SBE-37 MicroCAT CTD with SBE 63 Aandera Optode Dissolved Oxygen (DO)
+<br>
+
+
+
+
+
+
+# Predeployment 
+
+
+## Dickson TRIS Seawater Buffer Run
+
+
+
+### Dickson TRIS Seawater buffer from batch T35 was ran in the wet cell of each instrument for a minimum of 7 days each. Data is then taken from the SeaFET and SeapHOx graphed against the theoretical buffer value at a nominal salinity of 35. SeapHOx data is reprocessed with nominal salinity of 35 since both instruments sit in a bay water bath for thermal stability.
+<br>
+
+
+### Buffer run began for SeapHOx on 07/03/2020 at 00:26 hours UTC. Then sampled hourly thereafter. 
+
+
+
+### Buffer run began for SeaFET on 07/03/2020 at 00:40 hours UTC. Then sampled hourly thereafter.
+
+#### note: last of T35 Dickson TRIS Seawater buffer in the lab
+
+
+
+## Buffer run for the SeaFET and SeapHOx ended at 01:20 hours UTC on 7/24/2020
+
+
+
+## Baywater Bath pH Check
+
+
+
+#### Baywater was collected and mixed to a salinity of 25 PSU, fresher than the desired end salinity so that instruments could run long term in anticipation of a delayed start. Due to coronavirus restrictions, staffing vacancies and research vessel maintenance. Instruments were set up to be ready for deployment as soon as final approval of research expeditions were approved.
+
+
+#### SeaFET set in flow path with SBE16 CTD. CTD pumps for 10 seconds while oxygen sensor and fluorometer warm up and biowiper sponges clean the optical window. Then in the following 2.7-3.0 seconds water is sampled by sensors in the CTD. Note the fluorometer is not in the flow path. Afterwards the SeaFET samples with a 20 second offset to sample water just after it is measured by the CTD.
+
+
+
+
+### Baywater bath run began for SeapHOx on 07/24/2020 at 04:04 hours UTC. Then sampled hourly thereafter. 
+
+
+
+### Baywater bath run began for SeaFET/CTD combo on 07/24/2020 at 06:03 hours UTC. Then sampled hourly thereafter.
+
+#### note both instruments sampling with a minute offset from each other and 3 or 4 minutes offset from the top of the hour
+
+
+
+### Baywater bath check sample 1 collected in triplicate at 14:00 hours UTC on 07/28/2020
+
+
+### Baywater bath check sample 2 collected triplicate at 03:03 hours UTC on 08/20/2020
+
+
+#### Downloaded SeapHOx and SeaFET/CTD combo data and restarted logging at 04:00 hours UTC on 8/20/2020
+
+
+
+### Baywater bath check sample 3 collected triplicate at 19:00 hours UTC on 09/23/2020
+
+
+### All data downloaded on 9/23/2020
+
+
+### Baywater bath Run for the SeapHOx ended at 
+
+
+
+### Baywater bath run for the SeaFET/CTD combo ended at
+
+
+
+
+
+
+
+
+# Deployment
+
+
+
+
+
+
+# Mid Season Sampling
+
+
+
+
+# Recovery
+
+
+
+
+# Post Deployment Analyses
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

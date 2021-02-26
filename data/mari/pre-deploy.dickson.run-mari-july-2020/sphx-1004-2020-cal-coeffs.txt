@@ -1,0 +1,76 @@
+<CalibrationCoefficients DeviceType='Shallow SeapHox2' SerialNumber='0001004'>
+  <Calibration format='PH1' id='pH'>
+    <SerialNumFET>89329</SerialNumFET>
+    <SerialNumREF>0011</SerialNumREF>
+    <CalDate>29-Jan-2020</CalDate>
+    <K0>-1.339465e+00</K0>
+    <K2>-1.024461e-03</K2>
+    <KDF0>-1.348486e+00</KDF0>
+    <KDF2>-1.221943e-03</KDF2>
+  </Calibration>
+  <Calibration format='TEMP2' id='Temperature'>
+    <SerialNum>89329</SerialNum>
+    <CalDate>29-Jan-2020</CalDate>
+    <TDFA0>-1.542604e-03</TDFA0>
+    <TDFA1>5.451845e-04</TDFA1>
+    <TDFA2>-1.988318e-05</TDFA2>
+    <TDFA3>4.501564e-07</TDFA3>
+  </Calibration>
+  <Calibration format='TEMP1' id='Temperature'>
+    <SerialNum>0001004</SerialNum>
+    <CalDate>02-Feb-20</CalDate>
+    <A0>-2.617131e-04</A0>
+    <A1>3.301989e-04</A1>
+    <A2>-5.782594e-06</A2>
+    <A3>2.377921e-07</A3>
+  </Calibration>
+  <Calibration format='WBCOND0' id='Conductivity'>
+    <SerialNum>0001004</SerialNum>
+    <CalDate>02-Feb-20</CalDate>
+    <G>-1.004411e+00</G>
+    <H>1.295395e-01</H>
+    <I>2.042504e-05</I>
+    <J>1.583179e-05</J>
+    <PCOR>-9.570000e-08</PCOR>
+    <TCOR>3.250000e-06</TCOR>
+    <WBOTC>1.796380e-07</WBOTC>
+    <Z>0.000000e+00</Z>
+  </Calibration>
+  <Calibration format='STRAIN0' id='Pressure'>
+    <SerialNum>10565187</SerialNum>
+    <CalDate>26-Dec-19</CalDate>
+    <PA0>-3.063831e-03</PA0>
+    <PA1>4.970978e-04</PA1>
+    <PA2>-5.369646e-12</PA2>
+    <PTCA0>5.249466e+05</PTCA0>
+    <PTCA1>3.314541e+00</PTCA1>
+    <PTCA2>-1.735384e-01</PTCA2>
+    <PTCB0>2.495637e+01</PTCB0>
+    <PTCB1>-9.250000e-04</PTCB1>
+    <PTCB2>0.000000e+00</PTCB2>
+    <PTEMPA0>-6.310873e+01</PTEMPA0>
+    <PTEMPA1>5.313937e-02</PTEMPA1>
+    <PTEMPA2>-5.030215e-07</PTEMPA2>
+    <POFFSET>0.000000e+00</POFFSET>
+    <PRANGE>1.600000e+02</PRANGE>
+  </Calibration>
+  <Calibration format='OXYGEN1' id='Oxygen'>
+    <SerialNum>1584</SerialNum>
+    <CalDate>18-Dec-19</CalDate>
+    <TAU20>5.500000e+00</TAU20>
+    <OXA0>1.051300e+00</OXA0>
+    <OXA1>-1.500000e-03</OXA1>
+    <OXA2>3.926000e-01</OXA2>
+    <OXB0>-2.476920e-01</OXB0>
+    <OXB1>1.625390e+00</OXB1>
+    <OXC0>1.021030e-01</OXC0>
+    <OXC1>4.367020e-03</OXC1>
+    <OXC2>6.218760e-05</OXC2>
+    <OXTA0>6.807380e-04</OXTA0>
+    <OXTA1>2.566090e-04</OXTA1>
+    <OXTA2>1.471900e-07</OXTA2>
+    <OXTA3>1.187170e-07</OXTA3>
+    <OXE>1.100000e-02</OXE>
+  </Calibration>
+</CalibrationCoefficients>
+<Executed/>
