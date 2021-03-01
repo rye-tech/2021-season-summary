@@ -1,4 +1,4 @@
 ====================================================================================================================================
       Date     Time  Temp SpCond   Cond  Resist   TDS    Sal   Press   Depth    pH      pH   Chl   Chl Turbid+ ODOsat    ODO Battery
-     y/m/d hh:mm:ss     C  uS/cm  uS/cm  Ohm*cm   g/L    ppt    psia  meters            mV  ug/L   RFU     NTU      %   mg/L   volts
+     y/m/d hh:mm:ss     C  uS/cm  uS/cm  Ohm*cm   g/L    ppt    psir  meters            mV  ug/L   RFU     NTU      %   mg/L   volts
 ------------------------------------------------------------------------------------------------------------------------------------
