@@ -24,12 +24,15 @@ rm(list = ls())
 
 list.files()
 
-file1 <- "RTC_MET_20191120-20191227.txt"   
-file2 <- "RTC_MET_20191227-20200515.txt"
-file3 <- "RTC_MET_20200515-20200620.txt"  
-file4 <- "RTC_MET_20200620-20200802.txt"  
-file5 <- "RTC_MET_20200813-20200902.txt"  
-file6 <- "RTC_MET_20200902-20201219.txt" 
+
+file1 <- "RTC_MET_20200902-20201219.txt"  
+file2 <- "RTC_MET_20201219-20210226.txt"
+
+
+# file3 <- "RTC_MET_20200515-20200620.txt"  
+# file4 <- "RTC_MET_20200620-20200802.txt"  
+# file5 <- "RTC_MET_20200813-20200902.txt"  
+# file6 <- "RTC_MET_20200902-20201219.txt" 
 
 
 header <- read.table(file1, as.is = T, skip = 1,nrows = 1, header = F, sep = ",")
@@ -120,38 +123,41 @@ colnames(df2) <- header[1,]
 
 str(df2)
 
+# # comment in as more files are added
+# 
+# df3 <- read.table(file3, sep = ",", as.is = T, skip = 5, header = F)
+# 
+# # assigns columns names pulled from header "file"
+# colnames(df3) <- header[1,]
+# 
+# str(df3)
+# 
+# 
+# df4 <- read.table(file4, sep = ",", as.is = T, skip = 5, header = F)
+# 
+# # assigns columns names pulled from header "file"
+# colnames(df4) <- header[1,]
+# 
+# str(df4)
+# 
+# 
+# df5 <- read.table(file5, sep = ",", as.is = T, skip = 5, header = F)
+# 
+# # assigns columns names pulled from header "file"
+# colnames(df5) <- header[1,]
+# 
+# str(df5)
+# 
+# 
+# df6 <- read.table(file6, sep = ",", as.is = T, skip = 5, header = F)
+# 
+# # assigns columns names pulled from header "file"
+# colnames(df6) <- header[1,]
+# 
+# str(df6)
+#
+## uncomment here
 
-
-df3 <- read.table(file3, sep = ",", as.is = T, skip = 5, header = F)
-
-# assigns columns names pulled from header "file"
-colnames(df3) <- header[1,]
-
-str(df3)
-
-
-df4 <- read.table(file4, sep = ",", as.is = T, skip = 5, header = F)
-
-# assigns columns names pulled from header "file"
-colnames(df4) <- header[1,]
-
-str(df4)
-
-
-df5 <- read.table(file5, sep = ",", as.is = T, skip = 5, header = F)
-
-# assigns columns names pulled from header "file"
-colnames(df5) <- header[1,]
-
-str(df5)
-
-
-df6 <- read.table(file6, sep = ",", as.is = T, skip = 5, header = F)
-
-# assigns columns names pulled from header "file"
-colnames(df6) <- header[1,]
-
-str(df6)
 
 
 # getting variable names
@@ -184,7 +190,9 @@ str(df6)
 #          rain = 'V13')
 # 
 
-df <- bind_rows(df1, df2, df3, df4, df5, df6, .id= NULL)
+# df <- bind_rows(df1, df2, df3, df4, df5, df6, .id= NULL)
+
+df <- bind_rows(df1, df2, .id= NULL)
 
 rm(list=setdiff(ls(), c("df")))
 
@@ -206,17 +214,16 @@ df <- df %>%
 # #change all character columns to numeric
 # df1 %<>% mutate_if(is.character,as.numeric)
 
-eos_met_2020 <- select(df, datetime, date, TIMESTAMP, everything())
+eos_met_2021 <- select(df, datetime, date, TIMESTAMP, everything())
 
 rm(df)
 
-#save(df, file = "EOS_MET_20191201-20200515.RData")
 
-save(eos_met_2020, file = "EOS_MET_20191120-20201219.RData")
+save(eos_met_2021, file = "EOS_MET_20200902-20210226.RData")
 
 rm(list = ls())
 
-load(file = "EOS_MET_20191120-20201219.RData")
+load(file = "EOS_MET_20200902-20210226.RData")
 
 rm(list = ls())
 
