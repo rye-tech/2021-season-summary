@@ -1,0 +1,14 @@
+Analyst, Sample ID, Sample Tag, Notes1, Type, 434 nm, 578 nm, 730 nm
+RHartnett, Blank, no dye, 0.0000, Blank, -0.0001, 0.0000, 0.0000
+RHartnett, M-0079-C1-P1-1, no dye, 0.0000, Measurement 1, 0.0843, 0.0642, 0.1314
+RHartnett, M-0079-C1-P2-2, no dye, 0.0000, Measurement 1, 0.0832, 0.0633, 0.1309
+RHartnett, M-0079-C1-P3-3, no dye, 0.0000, Measurement 1, 0.0821, 0.0624, 0.1307
+RHartnett, B-0080-C1-P1-B, no dye, 0.0000, Measurement 1, 0.1119, 0.0826, 0.1457
+RHartnett, B-0080-C1-P2-D, no dye, 0.0000, Measurement 1, 0.1146, 0.0842, 0.1472
+RHartnett, B-0080-C1-P3-E, no dye, 0.0000, Measurement 1, 0.1107, 0.0820, 0.1460
+RHartnett, M-0079-C1-P1-1, m-cresol added, 0.0000, Measurement 2, 0.7439, 0.6191, 0.1320
+RHartnett, M-0079-C1-P2-2, m-cresol added, 0.0000, Measurement 2, 0.7386, 0.6169, 0.1294
+RHartnett, M-0079-C1-P3-3, m-cresol added, 0.0000, Measurement 2, 0.7329, 0.6114, 0.1291
+RHartnett, B-0080-C1-P1-B, m-cresol added, 0.0000, Measurement 2, 0.7619, 0.6394, 0.1434
+RHartnett, B-0080-C1-P2-D, m-cresol added, 0.0000, Measurement 2, 0.7584, 0.6336, 0.1458
+RHartnett, B-0080-C1-P3-E, m-cresol added, 0.0000, Measurement 2, 0.7687, 0.6487, 0.1448

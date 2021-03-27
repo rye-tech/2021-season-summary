@@ -1,0 +1,18 @@
+Analyst, Sample ID, Sample Tag, Notes1, Type, 434 nm, 578 nm, 730 nm,dyeV,salinity,temperature
+RHartnett, Blank, no dye,0, Blank,0,0.0001,0.0001,0,NA,NA
+RHartnett, DIC-11-10-2020, no dye,0, Replicate 1,0.0376,0.0378,0.1136,0,35,25
+RHartnett, DIC-11-10-2020, m-cresol added,0, Replicate 3,0.4789,1.1467,0.1149,80,35,25
+RHartnett, P-0078-1, no dye,0, Replicate 1,0.0861,0.0666,0.134,0,30.2,14
+RHartnett, P-0078-1, m-cresol added,0, Replicate 3,0.7214,0.7359,0.1355,80,30.2,14
+RHartnett, P-0078-2, no dye,0, Replicate 1,0.0858,0.0666,0.1336,0,30.2,14
+RHartnett, P-0078-2, m-cresol added,0, Replicate 3,0.7316,0.7426,0.1343,80,30.2,14
+RHartnett, P-0078-3, no dye,0, Replicate 1,0.0853,0.0665,0.1337,0,30.2,14
+RHartnett, P-0078-3, m-cresol added,0, Replicate 3,0.7351,0.7512,0.135,80,30.2,14
+RHartnett, P-0078-4, no dye,0, Replicate 1,0.0847,0.0655,0.1329,0,30.2,14
+RHartnett, P-0078-4, m-cresol added,0, Replicate 3,0.7196,0.7318,0.1387,80,30.2,14
+RHartnett, P-0078-5, no dye,0, Replicate 1,0.0844,0.0658,0.1336,0,30.2,14
+RHartnett, P-0078-5, m-cresol added,0, Replicate 3,0.7185,0.7331,0.1365,80,30.2,14
+RHartnett, P-0078-6, no dye,0, Replicate 1,0.0842,0.0657,0.133,0,30.2,14
+RHartnett, P-0078-6, m-cresol added,0, Replicate 3,0.7286,0.7438,0.1366,80,30.2,14
+RHartnett, P-0078-7, no dye,0, Replicate 1,0.0828,0.0642,0.1319,0,30.2,14
+RHartnett, P-0078-7, m-cresol added,0, Replicate 3,0.7211,0.7359,0.1374,80,30.2,14

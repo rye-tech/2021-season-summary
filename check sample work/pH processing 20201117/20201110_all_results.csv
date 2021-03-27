@@ -1,0 +1,26 @@
+Analyst, Sample ID, Sample Tag, Notes1, Type, 434 nm, 578 nm, 730 nm
+RHartnett, Blank, no dye, 0.0000, Blank, 0.0000, 0.0001, 0.0001
+RHartnett, P-0078-1, no dye, 0.0000, Replicate 1, 0.0861, 0.0666, 0.1340
+RHartnett, P-0078-2, no dye, 0.0000, Replicate 1, 0.0858, 0.0666, 0.1336
+RHartnett, P-0078-3, no dye, 0.0000, Replicate 1, 0.0853, 0.0665, 0.1337
+RHartnett, P-0078-4, no dye, 0.0000, Replicate 1, 0.0847, 0.0655, 0.1329
+RHartnett, P-0078-5, no dye, 0.0000, Replicate 1, 0.0844, 0.0658, 0.1336
+RHartnett, P-0078-6, no dye, 0.0000, Replicate 1, 0.0842, 0.0657, 0.1330
+RHartnett, P-0078-7, no dye, 0.0000, Replicate 1, 0.0828, 0.0642, 0.1319
+RHartnett, DIC-11-10-2020, no dye, 0.0000, Replicate 1, 0.0376, 0.0378, 0.1136
+RHartnett, P-0078-1, m-cresol added, 0.0000, Replicate 2, 0.4066, 0.4055, 0.1379
+RHartnett, P-0078-2, m-cresol added, 0.0000, Replicate 2, 0.4071, 0.4056, 0.1368
+RHartnett, P-0078-3, m-cresol added, 0.0000, Replicate 2, 0.4180, 0.4150, 0.1363
+RHartnett, P-0078-4, m-cresol added, 0.0000, Replicate 2, 0.4063, 0.4069, 0.1384
+RHartnett, P-0078-5, m-cresol added, 0.0000, Replicate 2, 0.4077, 0.4053, 0.1355
+RHartnett, P-0078-6, m-cresol added, 0.0000, Replicate 2, 0.4086, 0.4034, 0.1357
+RHartnett, P-0078-7, m-cresol added, 0.0000, Replicate 2, 0.3965, 0.3954, 0.1344
+RHartnett, DIC-11-10-2020, m-cresol added, 0.0000, Replicate 2, 0.2613, 0.5926, 0.1130
+RHartnett, P-0078-1, m-cresol added, 0.0000, Replicate 3, 0.7214, 0.7359, 0.1355
+RHartnett, P-0078-2, m-cresol added, 0.0000, Replicate 3, 0.7316, 0.7426, 0.1343
+RHartnett, P-0078-3, m-cresol added, 0.0000, Replicate 3, 0.7351, 0.7512, 0.1350
+RHartnett, P-0078-4, m-cresol added, 0.0000, Replicate 3, 0.7196, 0.7318, 0.1387
+RHartnett, P-0078-5, m-cresol added, 0.0000, Replicate 3, 0.7185, 0.7331, 0.1365
+RHartnett, P-0078-6, m-cresol added, 0.0000, Replicate 3, 0.7286, 0.7438, 0.1366
+RHartnett, P-0078-7, m-cresol added, 0.0000, Replicate 3, 0.7211, 0.7359, 0.1374
+RHartnett, DIC-11-10-2020, m-cresol added, 0.0000, Replicate 3, 0.4789, 1.1467, 0.1149
