@@ -1,0 +1,20 @@
+Analyst, Sample ID, Sample Tag, Notes1, Type, 434 nm, 578 nm, 730 nm,dyeV,salinity,temperature
+RH&MJ, Blank, no dye,0, Blank,0.0003,0,0,0,NA,NA
+RH&MJ, DIC-CRM186-1-1, no dye,0, Measurement 1,0.0368,0.0368,0.1135,0,33.525,25
+RH&MJ, DIC-CRM186-1-1, m-cresol added,0, Measurement 2,0.4971,1.1084,0.1108,80,33.525,25
+RH&MJ, DIC-CRM186-2-2, no dye,0, Measurement 1,0.0354,0.0361,0.113,0,33.525,25
+RH&MJ, DIC-CRM186-2-2, m-cresol added,0, Measurement 2,0.4891,1.0868,0.11,80,33.525,25
+RH&MJ, DIC-CRM186-3-3, no dye,0, Measurement 1,0.0354,0.0358,0.1127,0,33.525,25
+RH&MJ, DIC-CRM186-3-3, m-cresol added,0, Measurement 2,0.4942,1.0964,0.1101,80,33.525,25
+RH&MJ, BAYSTD1-1-B, no dye,0, Measurement 1,0.0612,0.0483,0.1225,0,27.5,11.2
+RH&MJ, BAYSTD1-1-B, m-cresol added,0, Measurement 2,0.6434,0.7344,0.1144,80,27.5,11.2
+RH&MJ, BAYSTD1-2-D, no dye,Sample was murky with sediment, Measurement 1,0.0822,0.0651,0.1357,0,27.5,11.2
+RH&MJ, BAYSTD1-2-D, m-cresol added,Sample was murky with sediment, Measurement 2,0.6714,0.7495,0.1199,80,27.5,11.2
+RH&MJ, BAYSTD1-3-E, no dye,Sample was murky with sediment, Measurement 1,0.0913,0.0716,0.1406,0,27.5,11.2
+RH&MJ, BAYSTD1-3-E, m-cresol added,Sample was murky with sediment, Measurement 2,0.6702,0.7454,0.1208,80,27.5,11.2
+RH&MJ, BAYSTD2-1-C, no dye,0, Measurement 1,0.0841,0.0588,0.127,0,30.34,14.11
+RH&MJ, BAYSTD2-1-C, m-cresol added,0, Measurement 2,0.6546,0.8328,0.1223,80,30.34,14.11
+RH&MJ, BAYSTD2-2-G, no dye,0, Measurement 1,0.0841,0.0587,0.1268,0,30.34,14.11
+RH&MJ, BAYSTD2-2-G, m-cresol added,0, Measurement 2,0.6405,0.8159,0.1224,80,30.34,14.11
+RH&MJ, BAYSTD2-3-4, no dye,0, Measurement 1,0.0852,0.059,0.1272,0,30.34,14.11
+RH&MJ, BAYSTD2-3-4, m-cresol added,0, Measurement 2,0.6239,0.7911,0.1226,80,30.34,14.11
