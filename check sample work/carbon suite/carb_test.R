@@ -1,6 +1,7 @@
-### test script for gettting carbonate chemistry suite
+### test script for getting carbonate chemistry suite 
+### from pH and total alkalinity
 
-#### package example ####
+
 
 library(dplyr)
 library(lubridate)
@@ -9,16 +10,27 @@ library(seacarb)
 library(here)
 
 
+
+#### our example with pCO2 and total alkalinity ####
+
+## pc02 and alk test
+## pco2 838 ppm converted to XXXX micro-atm
+
+carb(flag=24, var1=838, var2=0.00234, S=33, T=21, P=0, Patm=1.0, Pt=0, Sit=0,
+     pHscale="T", kf="pf", k1k2="l", ks="d", b="u74")
+
+
+
+
+
+#### package example ####
+
 ## Computation with a couple of variables
 
 carb(flag=8, var1=8.2, var2=0.00234, S=33, T=21, P=0, Patm=1.0, Pt=0, Sit=0,
      pHscale="T", kf="pf", k1k2="l", ks="d", b="u74")
 
-## pc02 and alk test
-## pco2 838 ppm micro-atm
 
-carb(flag=24, var1=838, var2=0.00234, S=33, T=21, P=0, Patm=1.0, Pt=0, Sit=0,
-     pHscale="T", kf="pf", k1k2="l", ks="d", b="u74")
 
 ## Using vectors as arguments
 flag <- c(8, 2, 8)
