@@ -20,7 +20,18 @@ carb(flag=24, var1=838, var2=0.00234, S=33, T=21, P=0, Patm=1.0, Pt=0, Sit=0,
      pHscale="T", kf="pf", k1k2="l", ks="d", b="u74")
 
 
+#### our example with pH and total alkalinity ####
 
+# units
+# pH as is
+# total alkalinity in mol/kg
+# salinity in practical salinity scale
+# temperature in degrees Celsius
+
+
+
+carb(flag=8, var1=8.2, var2=0.00234, S=33, T=21, P=0, Patm=1.0, Pt=0, Sit=0,
+     pHscale="T", kf="pf", k1k2="l", ks="d", b="u74")
 
 
 #### package example ####
