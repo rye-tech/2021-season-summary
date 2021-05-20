@@ -1,0 +1,897 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EcoWatchLiteParameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ParaList>
+    <Items>
+      <Parameter>
+        <BaseType>0</BaseType>
+        <ExclusiveGroupType>0</ExclusiveGroupType>
+        <Type>0</Type>
+        <OriginalName>Unknown</OriginalName>
+        <OriginalUnits>???</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>153</BaseType>
+        <ExclusiveGroupType>153</ExclusiveGroupType>
+        <Type>52</Type>
+        <OriginalName>Date</OriginalName>
+        <OriginalUnits>M/D/Y</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>4</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>153</BaseType>
+        <ExclusiveGroupType>153</ExclusiveGroupType>
+        <Type>51</Type>
+        <OriginalName>Date</OriginalName>
+        <OriginalUnits>D/M/Y</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>4</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>153</BaseType>
+        <ExclusiveGroupType>153</ExclusiveGroupType>
+        <Type>53</Type>
+        <OriginalName>Date</OriginalName>
+        <OriginalUnits>Y/M/D</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>4</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>153</BaseType>
+        <ExclusiveGroupType>153</ExclusiveGroupType>
+        <Type>54</Type>
+        <OriginalName>Time</OriginalName>
+        <OriginalUnits>HH:MM:SS</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>4</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>1</BaseType>
+        <ExclusiveGroupType>1</ExclusiveGroupType>
+        <Type>1</Type>
+        <OriginalName>Temp</OriginalName>
+        <OriginalUnits>C</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>3</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>1</BaseType>
+        <ExclusiveGroupType>1</ExclusiveGroupType>
+        <Type>2</Type>
+        <OriginalName>Temp</OriginalName>
+        <OriginalUnits>F</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>3</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>1</BaseType>
+        <ExclusiveGroupType>1</ExclusiveGroupType>
+        <Type>3</Type>
+        <OriginalName>Temp</OriginalName>
+        <OriginalUnits>K</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>3</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>4</BaseType>
+        <ExclusiveGroupType>6</ExclusiveGroupType>
+        <Type>6</Type>
+        <OriginalName>SpCond</OriginalName>
+        <OriginalUnits>mS</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>2</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>4</BaseType>
+        <ExclusiveGroupType>6</ExclusiveGroupType>
+        <Type>7</Type>
+        <OriginalName>SpCond</OriginalName>
+        <OriginalUnits>uS</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>2</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>4</BaseType>
+        <ExclusiveGroupType>4</ExclusiveGroupType>
+        <Type>4</Type>
+        <OriginalName>Cond</OriginalName>
+        <OriginalUnits>mS</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>2</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>4</BaseType>
+        <ExclusiveGroupType>4</ExclusiveGroupType>
+        <Type>5</Type>
+        <OriginalName>Cond</OriginalName>
+        <OriginalUnits>uS</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>2</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>4</BaseType>
+        <ExclusiveGroupType>8</ExclusiveGroupType>
+        <Type>9</Type>
+        <OriginalName>Resist</OriginalName>
+        <OriginalUnits>MOhm*cm</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>3</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>4</BaseType>
+        <ExclusiveGroupType>8</ExclusiveGroupType>
+        <Type>8</Type>
+        <OriginalName>Resist</OriginalName>
+        <OriginalUnits>KOhm*cm</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>3</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>4</BaseType>
+        <ExclusiveGroupType>8</ExclusiveGroupType>
+        <Type>94</Type>
+        <OriginalName>Resist</OriginalName>
+        <OriginalUnits>Ohm*cm</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>3</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>4</BaseType>
+        <ExclusiveGroupType>10</ExclusiveGroupType>
+        <Type>10</Type>
+        <OriginalName>TDS</OriginalName>
+        <OriginalUnits>g/L</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>2</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>4</BaseType>
+        <ExclusiveGroupType>10</ExclusiveGroupType>
+        <Type>95</Type>
+        <OriginalName>TDS</OriginalName>
+        <OriginalUnits>kg/L</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>2</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>4</BaseType>
+        <ExclusiveGroupType>12</ExclusiveGroupType>
+        <Type>12</Type>
+        <OriginalName>Sal</OriginalName>
+        <OriginalUnits>ppt</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>14</BaseType>
+        <ExclusiveGroupType>14</ExclusiveGroupType>
+        <Type>14</Type>
+        <OriginalName>DOsat</OriginalName>
+        <OriginalUnits>%</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>200</BaseType>
+        <ExclusiveGroupType>200</ExclusiveGroupType>
+        <Type>200</Type>
+        <OriginalName>DOsat</OriginalName>
+        <OriginalUnits>%Local</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>14</BaseType>
+        <ExclusiveGroupType>15</ExclusiveGroupType>
+        <Type>15</Type>
+        <OriginalName>DO</OriginalName>
+        <OriginalUnits>mg/L</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>14</BaseType>
+        <ExclusiveGroupType>96</ExclusiveGroupType>
+        <Type>96</Type>
+        <OriginalName>DOchrg</OriginalName>
+        <OriginalUnits />
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>209</BaseType>
+        <ExclusiveGroupType>209</ExclusiveGroupType>
+        <Type>209</Type>
+        <OriginalName>Cl2</OriginalName>
+        <OriginalUnits>mg/L</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>210</BaseType>
+        <ExclusiveGroupType>210</ExclusiveGroupType>
+        <Type>210</Type>
+        <OriginalName>Cl2chrg</OriginalName>
+        <OriginalUnits />
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>20</BaseType>
+        <ExclusiveGroupType>20</ExclusiveGroupType>
+        <Type>20</Type>
+        <OriginalName>Press</OriginalName>
+        <OriginalUnits>psia</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>104</BaseType>
+        <ExclusiveGroupType>104</ExclusiveGroupType>
+        <Type>104</Type>
+        <OriginalName>Press</OriginalName>
+        <OriginalUnits>psir</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>21</BaseType>
+        <ExclusiveGroupType>21</ExclusiveGroupType>
+        <Type>21</Type>
+        <OriginalName>Press</OriginalName>
+        <OriginalUnits>psig</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>22</BaseType>
+        <ExclusiveGroupType>22</ExclusiveGroupType>
+        <Type>22</Type>
+        <OriginalName>Depth</OriginalName>
+        <OriginalUnits>meters</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>2</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>22</BaseType>
+        <ExclusiveGroupType>22</ExclusiveGroupType>
+        <Type>23</Type>
+        <OriginalName>Depth</OriginalName>
+        <OriginalUnits>feet</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>2</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>121</BaseType>
+        <ExclusiveGroupType>121</ExclusiveGroupType>
+        <Type>118</Type>
+        <OriginalName>Flow</OriginalName>
+        <OriginalUnits>ft3/sec</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>14</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>121</BaseType>
+        <ExclusiveGroupType>121</ExclusiveGroupType>
+        <Type>166</Type>
+        <OriginalName>Flow</OriginalName>
+        <OriginalUnits>ft3/min</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>14</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>121</BaseType>
+        <ExclusiveGroupType>121</ExclusiveGroupType>
+        <Type>167</Type>
+        <OriginalName>Flow</OriginalName>
+        <OriginalUnits>ft3/hour</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>14</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>121</BaseType>
+        <ExclusiveGroupType>121</ExclusiveGroupType>
+        <Type>168</Type>
+        <OriginalName>Flow</OriginalName>
+        <OriginalUnits>ft3/day</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>14</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>121</BaseType>
+        <ExclusiveGroupType>121</ExclusiveGroupType>
+        <Type>164</Type>
+        <OriginalName>Flow</OriginalName>
+        <OriginalUnits>gal/sec</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>14</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>121</BaseType>
+        <ExclusiveGroupType>121</ExclusiveGroupType>
+        <Type>119</Type>
+        <OriginalName>Flow</OriginalName>
+        <OriginalUnits>gal/min</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>14</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>121</BaseType>
+        <ExclusiveGroupType>121</ExclusiveGroupType>
+        <Type>165</Type>
+        <OriginalName>Flow</OriginalName>
+        <OriginalUnits>gal/hour</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>14</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>121</BaseType>
+        <ExclusiveGroupType>121</ExclusiveGroupType>
+        <Type>120</Type>
+        <OriginalName>Flow</OriginalName>
+        <OriginalUnits>Mgal/day</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>14</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>121</BaseType>
+        <ExclusiveGroupType>121</ExclusiveGroupType>
+        <Type>121</Type>
+        <OriginalName>Flow</OriginalName>
+        <OriginalUnits>m3/sec</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>14</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>121</BaseType>
+        <ExclusiveGroupType>121</ExclusiveGroupType>
+        <Type>169</Type>
+        <OriginalName>Flow</OriginalName>
+        <OriginalUnits>m3/min</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>14</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>121</BaseType>
+        <ExclusiveGroupType>121</ExclusiveGroupType>
+        <Type>170</Type>
+        <OriginalName>Flow</OriginalName>
+        <OriginalUnits>m3/hour</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>14</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>121</BaseType>
+        <ExclusiveGroupType>121</ExclusiveGroupType>
+        <Type>171</Type>
+        <OriginalName>Flow</OriginalName>
+        <OriginalUnits>m3/day</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>14</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>121</BaseType>
+        <ExclusiveGroupType>121</ExclusiveGroupType>
+        <Type>122</Type>
+        <OriginalName>Flow</OriginalName>
+        <OriginalUnits>L/sec</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>14</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>121</BaseType>
+        <ExclusiveGroupType>121</ExclusiveGroupType>
+        <Type>172</Type>
+        <OriginalName>Flow</OriginalName>
+        <OriginalUnits>AF/day</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>14</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>125</BaseType>
+        <ExclusiveGroupType>125</ExclusiveGroupType>
+        <Type>123</Type>
+        <OriginalName>Volume</OriginalName>
+        <OriginalUnits>ft3</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>6</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>125</BaseType>
+        <ExclusiveGroupType>125</ExclusiveGroupType>
+        <Type>124</Type>
+        <OriginalName>Volume</OriginalName>
+        <OriginalUnits>gal</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>6</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>125</BaseType>
+        <ExclusiveGroupType>125</ExclusiveGroupType>
+        <Type>173</Type>
+        <OriginalName>Volume</OriginalName>
+        <OriginalUnits>Mgal</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>6</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>125</BaseType>
+        <ExclusiveGroupType>125</ExclusiveGroupType>
+        <Type>125</Type>
+        <OriginalName>Volume</OriginalName>
+        <OriginalUnits>m3</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>6</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>125</BaseType>
+        <ExclusiveGroupType>125</ExclusiveGroupType>
+        <Type>126</Type>
+        <OriginalName>Volume</OriginalName>
+        <OriginalUnits>L</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>6</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>125</BaseType>
+        <ExclusiveGroupType>125</ExclusiveGroupType>
+        <Type>174</Type>
+        <OriginalName>Volume</OriginalName>
+        <OriginalUnits>acre*ft</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>6</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>18</BaseType>
+        <ExclusiveGroupType>18</ExclusiveGroupType>
+        <Type>18</Type>
+        <OriginalName>pH</OriginalName>
+        <OriginalUnits />
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>17</BaseType>
+        <ExclusiveGroupType>17</ExclusiveGroupType>
+        <Type>17</Type>
+        <OriginalName>pH</OriginalName>
+        <OriginalUnits>mV</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>19</BaseType>
+        <ExclusiveGroupType>19</ExclusiveGroupType>
+        <Type>19</Type>
+        <OriginalName>Orp</OriginalName>
+        <OriginalUnits>mV</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>48</BaseType>
+        <ExclusiveGroupType>48</ExclusiveGroupType>
+        <Type>48</Type>
+        <OriginalName>NH4+ N</OriginalName>
+        <OriginalUnits>mg/L</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>108</BaseType>
+        <ExclusiveGroupType>108</ExclusiveGroupType>
+        <Type>108</Type>
+        <OriginalName>NH4+ N</OriginalName>
+        <OriginalUnits>mV</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>48</BaseType>
+        <ExclusiveGroupType>47</ExclusiveGroupType>
+        <Type>47</Type>
+        <OriginalName>NH3 N</OriginalName>
+        <OriginalUnits>mg/L</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>106</BaseType>
+        <ExclusiveGroupType>106</ExclusiveGroupType>
+        <Type>106</Type>
+        <OriginalName>NO3- N</OriginalName>
+        <OriginalUnits>mg/L</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>101</BaseType>
+        <ExclusiveGroupType>101</ExclusiveGroupType>
+        <Type>101</Type>
+        <OriginalName>NO3- N</OriginalName>
+        <OriginalUnits>mV</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>112</BaseType>
+        <ExclusiveGroupType>112</ExclusiveGroupType>
+        <Type>112</Type>
+        <OriginalName>Cl-</OriginalName>
+        <OriginalUnits>mg/L</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>145</BaseType>
+        <ExclusiveGroupType>145</ExclusiveGroupType>
+        <Type>145</Type>
+        <OriginalName>Cl-</OriginalName>
+        <OriginalUnits>mV</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>201</BaseType>
+        <ExclusiveGroupType>201</ExclusiveGroupType>
+        <Type>201</Type>
+        <OriginalName>PAR1</OriginalName>
+        <OriginalUnits />
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>202</BaseType>
+        <ExclusiveGroupType>202</ExclusiveGroupType>
+        <Type>202</Type>
+        <OriginalName>PAR2</OriginalName>
+        <OriginalUnits />
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>37</BaseType>
+        <ExclusiveGroupType>37</ExclusiveGroupType>
+        <Type>37</Type>
+        <OriginalName>Turbid</OriginalName>
+        <OriginalUnits>NTU</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>203</BaseType>
+        <ExclusiveGroupType>203</ExclusiveGroupType>
+        <Type>203</Type>
+        <OriginalName>Turbid+</OriginalName>
+        <OriginalUnits>NTU</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>193</BaseType>
+        <ExclusiveGroupType>193</ExclusiveGroupType>
+        <Type>193</Type>
+        <OriginalName>Chl</OriginalName>
+        <OriginalUnits>ug/L</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>194</BaseType>
+        <ExclusiveGroupType>194</ExclusiveGroupType>
+        <Type>194</Type>
+        <OriginalName>Chl</OriginalName>
+        <OriginalUnits>RFU</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>204</BaseType>
+        <ExclusiveGroupType>204</ExclusiveGroupType>
+        <Type>204</Type>
+        <OriginalName>Rhod</OriginalName>
+        <OriginalUnits>ug/L</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>211</BaseType>
+        <ExclusiveGroupType>211</ExclusiveGroupType>
+        <Type>211</Type>
+        <OriginalName>ODOsat</OriginalName>
+        <OriginalUnits>%</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>214</BaseType>
+        <ExclusiveGroupType>214</ExclusiveGroupType>
+        <Type>214</Type>
+        <OriginalName>ODOsat</OriginalName>
+        <OriginalUnits>%Local</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>211</BaseType>
+        <ExclusiveGroupType>212</ExclusiveGroupType>
+        <Type>212</Type>
+        <OriginalName>ODO</OriginalName>
+        <OriginalUnits>mg/L</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>215</BaseType>
+        <ExclusiveGroupType>215</ExclusiveGroupType>
+        <Type>215</Type>
+        <OriginalName>BGA-PC</OriginalName>
+        <OriginalUnits />
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>216</BaseType>
+        <ExclusiveGroupType>216</ExclusiveGroupType>
+        <Type>216</Type>
+        <OriginalName>BGA-PC</OriginalName>
+        <OriginalUnits>RFU</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>217</BaseType>
+        <ExclusiveGroupType>217</ExclusiveGroupType>
+        <Type>217</Type>
+        <OriginalName>BGA-PE</OriginalName>
+        <OriginalUnits />
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>218</BaseType>
+        <ExclusiveGroupType>218</ExclusiveGroupType>
+        <Type>218</Type>
+        <OriginalName>BGA-PE</OriginalName>
+        <OriginalUnits>RFU</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>219</BaseType>
+        <ExclusiveGroupType>219</ExclusiveGroupType>
+        <Type>219</Type>
+        <OriginalName>AUX1</OriginalName>
+        <OriginalUnits />
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>220</BaseType>
+        <ExclusiveGroupType>220</ExclusiveGroupType>
+        <Type>220</Type>
+        <OriginalName>AUX1</OriginalName>
+        <OriginalUnits>mV</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>221</BaseType>
+        <ExclusiveGroupType>221</ExclusiveGroupType>
+        <Type>221</Type>
+        <OriginalName>AUX2</OriginalName>
+        <OriginalUnits />
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>222</BaseType>
+        <ExclusiveGroupType>222</ExclusiveGroupType>
+        <Type>222</Type>
+        <OriginalName>AUX2</OriginalName>
+        <OriginalUnits>mV</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>24</BaseType>
+        <ExclusiveGroupType>24</ExclusiveGroupType>
+        <Type>26</Type>
+        <OriginalName>Baro</OriginalName>
+        <OriginalUnits>mmHg</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>6</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>24</BaseType>
+        <ExclusiveGroupType>24</ExclusiveGroupType>
+        <Type>27</Type>
+        <OriginalName>Baro</OriginalName>
+        <OriginalUnits>inHg</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>6</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>24</BaseType>
+        <ExclusiveGroupType>24</ExclusiveGroupType>
+        <Type>80</Type>
+        <OriginalName>Baro</OriginalName>
+        <OriginalUnits>mBar</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>6</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>24</BaseType>
+        <ExclusiveGroupType>24</ExclusiveGroupType>
+        <Type>24</Type>
+        <OriginalName>Baro</OriginalName>
+        <OriginalUnits>Psi</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>6</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>24</BaseType>
+        <ExclusiveGroupType>24</ExclusiveGroupType>
+        <Type>25</Type>
+        <OriginalName>Baro</OriginalName>
+        <OriginalUnits>Atm</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>6</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>24</BaseType>
+        <ExclusiveGroupType>24</ExclusiveGroupType>
+        <Type>92</Type>
+        <OriginalName>Baro</OriginalName>
+        <OriginalUnits>KPa</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>6</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>196</BaseType>
+        <ExclusiveGroupType>196</ExclusiveGroupType>
+        <Type>196</Type>
+        <OriginalName>Latitude</OriginalName>
+        <OriginalUnits>Deg</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>197</BaseType>
+        <ExclusiveGroupType>197</ExclusiveGroupType>
+        <Type>197</Type>
+        <OriginalName>Longitude</OriginalName>
+        <OriginalUnits>Deg</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>117</BaseType>
+        <ExclusiveGroupType>117</ExclusiveGroupType>
+        <Type>117</Type>
+        <OriginalName>SiteNum</OriginalName>
+        <OriginalUnits />
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+      <Parameter>
+        <BaseType>28</BaseType>
+        <ExclusiveGroupType>28</ExclusiveGroupType>
+        <Type>28</Type>
+        <OriginalName>Battery</OriginalName>
+        <OriginalUnits>volts</OriginalUnits>
+        <NewName />
+        <NewUnits />
+        <NumInGroup>1</NumInGroup>
+      </Parameter>
+    </Items>
+  </ParaList>
+  <SelectedParams>
+    <int>53</int>
+    <int>1</int>
+    <int>7</int>
+    <int>4</int>
+    <int>9</int>
+    <int>10</int>
+    <int>12</int>
+    <int>104</int>
+    <int>22</int>
+    <int>18</int>
+    <int>17</int>
+    <int>203</int>
+    <int>193</int>
+    <int>194</int>
+    <int>211</int>
+    <int>212</int>
+    <int>28</int>
+  </SelectedParams>
+  <AvailableParams />
+</EcoWatchLiteParameters>
