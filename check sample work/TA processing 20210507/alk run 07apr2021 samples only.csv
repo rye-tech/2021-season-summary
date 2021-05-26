@@ -4,7 +4,7 @@ Method ID,,Alk EQPoint 07APR2021,,,"Release state
 ",,Released,,
 Name,,Alk EQPoint 07APR2021,,,Modified by,,SystemInternal,,
 Version,,32,,,,,,,
-Modified on,,4/7/2021 5:15:21 PM,,,,,,,
+Modified on,,4/7/2021 17:15,,,,,,,
 Comment,,,,,,,,,
 Summary,,,,,,,,,
 Samples,,,,,,,,,
@@ -12,7 +12,7 @@ Samples,,,,,,,,,
 1,SAC-1,,,Sample size,,51.024 g,,,
 ,,,,pH Start R1,,-73.300 pH,,,OK
 ,,,,Total HCl R2,,1.190 mL,,,OK
-2,BAYSTD1,,,Sample size,,51.372 g,,,
+2,BAY-STD-1,,,Sample size,,51.372 g,,,
 ,,,,pH Start R1,,-57.000 pH,,,OK
 ,,,,Total HCl R2,,1.183 mL,,,OK
 3,SAC-2,,,Sample size,,51.519 g,,,
@@ -24,4 +24,4 @@ Samples,,,,,,,,,
 5,P-0084-2,,,Sample size,,50.448 g,,,
 ,,,,pH Start R1,,-56.200 pH,,,OK
 ,,,,Total HCl R2,,1.237 mL,,,OK
-4/7/2021 6:37:44 PM,,,SystemInternal,,,,,1/1,
+4/7/2021 18:37,,,SystemInternal,,,,,1-Jan,

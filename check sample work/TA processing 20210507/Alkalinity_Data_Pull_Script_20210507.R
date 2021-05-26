@@ -9,7 +9,7 @@ setwd(here())
 
 getwd()
 
-setwd(here("check sample work", "TA processing 20210326"))
+setwd(here("check sample work", "TA processing 20210507"))
 
 getwd()
 
@@ -19,18 +19,21 @@ rm(list=ls())
 list.files()
 
 #   sample information file
-#  "alk run 17nov2020 samples only.csv" 
+#  "alk run 07apr2021 samples only.csv"  
+#  "alk run 27apr2021 samples only.csv" 
 
 #   sample environmental data
-# "20201117 sample metadata.csv" 
+# "20210407 sample metadata.csv"
+# "20210427 sample metadata.csv"
 
 # alkalinity titration data file
-# "alk run 17nov2020 data only shifted.csv" 
+# "alk run 07apr2021 data only.csv" 
+# "alk run 27apr2021 data only.csv"
 
 
 # read in sample summary information ####-----------------------------------------------------
 
-df_sum = read.csv("alk run 17nov2020 samples only.csv",
+df_sum = read.csv("alk run 07apr2021 samples only.csv",
                   header=T, stringsAsFactors=F, sep=",")
 
 df_sum_rm_rows <- 1:9
@@ -58,7 +61,7 @@ df_sum$weight <- as.numeric(df_sum$weight)
 #read in environmental and electrode data ------------------------------------------------
 
 
-df_env = read.csv("20201117 sample metadata.csv",
+df_env = read.csv("20210407 sample metadata.csv",
                   header=T, stringsAsFactors=F, sep=",")
 
 df_env <- df_env %>%                     
@@ -70,7 +73,7 @@ df_env <- df_env %>%
 
 # NOTE: needed to manually align these data so they could be processed by this script 
 
-df = read.csv("alk run 17nov2020 data only shifted.csv",
+df = read.csv("alk run 07apr2021 data only.csv",
                header=F, skip = 16, stringsAsFactors=F, sep=",")
 
 
