@@ -33,7 +33,7 @@ list.files()
 
 # read in sample summary information ####-----------------------------------------------------
 
-df_sum = read.csv("alk run 07apr2021 samples only.csv",
+df_sum = read.csv("alk run 27apr2021 samples only.csv",
                   header=T, stringsAsFactors=F, sep=",")
 
 df_sum_rm_rows <- 1:9
@@ -61,7 +61,7 @@ df_sum$weight <- as.numeric(df_sum$weight)
 #read in environmental and electrode data ------------------------------------------------
 
 
-df_env = read.csv("20210407 sample metadata.csv",
+df_env = read.csv("20210427 sample metadata.csv",
                   header=T, stringsAsFactors=F, sep=",")
 
 df_env <- df_env %>%                     
@@ -73,7 +73,7 @@ df_env <- df_env %>%
 
 # NOTE: needed to manually align these data so they could be processed by this script 
 
-df = read.csv("alk run 07apr2021 data only.csv",
+df = read.csv("alk run 27apr2021 data only.csv",
                header=F, skip = 16, stringsAsFactors=F, sep=",")
 
 
