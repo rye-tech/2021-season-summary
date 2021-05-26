@@ -15,7 +15,7 @@ setwd(here())
 
 getwd()
 
-setwd(here("check sample work", "pH processing 20210326"))
+setwd(here("check sample work", "pH processing 20210507"))
 
 getwd()
 
@@ -23,8 +23,9 @@ getwd()
 
 list.files()
 
-# "20201117_results.csv"
-    
+   
+# [2] "20210407_results.csv"           
+# [4] "20210427_results.csv"           
 
                  
 
@@ -34,7 +35,7 @@ rm(list = ls())
 
 #enter your csv file title below
 
-filename <- "20201117_results"
+filename <- "20210427_results"
 
 results <- paste0(filename, "_processed")
 
