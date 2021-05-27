@@ -31,12 +31,12 @@ getwd()
 
 setwd(here("check sample work", 
            "TA processing 20210507", 
-           "20210407 raw and processed data/"))
+           "20210427 raw and processed data/"))
 
 getwd()
 
 
-results_filename <- "20210407-alk.titration.results"
+results_filename <- "20210427-alk.titration.results"
 
 
 
@@ -51,12 +51,32 @@ list.files()
 # [5] "SAC-1.csv"                   
 # [6] "SAC-2.csv"                             
 
+
+
+# files for 27APR2021
+
+# [1] "20210427 sample metadata.csv"
+# [2] "BAYSTD1-1.csv"               
+# [3] "BAYSTD1-2.csv"               
+# [4] "BAYSTD1-3.csv"               
+# [5] "BAYSTD2-1.csv"               
+# [6] "BAYSTD2-2.csv"               
+# [7] "BAYSTD2-3.csv"               
+# [8] "DIC-CRM-1.csv"               
+# [9] "DIC-CRM-2.csv"               
+# [10] "DIC-CRM-3.csv"               
+# [11] "SAC-1.csv"                   
+# [12] "SAC-2.csv"                   
+# [13] "SAC-3.csv" 
+
+
+
           
 
 
 #get character vector of samples ------------------------------------------------------
 
-df_env = read.csv("20210407 sample metadata.csv",
+df_env = read.csv("20210427 sample metadata.csv",
                   header=T, stringsAsFactors=F, sep=",")
 
 sample_list <- df_env$sample.id
