@@ -29,27 +29,26 @@ setwd(here())
 
 getwd()
 
-setwd(here("check sample work", "TA processing 20210326"))
+setwd(here("check sample work", 
+           "TA processing 20210507", 
+           "20210407 raw and processed data/"))
 
 getwd()
 
 
-results_filename <- "20201117-alk.titration.results"
+results_filename <- "20210407-alk.titration.results"
 
 
 
 list.files()
 
-# "B-0041-1.csv"                           
-# [9] "B-0041-2.csv"                            "B-0041-3.csv"                           
-# [11] "BAYSTD1-1.csv"                           "BAYSTD1-2.csv"                          
-# [13] "BAYSTD1-3.csv"                           "P-0023-1.csv"                           
-# [15] "P-0023-2.csv"                            "P-0023-3.csv"                           
-# [17] "P-0034-1.csv"                            "P-0034-2.csv"                           
-# [19] "P-0034-3.csv"                            "SAC-1.csv"                              
-# [21] "SAC-2.csv"                              
+# files for 07APR2021
+
+# [1] "BAY-STD-1.csv" "P-0084-1.csv"  "P-0084-2.csv" 
+# [4] "SAC-1.csv"     "SAC-2.csv"                             
 
           
+
 
 #get character vector of samples ------------------------------------------------------
 
