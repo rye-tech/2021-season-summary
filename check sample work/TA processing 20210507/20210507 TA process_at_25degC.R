@@ -44,15 +44,19 @@ list.files()
 
 # files for 07APR2021
 
-# [1] "BAY-STD-1.csv" "P-0084-1.csv"  "P-0084-2.csv" 
-# [4] "SAC-1.csv"     "SAC-2.csv"                             
+# [1] "20210407 sample metadata.csv"
+# [2] "BAY-STD-1.csv"               
+# [3] "P-0084-1.csv"                
+# [4] "P-0084-2.csv"                
+# [5] "SAC-1.csv"                   
+# [6] "SAC-2.csv"                             
 
           
 
 
 #get character vector of samples ------------------------------------------------------
 
-df_env = read.csv("20201117 sample metadata.csv",
+df_env = read.csv("20210407 sample metadata.csv",
                   header=T, stringsAsFactors=F, sep=",")
 
 sample_list <- df_env$sample.id
