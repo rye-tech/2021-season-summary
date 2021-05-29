@@ -1,0 +1,42 @@
+Titration Samples Only,,,,,,,,,
+Method,,,,,,,,,
+Method ID,,Alk EQPoint 20APR2021,,,"Release state
+",,Released,,
+Name,,Alk EQPoint 20APR2021,,,Modified by,,SystemInternal,,
+Version,,33,,,,,,,
+Modified on,,4/20/2021 2:01:04 PM,,,,,,,
+Comment,,,,,,,,,
+Summary,,,,,,,,,
+Samples,,,,,,,,,
+,Sample ID,,,Name,,Result,,,State
+1,SAC-1,,,Sample size,,51.308 g,,,
+,,,,pH Start R1,,-40.000 pH,,,OK
+,,,,Total HCl R2,,1.448 mL,,,OK
+2,BAYSTD1,,,Sample size,,51.030 g,,,
+,,,,pH Start R1,,-58.300 pH,,,OK
+,,,,Total HCl R2,,1.172 mL,,,OK
+3,H2-702-1,,,Sample size,,49.850 g,,,
+,,,,pH Start R1,,-41.000 pH,,,OK
+,,,,Total HCl R2,,1.184 mL,,,OK
+4,H2-702-2,,,Sample size,,50.667 g,,,
+,,,,pH Start R1,,-41.400 pH,,,OK
+,,,,Total HCl R2,,1.195 mL,,,OK
+5,H2-702-3,,,Sample size,,50.707 g,,,
+,,,,pH Start R1,,-38.300 pH,,,OK
+,,,,Total HCl R2,,1.235 mL,,,OK
+6,H3-702-1,,,Sample size,,51.152 g,,,
+,,,,pH Start R1,,-54.700 pH,,,OK
+,,,,Total HCl R2,,1.238 mL,,,OK
+7,H3-702-2,,,Sample size,,51.295 g,,,
+,,,,pH Start R1,,-55.200 pH,,,OK
+,,,,Total HCl R2,,1.236 mL,,,OK
+8,H3-702-3,,,Sample size,,50.822 g,,,
+,,,,pH Start R1,,-56.400 pH,,,OK
+,,,,Total HCl R2,,1.228 mL,,,OK
+9,H2-719-1,,,Sample size,,50.526 g,,,
+,,,,pH Start R1,,-53.500 pH,,,OK
+,,,,Total HCl R2,,1.211 mL,,,OK
+10,H2-719-2,,,Sample size,,50.263 g,,,
+,,,,pH Start R1,,-52.200 pH,,,OK
+,,,,Total HCl R2,,1.205 mL,,,OK
+4/20/2021 5:19:38 PM,,,SystemInternal,,,,,1/1,
