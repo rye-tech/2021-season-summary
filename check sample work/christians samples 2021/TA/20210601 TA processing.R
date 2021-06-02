@@ -32,18 +32,18 @@ getwd()
 setwd(here("check sample work", 
            "christians samples 2021",
            "TA",
-           "2021-04-28-run"))
+           "2021-05-05-run"))
 
 getwd()
 
 
-results_filename <- "20210428-alk.titration.results"
+results_filename <- "20210505-alk.titration.results"
 
 
 
 #get character vector of samples ------------------------------------------------------
 
-df_env = read.csv("20210428 sample metadata.csv",
+df_env = read.csv("20210505 sample metadata.csv",
                   header=T, stringsAsFactors=F, sep=",")
 
 sample_list <- df_env$sample.id
