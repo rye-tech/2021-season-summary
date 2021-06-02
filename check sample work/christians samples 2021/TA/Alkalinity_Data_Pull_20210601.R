@@ -9,7 +9,14 @@ setwd(here())
 
 getwd()
 
-setwd(here("check sample work", "TA processing 20210507"))
+
+# Switch directories to each respective
+# processing date you want to run
+
+setwd(here("check sample work", 
+           "christians samples 2021",
+           "TA",
+           "2021-04-28-run"))
 
 getwd()
 
@@ -18,22 +25,40 @@ rm(list=ls())
 
 list.files()
 
+#### File Sets ####
+
+# Comment in each section to run the script
+
+# 4/20/2021
+
+# #   sample information file
+# file_1 <- "alk run 20apr2021 samples only.csv"  
+# 
+# #   sample environmental data
+# file_2 <- "20210420 sample metadata.csv"
+# 
+# # alkalinity titration data file
+# file_3 <-  "alk run 20apr2021 data only.csv"
+
+
+# 4/28/2021
+
 #   sample information file
-#  "alk run 07apr2021 samples only.csv"  
-#  "alk run 27apr2021 samples only.csv" 
+file_1 <- "alk run 28apr2021 samples only.csv"  
 
 #   sample environmental data
-# "20210407 sample metadata.csv"
-# "20210427 sample metadata.csv"
+file_2 <- "20210428 sample metadata.csv"
 
 # alkalinity titration data file
-# "alk run 07apr2021 data only.csv" 
-# "alk run 27apr2021 data only.csv"
+file_3 <-  "alk run 28apr2021 data only.csv"
+
+
+
 
 
 # read in sample summary information ####-----------------------------------------------------
 
-df_sum = read.csv("alk run 27apr2021 samples only.csv",
+df_sum = read.csv(file_1,
                   header=T, stringsAsFactors=F, sep=",")
 
 df_sum_rm_rows <- 1:9
@@ -61,7 +86,7 @@ df_sum$weight <- as.numeric(df_sum$weight)
 #read in environmental and electrode data ------------------------------------------------
 
 
-df_env = read.csv("20210427 sample metadata.csv",
+df_env = read.csv(file_2,
                   header=T, stringsAsFactors=F, sep=",")
 
 df_env <- df_env %>%                     
@@ -73,7 +98,7 @@ df_env <- df_env %>%
 
 # NOTE: needed to manually align these data so they could be processed by this script 
 
-df = read.csv("alk run 27apr2021 data only.csv",
+df = read.csv(file_3,
                header=F, skip = 16, stringsAsFactors=F, sep=",")
 
 
