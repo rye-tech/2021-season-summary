@@ -25,9 +25,12 @@ getwd()
 
 list.files()
 
-   
-# [2] "20210407_results.csv"           
-# [4] "20210427_results.csv"           
+      
+# [2] "20210420_results.csv"           
+# [4] "20210428_results.csv"           
+# [6] "20210505_results.csv"           
+# [8] "20210512_results.csv"           
+# [10] "20210519_results.csv"              
 
                  
 
@@ -37,7 +40,7 @@ rm(list = ls())
 
 #enter your csv file title below
 
-filename <- "20210427_results"
+filename <- "20210519_results"
 
 results <- paste0(filename, "_processed")
 
