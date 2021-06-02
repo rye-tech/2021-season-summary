@@ -16,7 +16,7 @@ getwd()
 setwd(here("check sample work", 
            "christians samples 2021",
            "TA",
-           "2021-05-05-run"))
+           "2021-05-12-run"))
 
 getwd()
 
@@ -56,14 +56,27 @@ list.files()
 
 # 5/05/2021
 
+# #   sample information file
+# file_1 <- "alk run 05may2021 samples only.csv"  
+# 
+# #   sample environmental data
+# file_2 <- "20210505 sample metadata.csv"
+# 
+# # alkalinity titration data file
+# file_3 <-  "alk run 05may2021 data only.csv"
+# 
+
+
+# 5/12/2021
+
 #   sample information file
-file_1 <- "alk run 05may2021 samples only.csv"  
+file_1 <- "alk run 12may2021 samples only.csv"  
 
 #   sample environmental data
-file_2 <- "20210505 sample metadata.csv"
+file_2 <- "20210512 sample metadata.csv"
 
 # alkalinity titration data file
-file_3 <-  "alk run 05may2021 data only.csv"
+file_3 <-  "alk run 12may2021 data only.csv"
 
 
 
