@@ -15,7 +15,9 @@ setwd(here())
 
 getwd()
 
-setwd(here("check sample work", "pH processing 20210507"))
+setwd(here("check sample work", 
+           "christians samples 2021",
+           "pH"))
 
 getwd()
 
