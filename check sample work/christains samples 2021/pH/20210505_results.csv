@@ -1,0 +1,20 @@
+Analyst, Sample ID, Sample Tag, Notes1, Type, 434 nm, 578 nm, 730 nm,dyeV,salinity,temperature
+ctettelbach, Blank, no dye,0, Blank,0,0,0,0,NA,NA
+ctettelbach, BaySTD2, no dye,0, Measurement 1,0.0711,0.0513,0.1233,0,30.34,14.11
+ctettelbach, BaySTD2, m-cresol added,0, Measurement 2,0.6366,0.8446,0.123,80,30.34,14.11
+ctettelbach, T6-702-1, no dye,0, Measurement 1,0.0491,0.0392,0.1152,0,26.89,16.77
+ctettelbach, T6-702-1, m-cresol added,0, Measurement 2,0.5508,0.9784,0.1135,80,26.89,16.77
+ctettelbach, T6-702-2, no dye,0, Measurement 1,0.0492,0.0391,0.1151,0,26.87,16.81
+ctettelbach, T6-702-2, m-cresol added,0, Measurement 2,0.5531,0.9882,0.1138,80,26.87,16.81
+ctettelbach, T27-719-1, no dye,0, Measurement 1,0.0525,0.0399,0.1156,0,27.35,16.06
+ctettelbach, T27-719-1, m-cresol added,0, Measurement 2,0.6123,0.8384,0.114,80,27.35,16.06
+ctettelbach, T27-719-2, no dye,0, Measurement 1,0.0539,0.0409,0.116,0,27.35,16.06
+ctettelbach, T27-719-2, m-cresol added,0, Measurement 2,0.6223,0.8503,0.1143,80,27.35,16.06
+ctettelbach, T10-719-1, no dye,0, Measurement 1,0.054,0.0414,0.1166,0,27.37,16.06
+ctettelbach, T10-719-1, m-cresol added,0, Measurement 2,0.6117,0.8429,0.1145,80,27.37,16.06
+ctettelbach, T10-719-2, no dye,0, Measurement 1,0.054,0.0406,0.1159,0,27.37,16.06
+ctettelbach, T10-719-2, m-cresol added,0, Measurement 2,0.6083,0.8371,0.1146,80,27.37,16.06
+ctettelbach, T36-719-1, no dye,0, Measurement 1,0.0523,0.0403,0.1156,0,27.34,16
+ctettelbach, T36-719-1, m-cresol added,0, Measurement 2,0.7011,0.5791,0.1135,80,27.34,16
+ctettelbach, T36-719-2, no dye,0, Measurement 1,0.0537,0.0411,0.1162,0,27.34,16
+ctettelbach, T36-719-2, m-cresol added,0, Measurement 2,0.7174,0.5848,0.1138,80,27.34,16
