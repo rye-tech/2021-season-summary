@@ -32,7 +32,7 @@ list.files(pattern = ".csv")
 
 list.files(path = here("data", "eos-pier", "rt"), pattern = ".txt")
 # [1] "20210519-20210615-realtime_raw_pier.txt"
-
+# [2] "rtcysi_rt_header.txt"  
 
 #assign file names
 
@@ -41,27 +41,16 @@ list.files(path = here("data", "eos-pier", "rt"), pattern = ".txt")
 file1 <- "YSI_RTC_20201124-20201218.csv"
 file2 <- "YSI_RTC_20201218-20201219.csv"    
 file3 <- "YSI_RTC_20201219-20210130.csv"
+file4 <- "YSI_RTC_20210131-20210325.csv"
+file5 <- "YSI_RTC_20210326-20210426.csv"
+file6 <- "YSI_RTC_20210427-20210519.csv"
+file7 <- here("data", "eos-pier", "rt",
+              "20210519-20210615-realtime_raw_pier.txt")
+file8 <- here("data", "eos-pier", "rt", "rtcysi_rt_header.txt")
 
+####header troubleshooting if needed####
 
-# file4 <- "YSI_RTC_20200207-20200317.csv"   
-# file5 <- "YSI_RTC_20200317-20200403.csv"   
-# file6 <- "YSI_RTC_20200403-20200515.csv"    
-# file7 <- "YSI_RTC_20200515.csv" 
-
-#December 2021 Files
-
-# file7.1 <- "YSI_RTC_20200515-20200619.csv"
-# file8 <-  "YSI_RTC_20200620-20200723.csv"   
-# file9 <-  "YSI_RTC_20200723-20200820.csv"   
-# file10 <-  "YSI_RTC_20200820-20200923.csv"   
-# file11 <- "YSI_RTC_20200924-20201015.csv"   
-# file12<-  "YSI_RTC_20201016-20201118.csv"   
-# file13 <-  "YSI_RTC_20201118-20201123.csv"   
-# file14 <-  "YSI_RTC_20201124-20201218.csv"   
-# file15 <-  "YSI_RTC_20201218-20201219.csv"   
- 
-
-# header for a text file from EcoWatch
+# header for a text file from EcoWatch or Realtime on Box (same thing)
 # header <- read.table(file2, as.is = T, skip = 1, nrows = 1, header = F)
 # header$V12 <- "pH.1"
 # header$V14 <- "Chl.1"
@@ -69,19 +58,32 @@ file3 <- "YSI_RTC_20201219-20210130.csv"
 
 # header for a .csv file from EcoWatch Lite
 # not sure if this is needed anymore
-#header <- read.table(file1, as.is = T, sep = ",", nrows = 1, header = F)
-
-
-#read data files and match var names ######################################
+# header <- read.table(file1, as.is = T, sep = ",", nrows = 1, header = F)
 
 
 # # assigns columns names pulled from header "file"
 # colnames(df1) <- header[1,]
 
+
+
+##### read data files and match var names ##################################
+
+# Notes on file formats:
+
+# # use this option if you want to read a text file
+# df2 <- read.table(file2, as.is = T, skip = 5, header = F)
+# # option as.is = T keeps the strings as strings and not factors
+
+# # if you need to 
+# # assigns columns names pulled from header "file"
+# colnames(df2) <- header[1,]
+
+
 df1 = read.csv(file1,
                header=T, stringsAsFactors=F, sep=",")
-df1 <- df1[-1,]
 
+#drop units row
+df1 <- df1[-1,]
 
 
 df2 = read.csv(file2,
@@ -89,43 +91,38 @@ df2 = read.csv(file2,
 df2 <- df2[-1,]
 
 
-# # use this option if you want to read a text file
-# # option as.is = T keeps the strings as strings and not factors
-# df2 <- read.table(file2, as.is = T, skip = 5, header = F)
-# 
-# # assigns columns names pulled from header "file"
-# colnames(df2) <- header[1,]
-
-
-# still need to read in .csv files
-# need to replace all cma with rtc
-# need to rewrite read.csv below with "file2.... filen"
-
-
 df3 = read.csv(file3,
                header=T, stringsAsFactors=F, sep=",")
 df3 <- df3[-1,]
 
+
+df4 = read.csv(file4,
+               header=T, stringsAsFactors=F, sep=",")
+df4 <- df4[-1,]
+
+
+df5 = read.csv(file5,
+               header=T, stringsAsFactors=F, sep=",")
+df5 <- df5[-1,]
+
+
+df6 = read.csv(file6,
+               header=T, stringsAsFactors=F, sep=",")
+df6 <- df6[-1,]
+
+
+df7 <- read.table(file7, as.is = T, header = F)
+# option as.is = T keeps the strings as strings and not factors
+
+# reading in the real time header
+var_rt <- read.table(file8, as.is = T, skip = 1, nrows = 1, header = F)
+units_rt <- read.table(file8, as.is = T, skip = 2, nrows = 1, header = F)   
+header_rt <- paste0(var_rt, "_", units_rt)
+
+# # assigns columns names pulled from header "file"
+colnames(df7) <- header[1,]
+
 # add in as files come in
-# 
-# df4 = read.csv(file4,
-#                header=T, stringsAsFactors=F, sep=",")
-# df4 <- df4[-1,]
-# 
-# 
-# df5 = read.csv(file5,
-#                header=T, stringsAsFactors=F, sep=",")
-# df5 <- df5[-1,]
-# 
-# 
-# df6 = read.csv(file6,
-#                header=T, stringsAsFactors=F, sep=",")
-# df6 <- df6[-1,]
-# 
-# 
-# df7 = read.csv(file7,
-#                header=T, stringsAsFactors=F, sep=",")
-# df7 <- df7[-1,]
 # 
 # 
 # df7.1 = read.csv(file7.1,
