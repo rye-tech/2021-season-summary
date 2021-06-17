@@ -304,7 +304,7 @@ df <- df %>%
 
 # remove duplicate rows with dplyr
 df <- df %>% 
-  # Base the removal on the "Age" column
+  # Base the removal on the "datetime" column
   distinct(datetime, .keep_all = TRUE)
 
 
