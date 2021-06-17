@@ -11,26 +11,23 @@ setwd(here())
 
 getwd()
 
-rm(list =ls())
 
+# data file pointers
 
-# data file names
+file1 <- here("data", "eos-pier", 
+              "EOS_YSI_20201124-20210615.RData")
 
-# load("data/eos-pier/EOS_YSI_20191120-20201219.RData")
-# 
-# load("data/cma-pier/CMA_YSI_20191108-20201219.RData")
-# 
-# load("data/eos-met/EOS_MET_20191120-20201219.RData")
+file2 <- here("data", "cma-pier", 
+              "CMA_YSI_20201114-20210615.RData")
 
-
-
-
+file3 <- here("data", "mari", 
+              "mari.2021.RData")
 
 
 
 
 
-##### BOB no 2020 data due to COVID-19 crisis  #####################################
+##### BOB no 2021 data due to COVID-19 crisis mooring loss  #####################################
 
 
 # #comment out starts here
@@ -211,15 +208,15 @@ rm(list =ls())
 
 # EOS Pier 16-may-2020 to 01-dec-2020 uptime counts #############################
 
-rm(list = ls())
 
-load("data/eos-pier/EOS_YSI_20191120-20201219.RData")
+
+load(file1)
 
 # for first 6 months of data
 #load("data/eos-pier/EOS_YSI_20191201-20200515.RData")
 
-df1 <- eos_pier_2020
-rm(eos_pier_2020)
+df1 <- eos_pier_2021
+rm(eos_pier_2021)
 
 str(df1)
 
@@ -239,21 +236,29 @@ df1 <- df1 %>%
   mutate(day = day(datetime),
          date = date(datetime))
 
-# for first 6 months of year analysis
+# for first 6 months of annual analysis
+
+df1 <- df1 %>%
+  filter(date >= as.POSIXct("2020-12-01")) 
+
+
+df1 <- df1 %>%
+  filter(date <= as.POSIXct("2021-05-31")) 
+
+
+# # for last 6 months of annual analysis
 # 
 # df1 <- df1 %>%
-#   filter(date >= as.POSIXct("2019-12-01")) 
+#   filter(date >= as.POSIXct("2021-05-31")) 
+# 
+# 
+# df1 <- df1 %>%
+#   filter(date <= as.POSIXct("2021-12-01")) 
 
 
-df1 <- df1 %>%
-  filter(date >= as.POSIXct("2020-05-16")) 
 
 
-df1 <- df1 %>%
-  filter(date <= as.POSIXct("2020-12-01")) 
-
-
-report_interval <- interval(ymd("2020-05-16"), ymd("2020-12-01")) 
+report_interval <- interval(ymd("2020-12-01"), ymd("2021-05-31")) 
 
 report_interval <- as.duration(report_interval)
 
@@ -337,6 +342,13 @@ uptime_ph_count <- length(uptime_ph$count)
 uptime_ph_percent <- uptime_ph_count/ph_sample_count
 
 
+uptime_table$eos_pier_pH <- paste0(uptime_ph_count,"/",ph_sample_count,"(",uptime_ph_percent,")")
+
+# LEFT OFF HERE
+
+
+
+
 #chl counts of uptimes
 
 chl_samples <- df1 %>%
@@ -415,7 +427,7 @@ uptime_depth_percent <- uptime_depth_count/depth_sample_count
 
 # EOS MET 16-may-2020 01-dec-2020 uptime counts #############################
 
-rm(list =ls())
+
 
 load("data/eos-met/EOS_MET_20191120-20201219.RData")
 
@@ -730,7 +742,7 @@ uptime_bp_percent <- uptime_bp_count/bp_sample_count
 
 # CMA Pier 15-may-2020 to 01-dec-2020 to uptime counts #############################
 
-rm(list = ls())
+
 
 load("data/cma-pier/CMA_YSI_20191108-20201219.RData")
 
