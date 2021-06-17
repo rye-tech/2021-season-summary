@@ -1,4 +1,4 @@
-library(dplyr)
+library(tidyverse)
 library(lubridate)
 library(here)
 
@@ -14,30 +14,39 @@ setwd(here("data", "eos-met"))
 getwd()
 
 
-rm(list = ls())
-
 # ====================================================================================================================================
 #   Date     Time  Temp SpCond   Cond  Resist   TDS    Sal   Press   Depth    pH      pH   Chl   Chl Turbid+ ODOsat    ODO Battery
 # y/m/d hh:mm:ss     C  uS/cm  uS/cm  Ohm*cm   g/L    ppt    psia  meters            mV  ug/L   RFU     NTU      %   mg/L   volts
 # ------------------------------------------------------------------------------------------------------------------------------------
 
 
-list.files()
+list.files(pattern = ".txt")
+
+# [2] "RTC_MET_20200902-20201219.txt"           
+# [3] "RTC_MET_20201219-20210226.txt"           
+# [4] "RTC_MET_20210226-20210519.txt"   
+
+
+list.files(path = here("data", "eos-met", "rt"), pattern = ".txt")
+
+# "20210519-20210615-real_time_met_raw.txt"
 
 
 file1 <- "RTC_MET_20200902-20201219.txt"  
 file2 <- "RTC_MET_20201219-20210226.txt"
 
 
-# file3 <- "RTC_MET_20200515-20200620.txt"  
-# file4 <- "RTC_MET_20200620-20200802.txt"  
+file3 <- "RTC_MET_20210226-20210519.txt" 
+file4 <- here("data", "eos-met", "rt",
+              "20210519-20210615-real_time_met_raw.txt")
 # file5 <- "RTC_MET_20200813-20200902.txt"  
 # file6 <- "RTC_MET_20200902-20201219.txt" 
 
 
-header <- read.table(file1, as.is = T, skip = 1,nrows = 1, header = F, sep = ",")
+header <- read.table(file1, as.is = T, skip = 1, 
+                     nrows = 1, header = F, sep = ",")
 
-# # read data by ERDDAP -----------------------------
+#### read data by ERDDAP -----------------------------
 # 
 # #read data tables and match var names
 # df1 = read.csv("EOS_YSI_20190601-20191201.csv",
