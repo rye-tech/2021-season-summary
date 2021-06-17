@@ -23,14 +23,14 @@ getwd()
 list.files(pattern = ".txt")
 
 
-# [1] "24mar2021seaphox_upload-1.txt"
-# [2] "24mar2021seaphox_upload-2.txt"
-# [3] "24mar2021seaphox_upload-3.txt"
+# [1] "20210324-sfx_mid_deploy_bath_samples.txt"
+# [2] "mari-20201215-20210222.txt"              
+# [3] "mari-20210222-20210324.txt"    
 
 
-file1 <- "24mar2021seaphox_upload-1.txt"
-file2 <- "24mar2021seaphox_upload-2.txt"
-file3 <- "24mar2021seaphox_upload-3.txt"
+file1 <- "mari-20201215-20210222.txt"
+file2 <- "mari-20210222-20210324.txt" 
+file3 <- "20210324-sfx_mid_deploy_bath_samples.txt"
 
 
 
@@ -116,18 +116,18 @@ rm(df1)
 #clear workspace and reload tidied data
 save(bth.chk.df, file = "bath.check.samples-2020.RData")
 
-rm(list=ls())
+
 
 load("bath.check.samples-2020.RData")
 
-rm(list=ls())
+
 
 
 
 # PRE deployment Dickson TRIS Buffer 2020 ############################################
 
 #clear work space at your peril...
-# rm(list=ls())
+# 
 
 setwd(here("data", "mari", "pre-deploy.dickson.run-mari-july-2020"))
 
@@ -362,7 +362,7 @@ print(median.temp.value)
 
 
 #clear all at your peril...
-# rm(list=ls())
+# 
 
 setwd(here("data", "mari", "pre-deploy.bath-mari-2020"))
 
@@ -460,7 +460,7 @@ df1 <- select(df1, datetime,
 
 save(df1, file = "mari-baywater-bath-predeploy.2020.sphx.RData")
 
-rm(list=ls())
+
 
 
 #double check looks good
@@ -469,7 +469,7 @@ load("mari-baywater-bath-predeploy.2020.sphx.RData")
 
 
 
-rm(list=ls())
+
 
 
 
@@ -496,170 +496,135 @@ load("mari.2020.screen.RData")
 
 #read data tables and match var names
 df1 = read.csv(file1,
-               header=T, stringsAsFactors=F, sep=",")
+               header=F, stringsAsFactors=F, sep=",")
 
 #get var names by printing data
 head(df1)
-# 
 
-# FrameSync      DateTime..UTC. Sample.Number.... Error.Flags.... Temperature..Celsius. External.pH..pH.
-# 1 SSPHOX01004 03/11/2020 19:20:01              3413              20               12.1862           7.8925
-# 
-# Internal.pH..pH. External.pH..Volt. Internal.pH..Volt. pH.Temperature..Celsius. Pressure..Decibar.
-# 1           7.9485          -0.986572          -1.036893                  12.7169             15.635
-# 
-# Salinity..psu. Conductivity..S.m. Oxygen..ml.L. Relative.Humidity.... Int.Temperature..Celsius.
-# 1        23.5597            2.81143         6.203                     0                      15.3 
-
-
-# create variable with oxygen converted to mg per liter
-
-df1$Oxygen..mg.L. <- 1.42903*df1$Oxygen..ml.L.
 
 df1 <- df1 %>%                     
-  rename(datetime = 'DateTime..UTC.',
-         sbe_err = 'Error.Flags....', 
-         ctd_temp = 'Temperature..Celsius.', 
-         pH_ext = 'External.pH..pH.',
-         pH_int = 'Internal.pH..pH.',
-         pH_ext_v = "External.pH..Volt.",
-         pH_int_v = 'Internal.pH..Volt.', 
-         pH_temp = 'pH.Temperature..Celsius.', 
-         press_dbar = 'Pressure..Decibar.',
-         ctd_sal = 'Salinity..psu.',
-         cond_Sm = "Conductivity..S.m.",
-         ctd_o2_ml_l = 'Oxygen..ml.L.', 
-         ctd_o2_mg_l = 'Oxygen..mg.L.',
-         RH = "Relative.Humidity....",
-         pH_int_temp = 'Int.Temperature..Celsius.')
-
-df1 <- select(df1, -FrameSync, -sbe_err, -Sample.Number....)
-
+  rename(instrument = V1,
+         datetime = V2,
+         sample.num = V3,
+         sbe_err = V4, 
+         ctd_temp = V5, 
+         pH_ext = V6, 
+         pH_int = V7, 
+         pH_ext_v = V8,
+         pH_int_v = V9, 
+         pH_temp = V10, 
+         press_dbar = V11,
+         ctd_sal = V12,
+         cond_Sm = V13,
+         ctd_o2_mg_l = V14, 
+         RH = V15,
+         pH_int_temp = V16)
 
 
 
-df2 = read.csv("20200521-20200731 MARI data raw.csv",
-               header=T, stringsAsFactors=F, sep=",")
+df1 <- select(df1, -instrument, -sbe_err, -sample.num)
+
+
+
+
+df2 = read.csv(file2,
+               header=F, stringsAsFactors=F, sep=",")
 
 head(df2)
 
-# DateTime..UTC.00.00. Error.Flags.... Temperature..Celsius. External.pH..pH. Internal.pH..pH. External.pH..Volt.
-# 1  05/21/2020 20:00:01              20               15.0302           7.8871           7.8151          -0.984715
-# 
-# Internal.pH..Volt. pH.Temperature..Celsius. Pressure..Decibar. Salinity..psu. Conductivity..S.m. Oxygen..ml.L.
-# 1          -1.043181                  15.1217             17.923        23.8620            3.04211        12.021
-# 
-# Oxygen.mg.L. Relative.Humidity.... Int.Temperature..Celsius. QARTOD
-# 1    17.178370                     1                      15.2      3
-
 df2 <- df2 %>%                     
-  rename(datetime = 'DateTime..UTC.00.00.',
-         sbe_err = 'Error.Flags....', 
-         ctd_temp = 'Temperature..Celsius.', 
-         pH_ext = 'External.pH..pH.',
-         pH_int = 'Internal.pH..pH.',
-         pH_ext_v = "External.pH..Volt.",
-         pH_int_v = 'Internal.pH..Volt.', 
-         pH_temp = 'pH.Temperature..Celsius.', 
-         press_dbar = 'Pressure..Decibar.',
-         ctd_sal = 'Salinity..psu.',
-         cond_Sm = "Conductivity..S.m.",
-         ctd_o2_ml_l = 'Oxygen..ml.L.', 
-         ctd_o2_mg_l = 'Oxygen.mg.L.',
-         RH = "Relative.Humidity....",
-         pH_int_temp = 'Int.Temperature..Celsius.',
-         QARTOD = 'QARTOD')
-
-df2 <- select(df2, -sbe_err)
+  rename(instrument = V1,
+         datetime = V2,
+         sample.num = V3,
+         sbe_err = V4, 
+         ctd_temp = V5, 
+         pH_ext = V6, 
+         pH_int = V7, 
+         pH_ext_v = V8,
+         pH_int_v = V9, 
+         pH_temp = V10, 
+         press_dbar = V11,
+         ctd_sal = V12,
+         cond_Sm = V13,
+         ctd_o2_mg_l = V14, 
+         RH = V15,
+         pH_int_temp = V16)
 
 
 
-
-df3 = read.csv("20200731-20201009 MARI data raw.csv",
-               header=T, stringsAsFactors=F, sep=",")
-
-
-head(df3)
-
-# DateTime..UTC.00.00. Temperature..Celsius. External.pH..pH. Internal.pH..pH. External.pH..Volt. Internal.pH..Volt.
-# 1  07/31/2020 18:40:00               17.1073           7.9241           7.8764          -0.986307          -1.038726
-# 
-# pH.Temperature..Celsius. Pressure..Decibar. Salinity..psu. Conductivity..S.m. Oxygen..ml.L. Oxygen..mg.L.
-# 1                  18.3569             17.070        29.9288            3.91244        13.234      18.91178
-# 
-# Relative.Humidity.... Int.Temperature..Celsius. QARTOD
-# 1                   4.3                      18.9      3
-
-
-df3 <- df3 %>%                     
-  rename(datetime = 'DateTime..UTC.00.00.',
-         ctd_temp = 'Temperature..Celsius.', 
-         pH_ext = 'External.pH..pH.',
-         pH_int = 'Internal.pH..pH.',
-         pH_ext_v = "External.pH..Volt.",
-         pH_int_v = 'Internal.pH..Volt.', 
-         pH_temp = 'pH.Temperature..Celsius.', 
-         press_dbar = 'Pressure..Decibar.',
-         ctd_sal = 'Salinity..psu.',
-         cond_Sm = "Conductivity..S.m.",
-         ctd_o2_ml_l = 'Oxygen..ml.L.', 
-         ctd_o2_mg_l = 'Oxygen..mg.L.',
-         RH = "Relative.Humidity....",
-         pH_int_temp = 'Int.Temperature..Celsius.',
-         QARTOD = 'QARTOD')
-
+df2 <- select(df2, -instrument, -sbe_err, -sample.num)
 
 
 #combine into one data frame
 
-data <- bind_rows(df1,df2, df3, .id= NULL)
+df <- bind_rows(df1, df2, .id= NULL)
 
 #setting date time to POSIXct and arranging data by datetime
 
-data$datetime <- as.POSIXct(data$datetime, format = "%m/%d/%Y %H:%M") 
+#worked with original file formatting
+#df$datetime <- as.POSIXct(df$datetime, format = "%m/%d/%Y %H:%M", 
+#                          tz = "utc") 
+
+df$datetime <- ymd_hms(df$datetime, tz = "UTC")
+
+
+str(df)
 
 #have data ascend in time
 
-data <- data %>%
+df <- df %>%
   arrange(datetime)
+
+
+# remove duplicate rows with dplyr
+df <- df %>% 
+  # Base the removal on the "datetime" column
+  distinct(datetime, .keep_all = TRUE)
+
+
 
 #calculate difference between pH electrodes
 
-data$pH_diff <- data$pH_int - data$pH_ext
-data$abs_pH_diff <- abs(data$pH_int - data$pH_ext)
+df$abs_pH_diff <- abs(df$pH_int - df$pH_ext)
 
-data$volt_diff <- data$pH_ext_v - data$pH_int_v
-data$abs_v_diff <- data$pH_ext_v - data$pH_int_v
+df$abs_v_diff <- abs(df$pH_ext_v - df$pH_int_v)
 
 #flag out bad voltages
 
-data <- filter(data, pH_int_v > mari.2020.screen.df$int.v.min & pH_int_v < mari.2020.screen.df$int.v.max)
+# df <- filter(df, pH_int_v > mari.2020.screen.df$int.v.min & pH_int_v < mari.2020.screen.df$int.v.max)
+# 
+# df <- filter(df, pH_ext_v > mari.2020.screen.df$ext.v.min & pH_ext_v < mari.2020.screen.df$ext.v.max)
 
-data <- filter(data, pH_ext_v > mari.2020.screen.df$ext.v.min & pH_ext_v < mari.2020.screen.df$ext.v.max)
 
-#clear workspace and reload tidied data
-save(data, file = "mari.2020.RData")
+mari_2021 <- select(df, datetime, ctd_temp, ctd_sal, ctd_o2_mg_l,
+                    pH_int, pH_ext, abs_pH_diff,
+                    pH_int_v, pH_ext_v, abs_v_diff, everything())
 
-rm(list=ls())
+#save, clear and reload tidied data
+save(mari_2021, file = "mari.2021.RData")
 
-load("mari.2020.RData")
+rm(mari_2021)
 
-rm(list=ls())
+load("mari.2021.RData")
+
+
 
 #save as csv
 
-#write.csv(data, "mari_2020.csv")
+write.csv(mari_2021, "mari_2021.csv")
+
+rm(mari_2021)
 
 
 # ADJUSTED DEPLOYMENT DATA BASED ON CALIBRATION K0 (E*) VALUES #########
 
-rm(list=ls())
+
 
 load("mari.2020.screen.RData")
 load("mari.2020.RData")
 
 #read data tables and match var names
-df1 = data
+df1 = df
 rm(data)
 
 #get var names by printing data
@@ -799,12 +764,12 @@ median(df1$og_pH_int)
 median(df1$pH_ext_cell)
 median(df1$og_pH_ext)
 
-rm(list=ls())
+
 
 load("mari.2020.adj.final.RData")
 
 
-rm(list=ls())
+
 
 # MID deployment common bath run 2020 ############################################
 
@@ -870,7 +835,7 @@ df1$abs_v_diff <- abs(df1$pH_ext_v - df1$pH_int_v)
 #saving final test proof data for seafetV2 translator script
 save(df1, file = "mari-field-bath-20200521.sphx.RData")
 
-rm(list=ls())
+
 
 
 #double check looks good
@@ -879,7 +844,7 @@ load("mari-field-bath-20200521.sphx.RData")
 
 
 
-rm(list=ls())
+
 
 
 
@@ -956,7 +921,7 @@ df1$abs_v_diff <- abs(df1$pH_ext_v - df1$pH_int_v)
 #saving final test proof data for seafetV2 translator script
 save(df1, file = "mari-common-bath-post.deploy.2020.sphx.RData")
 
-rm(list=ls())
+
 
 
 #double check looks good
@@ -965,7 +930,7 @@ load("mari-common-bath-post.deploy.2020.sphx.RData")
 
 
 
-rm(list=ls())
+
 
 
 
@@ -1022,7 +987,7 @@ df1 <- df1 %>%
 #saving final test proof data for seafetV2 translator script
 save(df1, file = "mari.dickson.run.post.deploy.2020.sphx.RData")
 
-rm(list=ls())
+
 
 
 
@@ -1141,7 +1106,7 @@ df1$abs_v_diff <- abs(df1$pH_ext_v - df1$pH_int_v)
 #clear workspace and reload tidied data
 save(df1, file = "mari-post-deploy-dickson-run-prcsd-2020.RData")
 
-rm(list=ls())
+
 
 load("mari-post-deploy-dickson-run-prcsd-2020.RData")
 
@@ -1164,7 +1129,7 @@ median.temp.value <- median(df1$pH_temp)
 print(median.temp.value) 
 #16.0377
 
-rm(list=ls())
+
 
 
 
@@ -1281,6 +1246,89 @@ median(df1$E0ext25)
 
 #without extra chloride term in chloride total
 #-1.31496268637657
+
+
+
+
+
+##### SCRAP ------------------------------------------------
+
+
+
+# #Removed from deployment data processing section
+# #may be useful once we get the instrument serviced again
+# #and the data can be processed as intended instead
+# #of printing to a terminal window to get the data
+#
+# FrameSync      DateTime..UTC. Sample.Number.... Error.Flags.... Temperature..Celsius. External.pH..pH.
+# 1 SSPHOX01004 03/11/2020 19:20:01              3413              20               12.1862           7.8925
+# 
+# Internal.pH..pH. External.pH..Volt. Internal.pH..Volt. pH.Temperature..Celsius. Pressure..Decibar.
+# 1           7.9485          -0.986572          -1.036893                  12.7169             15.635
+# 
+# Salinity..psu. Conductivity..S.m. Oxygen..ml.L. Relative.Humidity.... Int.Temperature..Celsius.
+# 1        23.5597            2.81143         6.203                     0                      15.3 
+
+
+# create variable with oxygen converted to mg per liter
+
+# df1$Oxygen..mg.L. <- 1.42903*df1$Oxygen..ml.L.
+# 
+# df1 <- df1 %>%                     
+#   rename(datetime = 'DateTime..UTC.',
+#          sbe_err = 'Error.Flags....', 
+#          ctd_temp = 'Temperature..Celsius.', 
+#          pH_ext = 'External.pH..pH.',
+#          pH_int = 'Internal.pH..pH.',
+#          pH_ext_v = "External.pH..Volt.",
+#          pH_int_v = 'Internal.pH..Volt.', 
+#          pH_temp = 'pH.Temperature..Celsius.', 
+#          press_dbar = 'Pressure..Decibar.',
+#          ctd_sal = 'Salinity..psu.',
+#          cond_Sm = "Conductivity..S.m.",
+#          ctd_o2_ml_l = 'Oxygen..ml.L.', 
+#          ctd_o2_mg_l = 'Oxygen..mg.L.',
+#          RH = "Relative.Humidity....",
+#          pH_int_temp = 'Int.Temperature..Celsius.')
+# 
+# df3 = read.csv("20200731-20201009 MARI data raw.csv",
+#                header=T, stringsAsFactors=F, sep=",")
+# 
+# 
+# head(df3)
+# 
+# # DateTime..UTC.00.00. Temperature..Celsius. External.pH..pH. Internal.pH..pH. External.pH..Volt. Internal.pH..Volt.
+# # 1  07/31/2020 18:40:00               17.1073           7.9241           7.8764          -0.986307          -1.038726
+# # 
+# # pH.Temperature..Celsius. Pressure..Decibar. Salinity..psu. Conductivity..S.m. Oxygen..ml.L. Oxygen..mg.L.
+# # 1                  18.3569             17.070        29.9288            3.91244        13.234      18.91178
+# # 
+# # Relative.Humidity.... Int.Temperature..Celsius. QARTOD
+# # 1                   4.3                      18.9      3
+# 
+# 
+# df3 <- df3 %>%                     
+#   rename(datetime = 'DateTime..UTC.00.00.',
+#          ctd_temp = 'Temperature..Celsius.', 
+#          pH_ext = 'External.pH..pH.',
+#          pH_int = 'Internal.pH..pH.',
+#          pH_ext_v = "External.pH..Volt.",
+#          pH_int_v = 'Internal.pH..Volt.', 
+#          pH_temp = 'pH.Temperature..Celsius.', 
+#          press_dbar = 'Pressure..Decibar.',
+#          ctd_sal = 'Salinity..psu.',
+#          cond_Sm = "Conductivity..S.m.",
+#          ctd_o2_ml_l = 'Oxygen..ml.L.', 
+#          ctd_o2_mg_l = 'Oxygen..mg.L.',
+#          RH = "Relative.Humidity....",
+#          pH_int_temp = 'Int.Temperature..Celsius.',
+#          QARTOD = 'QARTOD')
+# 
+# 
+# # end of what was removed from deployment section
+
+
+
 
 
 
