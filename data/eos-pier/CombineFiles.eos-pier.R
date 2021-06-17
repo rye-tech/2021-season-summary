@@ -322,6 +322,11 @@ load(file = "EOS_YSI_20201124-20210615.RData")
 str(eos_pier_2021)
 
 
+write.csv(eos_pier_2021, file = "EOS_YSI_20201124-20210615.csv", row.names = F)
+
+rm(eos_pier_2021)
+
+
 
 #### SCRAP ####
 
