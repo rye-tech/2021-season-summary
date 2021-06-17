@@ -1,7 +1,7 @@
-library(dplyr)
+library(tidyverse)
 library(lubridate)
 library(here)
-
+library(janitor)
 
 #combining data from text files
 
@@ -14,18 +14,27 @@ setwd(here("data", "cma-pier"))
 getwd()
 
 
-rm(list = ls())
-
 # ====================================================================================================================================
 #   Date     Time  Temp SpCond   Cond  Resist   TDS    Sal   Press   Depth    pH      pH   Chl   Chl Turbid+ ODOsat    ODO Battery
 # y/m/d hh:mm:ss     C  uS/cm  uS/cm  Ohm*cm   g/L    ppt    psia  meters            mV  ug/L   RFU     NTU      %   mg/L   volts
 # ------------------------------------------------------------------------------------------------------------------------------------
 
 
-list.files()
+list.files(pattern = ".csv")
+
+# [1] "CMA_YSI_20201114-20201215.csv"
+# [2] "CMA_YSI_20201216-20201219.csv"
+# [3] "CMA_YSI_20201219-20210113.csv"
+# [4] "CMA_YSI_20210113-20210203.csv"
+# [5] "CMA_YSI_20210203-20210215.csv"
+# [6] "CMA_YSI_20210215-20210322.csv"
+# [7] "CMA_YSI_20210322-20210512.csv"
 
 
-# June 2021 Files
+
+list.files(path = here("data", "cma-pier", "rt"), pattern = ".txt")
+# [1] "20210512-20210614-cma_realtime_raw.txt"
+# [2] "cma_ysi_rt_header.txt" 
 
 
 file1 <- "CMA_YSI_20201114-20201215.csv"  
@@ -34,11 +43,16 @@ file3 <- "CMA_YSI_20201219-20210113.csv"
 file4 <- "CMA_YSI_20210113-20210203.csv"  
 
 
-# file5 <- "CMA_YSI_20200117.csv"            
-# file6 <- "CMA_YSI_20200206-20200221.csv"   
-# file7 <- "CMA_YSI_20200221-20200402.csv"   
-# file8 <- "CMA_YSI_20200403-20200514.csv"   
-# file9 <- "CMA_YSI_20200514-20200710.csv"   
+file5 <- "CMA_YSI_20210203-20210215.csv"
+file6 <- "CMA_YSI_20210215-20210322.csv"
+file7 <- "CMA_YSI_20210322-20210512.csv"
+file8 <- here("data", "cma-pier", "rt",
+              "20210512-20210614-cma_realtime_raw.txt")
+file9 <- here("data", "cma-pier", "rt",
+              "cma_ysi_rt_header.txt")
+
+# add in as you add files
+
 # file10 <- "CMA_YSI_20200714-20200820.csv"   
 # file11 <- "CMA_YSI_20200821-20200923.csv"   
 # file12 <- "CMA_YSI_20200924-20201014.csv"   
@@ -46,7 +60,89 @@ file4 <- "CMA_YSI_20210113-20210203.csv"
 # file14 <- "CMA_YSI_20201114-20201215.csv"   
 # file15 <- "CMA_YSI_20201216-20201219.csv"   
 
-#read data files and match var names ######################################
+
+#### header troubleshooting if needed ####
+
+# header for a text file from EcoWatch or Realtime on Box (same thing)
+# header <- read.table(file2, as.is = T, skip = 1, nrows = 1, header = F)
+# header$V12 <- "pH.1"
+# header$V14 <- "Chl.1"
+
+
+# header for a .csv file from EcoWatch Lite
+# not sure if this is needed anymore
+# header <- read.table(file1, as.is = T, sep = ",", nrows = 1, header = F)
+
+
+# # assigns columns names pulled from header "file"
+# colnames(df1) <- header[1,]
+
+
+# # reading in the real time header
+# var_rt <- read.table(file8, as.is = T, skip = 1, nrows = 1, header = F)
+# units_rt <- read.table(file8, as.is = T, skip = 2, nrows = 1, header = F)
+# 
+# units_rt <- units_rt %>%
+#   mutate(V18 = NA, .after = "V10")
+# 
+# header_rt <- paste0(var_rt, "_", units_rt)
+
+
+
+
+#### archived .csv file header ####
+
+var_arch <- read.table(file1, as.is = T, sep = ",", 
+                       nrows = 1, header = F)
+
+units_arch <- read.table(file1, as.is = T, sep = ",",
+                         skip = 1, nrows = 1, header = F)
+
+header_arch <- paste0(var_arch, "_", units_arch)
+
+header_arch <- make_clean_names(header_arch)
+
+print(header_arch)
+
+
+
+#### real time header #####
+
+
+# reading in the real time header
+var_rt <- read.table(file9, as.is = T, skip = 1, nrows = 1, header = F)
+
+units_rt <- read.table(file9, as.is = T, skip = 2, nrows = 1, header = F)
+
+units_rt <- units_rt %>%
+  mutate(V10.1 = NA, .after = "V10")
+
+header_rt <- paste0(var_rt, "_", units_rt)
+
+header_rt <- make_clean_names(header_rt)
+
+print(header_rt)
+
+header_rt[4] <- "sp_cond_u_s"
+header_rt[5] <- "cond_u_s"
+header_rt[9] <- "press_psir"
+
+
+print(header_rt)
+
+
+#### read data files and match var names #################################
+
+# Notes on file formats:
+
+# # use this option if you want to read a text file
+# df2 <- read.table(file2, as.is = T, skip = 5, header = F)
+# # option as.is = T keeps the strings as strings and not factors
+
+# # if you need to 
+# # assigns columns names pulled from header "file"
+# colnames(df2) <- header[1,]
+
 
 df1 = read.csv(file1,
                header=T, stringsAsFactors=F, sep=",")
