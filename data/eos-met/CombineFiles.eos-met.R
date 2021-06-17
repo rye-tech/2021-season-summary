@@ -114,7 +114,7 @@ header <- read.table(file1, as.is = T, skip = 1,
 # 
 # #OR
 
-#read text files -------------
+#### #read text files -----------------------------------
 
 # option sep is separator, as.is = T keeps the strings as strings and not factors
 df1 <- read.table(file1, sep = ",", as.is = T, skip = 5, header = F)
@@ -125,31 +125,32 @@ colnames(df1) <- header[1,]
 str(df1)
 
 
-df2 <- read.table(file2, sep = ",", as.is = T, skip = 6, header = F)
+df2 <- read.table(file2, sep = ",", as.is = T, skip = 5, header = F)
 
 # assigns columns names pulled from header "file"
 colnames(df2) <- header[1,]
 
 str(df2)
 
+
+
+df3 <- read.table(file3, sep = ",", as.is = T, skip = 5, header = F)
+
+# assigns columns names pulled from header "file"
+colnames(df3) <- header[1,]
+
+str(df3)
+
+
+df4 <- read.table(file4, sep = ",", as.is = T, skip = 5, header = F)
+
+# assigns columns names pulled from header "file"
+colnames(df4) <- header[1,]
+
+str(df4)
+
 # # comment in as more files are added
-# 
-# df3 <- read.table(file3, sep = ",", as.is = T, skip = 5, header = F)
-# 
-# # assigns columns names pulled from header "file"
-# colnames(df3) <- header[1,]
-# 
-# str(df3)
-# 
-# 
-# df4 <- read.table(file4, sep = ",", as.is = T, skip = 5, header = F)
-# 
-# # assigns columns names pulled from header "file"
-# colnames(df4) <- header[1,]
-# 
-# str(df4)
-# 
-# 
+#
 # df5 <- read.table(file5, sep = ",", as.is = T, skip = 5, header = F)
 # 
 # # assigns columns names pulled from header "file"
@@ -201,9 +202,7 @@ str(df2)
 
 # df <- bind_rows(df1, df2, df3, df4, df5, df6, .id= NULL)
 
-df <- bind_rows(df1, df2, .id= NULL)
-
-rm(list=setdiff(ls(), c("df")))
+df <- bind_rows(df1, df2, df3, df4, .id= NULL)
 
 df$datetime <- ymd_hms(df$TIMESTAMP, tz = "UTC")
 
@@ -228,12 +227,14 @@ eos_met_2021 <- select(df, datetime, date, TIMESTAMP, everything())
 rm(df)
 
 
-save(eos_met_2021, file = "EOS_MET_20200902-20210226.RData")
+save(eos_met_2021, file = "EOS_MET_20200902-20210615.RData")
 
-rm(list = ls())
+rm(eos_met_2021)
 
-load(file = "EOS_MET_20200902-20210226.RData")
+load(file = "EOS_MET_20200902-20210615.RData")
 
-rm(list = ls())
 
+write.csv(eos_met_2021, file = "EOS_MET_20200902-20210615.csv", row.names = F)
+
+rm(eos_met_2021)
 
