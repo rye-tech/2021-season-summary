@@ -1,7 +1,7 @@
-library(dplyr)
+library(tidyverse)
 library(lubridate)
 library(here)
-
+library(janitor)
 
 #combining data from text files
 
@@ -48,7 +48,7 @@ file7 <- here("data", "eos-pier", "rt",
               "20210519-20210615-realtime_raw_pier.txt")
 file8 <- here("data", "eos-pier", "rt", "rtcysi_rt_header.txt")
 
-####header troubleshooting if needed####
+#### header troubleshooting if needed ####
 
 # header for a text file from EcoWatch or Realtime on Box (same thing)
 # header <- read.table(file2, as.is = T, skip = 1, nrows = 1, header = F)
@@ -65,6 +65,55 @@ file8 <- here("data", "eos-pier", "rt", "rtcysi_rt_header.txt")
 # colnames(df1) <- header[1,]
 
 
+# # reading in the real time header
+# var_rt <- read.table(file8, as.is = T, skip = 1, nrows = 1, header = F)
+# units_rt <- read.table(file8, as.is = T, skip = 2, nrows = 1, header = F)
+# 
+# units_rt <- units_rt %>%
+#   mutate(V18 = NA, .after = "V10")
+# 
+# header_rt <- paste0(var_rt, "_", units_rt)
+
+
+#### real time header #####
+
+
+# reading in the real time header
+var_rt <- read.table(file8, as.is = T, skip = 1, nrows = 1, header = F)
+
+units_rt <- read.table(file8, as.is = T, skip = 2, nrows = 1, header = F)
+
+units_rt <- units_rt %>%
+  mutate(V10.1 = NA, .after = "V10")
+
+header_rt <- paste0(var_rt, "_", units_rt)
+
+header_rt <- make_clean_names(header_rt)
+
+print(header_rt)
+
+header_rt[4] <- "sp_cond_u_s"
+header_rt[5] <- "cond_u_s"
+header_rt[9] <- "press_psir"
+
+
+print(header_rt)
+
+#### archived .csv file header ####
+
+var_arch <- read.table(file1, as.is = T, sep = ",", 
+                       nrows = 1, header = F)
+
+units_arch <- read.table(file1, as.is = T, sep = ",",
+                         skip = 1, nrows = 1, header = F)
+
+header_arch <- paste0(var_arch, "_", units_arch)
+
+header_arch <- make_clean_names(header_arch)
+
+print(header_arch)
+
+
 
 ##### read data files and match var names ##################################
 
@@ -79,48 +128,88 @@ file8 <- here("data", "eos-pier", "rt", "rtcysi_rt_header.txt")
 # colnames(df2) <- header[1,]
 
 
+
 df1 = read.csv(file1,
                header=T, stringsAsFactors=F, sep=",")
 
 #drop units row
 df1 <- df1[-1,]
 
+# # assigns columns names pulled from header "file"
+colnames(df1) <- header_arch
+
+# convert all character to numeric
+df1 <- df1 %>% 
+  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+
+
+#repeat for remaining data frames
 
 df2 = read.csv(file2,
                header=T, stringsAsFactors=F, sep=",")
 df2 <- df2[-1,]
+colnames(df2) <- header_arch
+
+# convert all character to numeric
+df2 <- df2 %>% 
+  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+
 
 
 df3 = read.csv(file3,
                header=T, stringsAsFactors=F, sep=",")
 df3 <- df3[-1,]
+colnames(df3) <- header_arch
+
+# convert all character to numeric
+df3 <- df3 %>% 
+  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+
 
 
 df4 = read.csv(file4,
                header=T, stringsAsFactors=F, sep=",")
 df4 <- df4[-1,]
+colnames(df4) <- header_arch
+
+# convert all character to numeric
+df4 <- df4 %>% 
+  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+
 
 
 df5 = read.csv(file5,
                header=T, stringsAsFactors=F, sep=",")
 df5 <- df5[-1,]
+colnames(df5) <- header_arch
+
+# convert all character to numeric
+df5 <- df5 %>% 
+  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+
 
 
 df6 = read.csv(file6,
                header=T, stringsAsFactors=F, sep=",")
 df6 <- df6[-1,]
+colnames(df6) <- header_arch
+
+# convert all character to numeric
+df6 <- df6 %>% 
+  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+
 
 
 df7 <- read.table(file7, as.is = T, header = F)
 # option as.is = T keeps the strings as strings and not factors
 
-# reading in the real time header
-var_rt <- read.table(file8, as.is = T, skip = 1, nrows = 1, header = F)
-units_rt <- read.table(file8, as.is = T, skip = 2, nrows = 1, header = F)   
-header_rt <- paste0(var_rt, "_", units_rt)
-
 # # assigns columns names pulled from header "file"
-colnames(df7) <- header[1,]
+colnames(df7) <- header_rt
+
+# convert all character to numeric
+df7 <- df7 %>% 
+  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+
 
 # add in as files come in
 # 
@@ -173,24 +262,72 @@ colnames(df7) <- header[1,]
 # 
 
 
-# df <- bind_rows(df1, df3, df4, df5, df6, df7,
-#                 df7.1, df8, df9, df10, df11, df12,
-#                 df13, df14, df15, .id= NULL)
+# below helps me to see where mismatches happen
+# when combining data frames
+# ignore numeric and integer mismatch
+
+compare_df_cols(df1, df2, df3,
+                df4, df5, df6, df7, 
+                return = "mismatch")
 
 
-df <- bind_rows(df1, df2, df3, .id= NULL)
+df <- bind_rows(df1, df2, df3, df4,
+                df5, df6, df7, .id= NULL)
 
-
+names(df)
 
 df <- df %>%                     
-  rename(sst = Temp, 
-         sss = Sal,
-         o2_mg_l = ODO,
-         o2_sat = ODOsat,
-         pH_mv = pH.1,
-         chl_ugl = Chl,
-         chl_rfu = Chl.1,
-         Turb = Turbid.)
+  rename(sst = temp_c, 
+         sss = sal_ppt,
+         o2_mg_l = odo_mg_l,
+         o2_sat = od_osat_percent,
+         pH_mv = p_h_m_v,
+         pH = p_h_na,
+         chl_ugl = chl_ug_l,
+         chl_rfu = chl_rfu,
+         Turb = turbid_ntu)
+
+
+str(df)
+
+
+rm(list=setdiff(ls(), c("df")))
+
+
+
+df <- df %>%
+  mutate(datetime =  paste(df$date_y_m_d,df$time_hh_mm_ss))
+
+df$datetime <- as.POSIXct(df$datetime, format = "%Y/%m/%d %H:%M:%S", tz = "GMT")
+
+str(df)
+
+df <- df %>%
+  arrange(datetime)
+
+
+# remove duplicate rows with dplyr
+df <- df %>% 
+  # Base the removal on the "Age" column
+  distinct(datetime, .keep_all = TRUE)
+
+
+eos_pier_2021 <- select(df, datetime, everything())
+
+
+#save(eos_pier_2021, file = "EOS_YSI_20191124-20210130.RData")
+
+save(eos_pier_2021, file = "EOS_YSI_20201124-20210615.RData")
+
+#restart R to confirm if data saved
+
+load(file = "EOS_YSI_20201124-20210615.RData")
+
+str(eos_pier_2021)
+
+
+
+#### SCRAP ####
 
 
 # df2 <- df2 %>%                     
@@ -206,59 +343,30 @@ df <- df %>%
 
 
 
-df$sst <- as.numeric(df$sst)
-df$SpCond <- as.numeric(df$SpCond)
-df$Cond <- as.numeric(df$Cond)
-df$Resist <- as.numeric(df$Resist)
-df$TDS <- as.numeric(df$TDS)
-df$sss <- as.numeric(df$sss)
-df$Press <- as.numeric(df$Press)
-df$Depth <- as.numeric(df$Depth)
-df$pH <- as.numeric(df$pH)
-df$pH_mv <- as.numeric(df$pH_mv)
-df$chl_ugl <- as.numeric(df$chl_ugl)
-df$chl_rfu <- as.numeric(df$chl_rfu)
-df$Turb <- as.numeric(df$Turb)
-df$o2_sat <- as.numeric(df$o2_sat)
-df$o2_mg_l <- as.numeric(df$o2_mg_l)
-df$Battery <- as.numeric(df$Battery)
+# not needed anymore... handle this after calling in each file
+# so I could get bind_rows to work
+
+# df$sst <- as.numeric(df$sst)
+# df$SpCond <- as.numeric(df$SpCond)
+# df$Cond <- as.numeric(df$Cond)
+# df$Resist <- as.numeric(df$Resist)
+# df$TDS <- as.numeric(df$TDS)
+# df$sss <- as.numeric(df$sss)
+# df$Press <- as.numeric(df$Press)
+# df$Depth <- as.numeric(df$Depth)
+# df$pH <- as.numeric(df$pH)
+# df$pH_mv <- as.numeric(df$pH_mv)
+# df$chl_ugl <- as.numeric(df$chl_ugl)
+# df$chl_rfu <- as.numeric(df$chl_rfu)
+# df$Turb <- as.numeric(df$Turb)
+# df$o2_sat <- as.numeric(df$o2_sat)
+# df$o2_mg_l <- as.numeric(df$o2_mg_l)
+# df$Battery <- as.numeric(df$Battery)
 
 
 # df <- bind_rows(df, df2, .id= NULL)
 
-str(df)
 
-
-rm(list=setdiff(ls(), c("df")))
-
-
-
-df <- df %>%
-  mutate(datetime =  paste(df$Date,df$Time))
-
-df$datetime <- as.POSIXct(df$datetime, format = "%Y/%m/%d %H:%M:%S", tz = "GMT")
-
-str(df)
-
-df <- df %>%
-  arrange(datetime)
-
-
-eos_pier_2021 <- select(df, datetime, everything())
-
-
-#save(eos_pier_2020, file = "EOS_YSI_20191201-20200515.RData")
-
-save(eos_pier_2021, file = "EOS_YSI_20191124-20210130.RData")
-
-
-rm(list = ls())
-
-load(file = "EOS_YSI_20191124-20210130.RData")
-
-str(eos_pier_2021)
-
-rm(list = ls())
 
 
 
