@@ -291,10 +291,6 @@ df <- df %>%
 str(df)
 
 
-rm(list=setdiff(ls(), c("df")))
-
-
-
 df <- df %>%
   mutate(datetime =  paste(df$date_y_m_d,df$time_hh_mm_ss))
 
