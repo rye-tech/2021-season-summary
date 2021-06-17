@@ -144,33 +144,199 @@ print(header_rt)
 # colnames(df2) <- header[1,]
 
 
+
 df1 = read.csv(file1,
                header=T, stringsAsFactors=F, sep=",")
+
+#drop units row
 df1 <- df1[-1,]
 
+# # assigns columns names pulled from header "file"
+colnames(df1) <- header_arch
 
-df1$Date <- mdy(df1$Date)
+# convert all character to numeric
+df1 <- df1 %>% 
+  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
 
-df1$Date <- as.character(df1$Date)
 
-df1$Date <- gsub("-", "/", df1$Date)
-
+#repeat for remaining data frames
 
 df2 = read.csv(file2,
                header=T, stringsAsFactors=F, sep=",")
 df2 <- df2[-1,]
+colnames(df2) <- header_arch
+
+# convert all character to numeric
+df2 <- df2 %>% 
+  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+
 
 
 df3 = read.csv(file3,
                header=T, stringsAsFactors=F, sep=",")
 df3 <- df3[-1,]
+colnames(df3) <- header_arch
+
+# convert all character to numeric
+df3 <- df3 %>% 
+  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+
 
 
 df4 = read.csv(file4,
                header=T, stringsAsFactors=F, sep=",")
 df4 <- df4[-1,]
+colnames(df4) <- header_arch
+
+# convert all character to numeric
+df4 <- df4 %>% 
+  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
 
 
+
+df5 = read.csv(file5,
+               header=T, stringsAsFactors=F, sep=",")
+df5 <- df5[-1,]
+colnames(df5) <- header_arch
+
+# convert all character to numeric
+df5 <- df5 %>% 
+  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+
+
+
+df6 = read.csv(file6,
+               header=T, stringsAsFactors=F, sep=",")
+df6 <- df6[-1,]
+colnames(df6) <- header_arch
+
+# convert all character to numeric
+df6 <- df6 %>% 
+  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+
+
+
+df7 = read.csv(file7,
+               header=T, stringsAsFactors=F, sep=",")
+df7 <- df7[-1,]
+colnames(df7) <- header_arch
+
+# convert all character to numeric
+df7 <- df7 %>% 
+  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+
+
+
+df8 <- read.table(file8, as.is = T, header = F)
+# option as.is = T keeps the strings as strings and not factors
+
+# # assigns columns names pulled from header "file"
+colnames(df8) <- header_rt
+
+# convert all character to numeric
+df8 <- df8 %>% 
+  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+
+
+
+
+
+df <- bind_rows(df1, df2, df3, df4, .id= NULL)
+
+
+
+rm(list=setdiff(ls(), c("df")))
+
+
+df <- df %>%                     
+  rename(sst = Temp, 
+         sss = Sal,
+         o2_mg_l = ODO,
+         o2_sat = ODOsat,
+         pH_mv = pH.1,
+         chl_ugl = Chl,
+         chl_rfu = Chl.1,
+         Turb = Turbid.)
+
+
+
+df <- df %>%
+  mutate(datetime =  paste(df$Date,df$Time))
+
+str(df)
+
+df$datetime <- as.POSIXct(df$datetime, format = "%Y/%m/%d %H:%M:%S", tz = "GMT")
+
+
+
+df <- df %>%
+  arrange(datetime)
+
+
+
+
+
+str(df)
+
+
+
+cma_2021 <- select(df, datetime, everything())
+
+rm(df)
+
+save(cma_2021, file = "CMA_YSI_20191114-20210203.RData")
+
+rm(list=ls())
+
+load(file = "CMA_YSI_20191114-20210203.RData")
+
+str(cma_2021)
+
+
+
+# write.csv(cma_2020, file = "CMA_YSI_20191108-20200710.csv", row.names = F)
+
+rm(cma_2021)
+
+
+
+
+
+#### SCRAP ############################################
+
+
+
+
+# # I switched up my strategy so dropping this here. 
+# # The date time adjustment I did could still be useful
+# 
+# df1 = read.csv(file1,
+#                header=T, stringsAsFactors=F, sep=",")
+# df1 <- df1[-1,]
+# 
+# 
+# df1$Date <- mdy(df1$Date)
+# 
+# df1$Date <- as.character(df1$Date)
+# 
+# df1$Date <- gsub("-", "/", df1$Date)
+# 
+# 
+# df2 = read.csv(file2,
+#                header=T, stringsAsFactors=F, sep=",")
+# df2 <- df2[-1,]
+# 
+# 
+# df3 = read.csv(file3,
+#                header=T, stringsAsFactors=F, sep=",")
+# df3 <- df3[-1,]
+# 
+# 
+# df4 = read.csv(file4,
+#                header=T, stringsAsFactors=F, sep=",")
+# df4 <- df4[-1,]
+# 
+# 
 # # add in files as they come
 # 
 # df5 = read.csv(file5,
@@ -236,75 +402,30 @@ df4 <- df4[-1,]
 # df <- bind_rows(df1, df2, df3, df4, df5, df6, df7, df8, df9,
 #                 df10, df11, df12, df15, .id= NULL)
 
-df <- bind_rows(df1, df2, df3, df4, .id= NULL)
 
 
 
-rm(list=setdiff(ls(), c("df")))
-
-
-df <- df %>%                     
-  rename(sst = Temp, 
-         sss = Sal,
-         o2_mg_l = ODO,
-         o2_sat = ODOsat,
-         pH_mv = pH.1,
-         chl_ugl = Chl,
-         chl_rfu = Chl.1,
-         Turb = Turbid.)
-
-
-
-df <- df %>%
-  mutate(datetime =  paste(df$Date,df$Time))
-
-str(df)
-
-df$datetime <- as.POSIXct(df$datetime, format = "%Y/%m/%d %H:%M:%S", tz = "GMT")
-
-
-
-df <- df %>%
-  arrange(datetime)
-
-
-df$sst <- as.numeric(df$sst)
-df$SpCond <- as.numeric(df$SpCond)
-df$Cond <- as.numeric(df$Cond)
-df$Resist <- as.numeric(df$Resist)
-df$TDS <- as.numeric(df$TDS)
-df$sss <- as.numeric(df$sss)
-df$Press <- as.numeric(df$Press)
-df$Depth <- as.numeric(df$Depth)
-df$pH <- as.numeric(df$pH)
-df$pH_mv <- as.numeric(df$pH_mv)
-df$chl_ugl <- as.numeric(df$chl_ugl)
-df$chl_rfu <- as.numeric(df$chl_rfu)
-df$Turb <- as.numeric(df$Turb)
-df$o2_sat <- as.numeric(df$o2_sat)
-df$o2_mg_l <- as.numeric(df$o2_mg_l)
-df$Battery <- as.numeric(df$Battery)
-
-
-str(df)
+# # I do this in the data frame calls instead now instead of all
+# # at once
+# 
+# df$sst <- as.numeric(df$sst)
+# df$SpCond <- as.numeric(df$SpCond)
+# df$Cond <- as.numeric(df$Cond)
+# df$Resist <- as.numeric(df$Resist)
+# df$TDS <- as.numeric(df$TDS)
+# df$sss <- as.numeric(df$sss)
+# df$Press <- as.numeric(df$Press)
+# df$Depth <- as.numeric(df$Depth)
+# df$pH <- as.numeric(df$pH)
+# df$pH_mv <- as.numeric(df$pH_mv)
+# df$chl_ugl <- as.numeric(df$chl_ugl)
+# df$chl_rfu <- as.numeric(df$chl_rfu)
+# df$Turb <- as.numeric(df$Turb)
+# df$o2_sat <- as.numeric(df$o2_sat)
+# df$o2_mg_l <- as.numeric(df$o2_mg_l)
+# df$Battery <- as.numeric(df$Battery)
 
 
 
-cma_2021 <- select(df, datetime, everything())
 
-rm(df)
-
-save(cma_2021, file = "CMA_YSI_20191114-20210203.RData")
-
-rm(list=ls())
-
-load(file = "CMA_YSI_20191114-20210203.RData")
-
-str(cma_2021)
-
-
-
-# write.csv(cma_2020, file = "CMA_YSI_20191108-20200710.csv", row.names = F)
-
-rm(cma_2021)
 
