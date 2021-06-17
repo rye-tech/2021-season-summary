@@ -9,35 +9,59 @@ library(here)
 
 
 
+#### get file names sorted ------------------------
+
+
+setwd(here())
+
+getwd()
+
+setwd(here("data", "mari"))
+
+getwd()
+
+list.files(pattern = ".txt")
+
+
+# [1] "24mar2021seaphox_upload-1.txt"
+# [2] "24mar2021seaphox_upload-2.txt"
+# [3] "24mar2021seaphox_upload-3.txt"
+
+
+file1 <- "24mar2021seaphox_upload-1.txt"
+file2 <- "24mar2021seaphox_upload-2.txt"
+file3 <- "24mar2021seaphox_upload-3.txt"
+
+
+
 #read in field check sample data for mari 2020 ########################################
 
-#read data tables and match var names
-df1 = read.csv("mari-buoy_field_samples_metadata_2020.csv",
-               header=T, stringsAsFactors=F, sep=",")
-
-df1$datetime <- as.POSIXct(paste(df1$Date,df1$UTC), format = "%m/%d/%Y %H:%M") 
-
-df1$pH.check.median <- as.numeric(df1$pH.check.median)
-
-
-head(df1)
+# # # used for end of season assessment, uncomment to run
 # 
-# Date   UTC Sample.. Cast_Sal Cast_Temp pH.check.median   pH.check1   pH.check2   pH.check3
-# 3/11/2020 19:38   M-0058      NaN       NaN             NaN         NaN         NaN         NaN
-
-
-chk.df <- df1
-rm(df1)
-
-#clear workspace and reload tidied data
-save(chk.df, file = "mari-check.samples-2020.RData")
-
-rm(list=ls())
-
-load("mari-check.samples-2020.RData")
-
-rm(list=ls())
-
+# #read data tables and match var names
+# df1 = read.csv("mari-buoy_field_samples_metadata_2020.csv",
+#                header=T, stringsAsFactors=F, sep=",")
+# 
+# df1$datetime <- as.POSIXct(paste(df1$Date,df1$UTC), format = "%m/%d/%Y %H:%M") 
+# 
+# df1$pH.check.median <- as.numeric(df1$pH.check.median)
+# 
+# 
+# head(df1)
+# # 
+# # Date   UTC Sample.. Cast_Sal Cast_Temp pH.check.median   pH.check1   pH.check2   pH.check3
+# # 3/11/2020 19:38   M-0058      NaN       NaN             NaN         NaN         NaN         NaN
+# 
+# 
+# chk.df <- df1
+# rm(df1)
+# 
+# #clear workspace and reload tidied data
+# save(chk.df, file = "mari-check.samples-2020.RData")
+# 
+# load("mari-check.samples-2020.RData")
+# 
+# # # end of comment
 
 #read in bath check sample data for mari 2020 ########################################
 
@@ -467,13 +491,11 @@ mari.2020.screen.df <- data.frame(k0_int.mari.2020.eos = -1.50105017881742,
 #clear workspace and reload tidied data
 save(mari.2020.screen.df, file = "mari.2020.screen.RData")
 
-rm(list=ls())
-
 load("mari.2020.screen.RData")
 
 
 #read data tables and match var names
-df1 = read.csv("20200311-20200521 MARI data raw_final.csv",
+df1 = read.csv(file1,
                header=T, stringsAsFactors=F, sep=",")
 
 #get var names by printing data
