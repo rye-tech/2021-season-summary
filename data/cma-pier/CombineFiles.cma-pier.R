@@ -151,6 +151,12 @@ df1 = read.csv(file1,
 #drop units row
 df1 <- df1[-1,]
 
+df1$Date <- mdy(df1$Date)
+
+df1$Date <- as.character(df1$Date)
+
+df1$Date <- gsub("-", "/", df1$Date)
+
 # # assigns columns names pulled from header "file"
 colnames(df1) <- header_arch
 
@@ -238,30 +244,27 @@ df8 <- df8 %>%
   mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
 
 
-
-
-
-df <- bind_rows(df1, df2, df3, df4, .id= NULL)
-
-
-
-rm(list=setdiff(ls(), c("df")))
+df <- bind_rows(df1, df2, df3, df4,
+                df5, df6, df7, df8, 
+                .id= NULL)
 
 
 df <- df %>%                     
-  rename(sst = Temp, 
-         sss = Sal,
-         o2_mg_l = ODO,
-         o2_sat = ODOsat,
-         pH_mv = pH.1,
-         chl_ugl = Chl,
-         chl_rfu = Chl.1,
-         Turb = Turbid.)
+  rename(sst = temp_c, 
+         sss = sal_ppt,
+         o2_mg_l = odo_mg_l,
+         o2_sat = od_osat_percent,
+         pH_mv = p_h_m_v,
+         pH = p_h_na,
+         chl_ugl = chl_ug_l,
+         chl_rfu = chl_rfu,
+         Turb = turbid_ntu)
+
 
 
 
 df <- df %>%
-  mutate(datetime =  paste(df$Date,df$Time))
+  mutate(datetime =  paste(df$date_y_m_d,df$time_hh_mm_ss))
 
 str(df)
 
@@ -273,10 +276,12 @@ df <- df %>%
   arrange(datetime)
 
 
-
-
-
 str(df)
+
+# remove duplicate rows with dplyr
+df <- df %>% 
+  # Base the removal on the "Age" column
+  distinct(datetime, .keep_all = TRUE)
 
 
 
@@ -284,17 +289,19 @@ cma_2021 <- select(df, datetime, everything())
 
 rm(df)
 
-save(cma_2021, file = "CMA_YSI_20191114-20210203.RData")
+#save(cma_2021, file = "CMA_YSI_20191114-20210203.RData")
 
-rm(list=ls())
+save(cma_2021, file = "CMA_YSI_20201114-20210615.RData")
 
-load(file = "CMA_YSI_20191114-20210203.RData")
+rm(cma_2021)
+
+load(file = "CMA_YSI_20201114-20210615.RData")
 
 str(cma_2021)
 
 
 
-# write.csv(cma_2020, file = "CMA_YSI_20191108-20200710.csv", row.names = F)
+write.csv(cma_2021, file = "CMA_YSI_20201114-20210615.csv", row.names = F)
 
 rm(cma_2021)
 
@@ -309,6 +316,8 @@ rm(cma_2021)
 
 # # I switched up my strategy so dropping this here. 
 # # The date time adjustment I did could still be useful
+# # Actually, I still needed the time adjustment below!
+# # glad I saved it here in the scrap section
 # 
 # df1 = read.csv(file1,
 #                header=T, stringsAsFactors=F, sep=",")
