@@ -17,10 +17,13 @@ getwd()
 file1 <- here("data", "eos-pier", 
               "EOS_YSI_20201124-20210615.RData")
 
-file2 <- here("data", "cma-pier", 
+file2 <- here("data", "eos-pier", 
+              "EOS_MET_20200902-20210615.RData")
+
+file3 <- here("data", "cma-pier", 
               "CMA_YSI_20201114-20210615.RData")
 
-file3 <- here("data", "mari", 
+file4 <- here("data", "mari", 
               "mari.2021.RData")
 
 
