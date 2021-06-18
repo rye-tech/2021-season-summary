@@ -235,23 +235,26 @@ df <- bind_rows(df1, df2, df3, df4,
 
 names(df)
 
-df <- df %>%                     
-  rename(sst = temp_c, 
-         sss = sal_ppt,
-         o2_mg_l = odo_mg_l,
-         o2_sat = od_osat_percent,
-         pH_mv = p_h_m_v,
-         pH = p_h_na,
-         chl_ugl = chl_ug_l,
-         chl_rfu = chl_rfu,
-         Turb = turbid_ntu)
+df <- df %>%
+  rename(sst = Temp,
+         sss = Sal,
+         o2_mg_l = ODO,
+         o2_sat = ODOsat,
+         pH_mv = pH.1,
+         chl_ugl = Chl,
+         chl_rfu = Chl.1,
+         Turb = "Turbid.")
+
+
+
+
 
 
 str(df)
 
 
 df <- df %>%
-  mutate(datetime =  paste(df$date_y_m_d,df$time_hh_mm_ss))
+  mutate(datetime =  paste(df$Date, df$Time))
 
 df$datetime <- as.POSIXct(df$datetime, format = "%Y/%m/%d %H:%M:%S", tz = "GMT")
 
@@ -351,8 +354,17 @@ rm(eos_pier_2021)
 # 
 # 
 
-
-
+# # these names worked when I used an overcomplex strategy 
+# df <- df %>%                     
+#   rename(sst = temp_c, 
+#          sss = sal_ppt,
+#          o2_mg_l = odo_mg_l,
+#          o2_sat = od_osat_percent,
+#          pH_mv = p_h_m_v,
+#          pH = p_h_na,
+#          chl_ugl = chl_ug_l,
+#          chl_rfu = chl_rfu,
+#          Turb = turbid_ntu)
 
 
 
