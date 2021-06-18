@@ -1,3 +1,5 @@
+#### load libraries, set working directory, point to files ####
+
 library(tidyverse)
 library(lubridate)
 library(here)
@@ -13,13 +15,6 @@ setwd(here("data", "eos-pier"))
 
 getwd()
 
-
-
-
-# ====================================================================================================================================
-#   Date     Time  Temp SpCond   Cond  Resist   TDS    Sal   Press   Depth    pH      pH   Chl   Chl Turbid+ ODOsat    ODO Battery
-# y/m/d hh:mm:ss     C  uS/cm  uS/cm  Ohm*cm   g/L    ppt    psia  meters            mV  ug/L   RFU     NTU      %   mg/L   volts
-# ------------------------------------------------------------------------------------------------------------------------------------
 
 
 list.files(pattern = ".csv")
@@ -81,38 +76,12 @@ file8 <- here("data", "eos-pier", "rt", "rtcysi_rt_header.txt")
 # reading in the real time header
 var_rt <- read.table(file8, as.is = T, skip = 1, nrows = 1, header = F)
 
-units_rt <- read.table(file8, as.is = T, skip = 2, nrows = 1, header = F)
+var_rt <- var_rt %>%
+  mutate(V12 = "pH.1", V14 = "Chl.1", V15 = "Turbid.")
 
-units_rt <- units_rt %>%
-  mutate(V10.1 = NA, .after = "V10")
-
-header_rt <- paste0(var_rt, "_", units_rt)
-
-header_rt <- make_clean_names(header_rt)
+header_rt <- paste0(var_rt)
 
 print(header_rt)
-
-header_rt[4] <- "sp_cond_u_s"
-header_rt[5] <- "cond_u_s"
-header_rt[9] <- "press_psir"
-
-
-print(header_rt)
-
-#### archived .csv file header ####
-
-var_arch <- read.table(file1, as.is = T, sep = ",", 
-                       nrows = 1, header = F)
-
-units_arch <- read.table(file1, as.is = T, sep = ",",
-                         skip = 1, nrows = 1, header = F)
-
-header_arch <- paste0(var_arch, "_", units_arch)
-
-header_arch <- make_clean_names(header_arch)
-
-print(header_arch)
-
 
 
 ##### read data files and match var names ##################################
@@ -135,9 +104,6 @@ df1 = read.csv(file1,
 #drop units row
 df1 <- df1[-1,]
 
-# # assigns columns names pulled from header "file"
-colnames(df1) <- header_arch
-
 # convert all character to numeric
 df1 <- df1 %>% 
   mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
@@ -148,9 +114,7 @@ df1 <- df1 %>%
 df2 = read.csv(file2,
                header=T, stringsAsFactors=F, sep=",")
 df2 <- df2[-1,]
-colnames(df2) <- header_arch
 
-# convert all character to numeric
 df2 <- df2 %>% 
   mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
 
@@ -159,9 +123,7 @@ df2 <- df2 %>%
 df3 = read.csv(file3,
                header=T, stringsAsFactors=F, sep=",")
 df3 <- df3[-1,]
-colnames(df3) <- header_arch
 
-# convert all character to numeric
 df3 <- df3 %>% 
   mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
 
@@ -170,9 +132,7 @@ df3 <- df3 %>%
 df4 = read.csv(file4,
                header=T, stringsAsFactors=F, sep=",")
 df4 <- df4[-1,]
-colnames(df4) <- header_arch
 
-# convert all character to numeric
 df4 <- df4 %>% 
   mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
 
@@ -180,10 +140,9 @@ df4 <- df4 %>%
 
 df5 = read.csv(file5,
                header=T, stringsAsFactors=F, sep=",")
-df5 <- df5[-1,]
-colnames(df5) <- header_arch
 
-# convert all character to numeric
+df5 <- df5[-1,]
+
 df5 <- df5 %>% 
   mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
 
@@ -191,14 +150,14 @@ df5 <- df5 %>%
 
 df6 = read.csv(file6,
                header=T, stringsAsFactors=F, sep=",")
-df6 <- df6[-1,]
-colnames(df6) <- header_arch
 
-# convert all character to numeric
+df6 <- df6[-1,]
+
 df6 <- df6 %>% 
   mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
 
-
+# real time data has a different strategy 
+# since it did not come with headers in the text file
 
 df7 <- read.table(file7, as.is = T, header = F)
 # option as.is = T keeps the strings as strings and not factors
@@ -329,6 +288,73 @@ rm(eos_pier_2021)
 
 
 #### SCRAP ####
+
+
+# #Reverting Header Issue because my original approach worked better
+# #for the files that were processed in Ecowatch
+# 
+# archived .csv file header 
+# 
+# var_arch <- read.table(file1, as.is = T, sep = ",", 
+#                        nrows = 1, header = F)
+# 
+# units_arch <- read.table(file1, as.is = T, sep = ",",
+#                          skip = 1, nrows = 1, header = F)
+# 
+# header_arch <- paste0(var_arch, "_", units_arch)
+# 
+# header_arch <- make_clean_names(header_arch)
+# 
+# print(header_arch)
+# 
+# 
+# 
+# 
+# df1 = read.csv(file1,
+#                header=T, stringsAsFactors=F, sep=",")
+# 
+# #drop units row
+# df1 <- df1[-1,]
+# 
+# # # assigns columns names pulled from header "file"
+# colnames(df1) <- header_arch
+# 
+# 
+
+
+# this worked but adjusting to match the other data in the set.
+
+# 
+# # real time header #
+# 
+# 
+# # reading in the real time header
+# var_rt <- read.table(file8, as.is = T, skip = 1, nrows = 1, header = F)
+# 
+# units_rt <- read.table(file8, as.is = T, skip = 2, nrows = 1, header = F)
+# 
+# units_rt <- units_rt %>%
+#   mutate(V10.1 = NA, .after = "V10")
+# 
+# header_rt <- paste0(var_rt, "_", units_rt)
+# 
+# header_rt <- make_clean_names(header_rt)
+# 
+# print(header_rt)
+# 
+# header_rt[4] <- "sp_cond_u_s"
+# header_rt[5] <- "cond_u_s"
+# header_rt[9] <- "press_psir"
+# 
+# 
+# print(header_rt)
+# 
+# 
+
+
+
+
+
 
 
 # df2 <- df2 %>%                     
