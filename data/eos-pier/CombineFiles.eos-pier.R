@@ -106,7 +106,7 @@ df1 <- df1[-1,]
 
 # convert all character to numeric
 df1 <- df1 %>% 
-  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+  mutate(across(where(is.character) & !c(Date, Time), as.numeric))
 
 
 #repeat for remaining data frames
@@ -116,7 +116,7 @@ df2 = read.csv(file2,
 df2 <- df2[-1,]
 
 df2 <- df2 %>% 
-  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+  mutate(across(where(is.character) & !c(Date, Time), as.numeric))
 
 
 
@@ -125,7 +125,7 @@ df3 = read.csv(file3,
 df3 <- df3[-1,]
 
 df3 <- df3 %>% 
-  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+  mutate(across(where(is.character) & !c(Date, Time), as.numeric))
 
 
 
@@ -134,7 +134,7 @@ df4 = read.csv(file4,
 df4 <- df4[-1,]
 
 df4 <- df4 %>% 
-  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+  mutate(across(where(is.character) & !c(Date, Time), as.numeric))
 
 
 
@@ -144,7 +144,7 @@ df5 = read.csv(file5,
 df5 <- df5[-1,]
 
 df5 <- df5 %>% 
-  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+  mutate(across(where(is.character) & !c(Date, Time), as.numeric))
 
 
 
@@ -154,7 +154,7 @@ df6 = read.csv(file6,
 df6 <- df6[-1,]
 
 df6 <- df6 %>% 
-  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+  mutate(across(where(is.character) & !c(Date, Time), as.numeric))
 
 # real time data has a different strategy 
 # since it did not come with headers in the text file
@@ -167,7 +167,7 @@ colnames(df7) <- header_rt
 
 # convert all character to numeric
 df7 <- df7 %>% 
-  mutate(across(where(is.character) & !c(date_y_m_d, time_hh_mm_ss), as.numeric))
+  mutate(across(where(is.character) & !c(Date, Time), as.numeric))
 
 
 # add in as files come in
