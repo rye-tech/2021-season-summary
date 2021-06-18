@@ -345,6 +345,9 @@ uptime_airtemp_count <- length(uptime_airtemp$count)
 uptime_airtemp_percent <- uptime_airtemp_count/airtemp_sample_count
 
 
+uptime_table$eos_pier_temp <- paste0(uptime_sst_count,"/",sst_sample_count,"(",uptime_sst_percent,")")
+
+
 # relative humidity counts of uptimes
 
 rh_samples <- df1 %>%
@@ -747,6 +750,7 @@ uptime_sst_count <- length(uptime_sst$count)
 
 uptime_sst_percent <- uptime_sst_count/sst_sample_count
 
+uptime_table$eos_pier_temp <- paste0(uptime_sst_count,"/",sst_sample_count,"(",uptime_sst_percent,")")
 
 
 #salinity counts of uptimes
