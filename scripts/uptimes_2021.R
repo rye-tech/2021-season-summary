@@ -273,8 +273,8 @@ uptime_table$eos_pier_depth <- paste0(uptime_depth_count,"/",
 load(file2)
 
 
-df1 <- eos_met_2020
-rm(eos_met_2020)
+df1 <- eos_met_2021
+
 
 df1 <- df1 %>%
   mutate(day = day(datetime),
@@ -303,7 +303,7 @@ df1 <- df1 %>%
 
 
 
-report_interval <- interval(ymd("2020-05-16"), ymd("2020-12-01")) 
+report_interval <- interval(ymd("2020-12-01"), ymd("2021-05-31")) 
 
 report_interval <- as.duration(report_interval)
 
@@ -345,7 +345,9 @@ uptime_airtemp_count <- length(uptime_airtemp$count)
 uptime_airtemp_percent <- uptime_airtemp_count/airtemp_sample_count
 
 
-uptime_table$eos_pier_temp <- paste0(uptime_sst_count,"/",sst_sample_count,"(",uptime_sst_percent,")")
+uptime_table$eos_met_temp <- paste0(uptime_airtemp_count, "/", 
+                                    airtemp_sample_count, "(", 
+                                    uptime_airtemp_percent,")")
 
 
 # relative humidity counts of uptimes
@@ -367,6 +369,11 @@ uptime_rh_count <- length(uptime_rh$count)
 uptime_rh_percent <- uptime_rh_count/rh_sample_count
 
 
+uptime_table$eos_met_rh <- paste0(uptime_rh_count, "/", 
+                                  rh_sample_count, "(", 
+                                  uptime_rh_percent,")")
+
+
 # PAR counts of uptimes
 
 par_dens_samples <- df1 %>%
@@ -385,7 +392,9 @@ uptime_par_dens_count <- length(uptime_par_dens$count)
 
 uptime_par_dens_percent <- uptime_par_dens_count/par_dens_sample_count
 
-
+uptime_table$eos_met_par_dens <- paste0(uptime_par_dens_count, "/", 
+                                  par_dens_sample_count, "(", 
+                                  uptime_par_dens_percent,")")
 
 # rain counts of uptimes
 
@@ -405,6 +414,9 @@ uptime_rain_count <- length(uptime_rain$count)
 
 uptime_rain_percent <- uptime_rain_count/rain_sample_count
 
+uptime_table$eos_met_rain <- paste0(uptime_rain_count, "/", 
+                                        rain_sample_count, "(", 
+                                        uptime_rain_percent,")")
 
 # wind counts of uptimes
 
@@ -424,6 +436,10 @@ uptime_ws_count <- length(uptime_ws$count)
 
 uptime_ws_percent <- uptime_ws_count/ws_sample_count
 
+
+uptime_table$eos_met_windspd <- paste0(uptime_ws_count, "/", 
+                                    ws_sample_count, "(", 
+                                    uptime_ws_percent,")")
 
 
 # barometric pressure counts of uptimes
@@ -445,20 +461,9 @@ uptime_bp_count <- length(uptime_bp$count)
 uptime_bp_percent <- uptime_bp_count/bp_sample_count
 
 
-
-
-
-
-#for search and replacing
-# sst
-# colnames(data)
-# [1] "datetime"   "record"     "batt"       "airtemp"    "rh"         "bp"         "ws"         "wdir"       "par_dens"  # [10] "par_tot"    "sol_irr_kw" "sol_irr_mj" "rain"
-
-
-
-
-
-
+uptime_table$eos_met_press <- paste0(uptime_bp_count, "/", 
+                                       bp_sample_count, "(", 
+                                       uptime_bp_percent,")")
 
 
 
@@ -471,8 +476,7 @@ uptime_bp_percent <- uptime_bp_count/bp_sample_count
 load(file3)
 
 
-df1 <- cma_2020
-rm(cma_2020)
+df1 <- cma_2021
 
 str(df1)
 
@@ -513,14 +517,14 @@ df1 <- df1 %>%
 #   filter(date <= as.POSIXct("2021-12-01")) 
 
 
-report_interval <- interval(ymd("2020-05-16"), ymd("2020-12-01")) 
+report_interval <- interval(ymd("2020-12-01"), ymd("2021-05-31")) 
 
 report_interval <- as.duration(report_interval)
 
 report_interval <- floor(as.numeric(report_interval, "days"))
 
 
-
+#LEFT OFF HERE
 
 
 
@@ -553,8 +557,6 @@ uptime_sst_count <- length(uptime_sst$count)
 uptime_sst_percent <- (uptime_sst_count/sst_sample_count) * 100
 
 uptime_sst_percent <- round(uptime_sst_percent, digits = 1)
-
-uptime_table <- list()
 
 uptime_table$cma_pier_temp <- paste0(uptime_sst_count,"/",sst_sample_count,"(",uptime_sst_percent,")")
 
@@ -598,6 +600,10 @@ uptime_ph <- df1 %>%
 uptime_ph_count <- length(uptime_ph$count)
 
 uptime_ph_percent <- uptime_ph_count/ph_sample_count
+
+uptime_table$cma_pier_ph <- paste0(uptime_ph_count, "/", 
+                                    ph_sample_count, "(", 
+                                    uptime_ph_percent,")")
 
 
 #chl counts of uptimes
@@ -827,6 +833,16 @@ uptime_all <- 128/145
 
 
 #### SCRAP ####
+
+# if needed
+#for search and replacing
+# sst
+# colnames(data)
+# [1] "datetime"   "record"     "batt"       "airtemp"    "rh"         "bp"         "ws"         "wdir"       "par_dens"  # [10] "par_tot"    "sol_irr_kw" "sol_irr_mj" "rain"
+
+
+
+
 
 
 ##### BOB no 2021 data due to COVID-19 crisis mooring loss  #####################################
