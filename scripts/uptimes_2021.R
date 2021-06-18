@@ -344,10 +344,6 @@ uptime_ph_percent <- uptime_ph_count/ph_sample_count
 
 uptime_table$eos_pier_pH <- paste0(uptime_ph_count,"/",ph_sample_count,"(",uptime_ph_percent,")")
 
-# LEFT OFF HERE
-
-
-
 
 #chl counts of uptimes
 
@@ -367,6 +363,13 @@ uptime_chl_count <- length(uptime_chl$count)
 
 uptime_chl_percent <- uptime_chl_count/chl_sample_count
 
+
+uptime_table$eos_pier_chl <- paste0(uptime_chl_count,"/",
+                                    chl_sample_count,"(",
+                                    uptime_chl_percent,")")
+
+
+
 #turbidity counts of uptimes
 
 trb_samples <- df1 %>%
@@ -384,6 +387,12 @@ uptime_trb <- df1 %>%
 uptime_trb_count <- length(uptime_trb$count)
 
 uptime_trb_percent <- uptime_trb_count/trb_sample_count
+
+
+uptime_table$eos_pier_trb <- paste0(uptime_trb_count,"/",
+                                    trb_sample_count,"(",
+                                    uptime_trb_percent,")")
+
 
 #o2 counts of uptimes
 
@@ -404,6 +413,10 @@ uptime_o2_count <- length(uptime_o2$count)
 uptime_o2_percent <- uptime_o2_count/o2_sample_count
 
 
+uptime_table$eos_pier_o2 <- paste0(uptime_o2_count,"/",
+                                   o2_sample_count,"(",
+                                   uptime_o2_percent,")")
+
 # depth counts of uptimes
 
 depth_samples <- df1 %>%
@@ -422,6 +435,10 @@ uptime_depth_count <- length(uptime_depth$count)
 
 uptime_depth_percent <- uptime_depth_count/depth_sample_count
 
+
+uptime_table$eos_pier_depth <- paste0(uptime_depth_count,"/",
+                                      depth_sample_count,"(",
+                                   uptime_depth_percent,")")
 
 
 
