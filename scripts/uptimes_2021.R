@@ -30,186 +30,8 @@ file4 <- here("data", "mari",
 
 
 
-##### BOB no 2021 data due to COVID-19 crisis mooring loss  #####################################
 
-
-# #comment out starts here
-#
-# 
-# #load tidied data
-# load("data/bob/ctd/bob.ctd.2019.RData")
-# data1 <- data
-# rm(data)
-# 
-# data1$date <- date(data1$datetime)
-# 
-# data1 <- filter(data1, date> "2019-05-31")
-# 
-# #load tidied data
-# load("data/bob/seafet/bob.seafet.2019.RData")
-# data2 <- data
-# rm(data)
-# 
-# data2$date <- date(data2$datetime)
-# 
-# data2 <- filter(data2, date> "2019-05-31")
-# 
-# 
-# date_start <- date("2019-06-01")
-# 
-# date_end <- date("2019-10-24")
-# 
-# date_end - date_start
-# 
-# buoy_season_days <- difftime(date_end, date_start, units = "days")
-# 
-# print(buoy_season_days)
-# 
-# #samples per day
-# seconds_per_day <- 60*60*24
-# sampling_freq1 <- 360 #seconds
-# sampling_freq2 <- 360 #seconds
-# sample_per_day <- seconds_per_day/sampling_freq
-# 
-# threshold <- 0.75*sample_per_day
-# 
-# days_sampling <- length(data$sst)/sample_per_day
-# 
-# 
-# #for search and replacing
-# #colnames(data)
-# # [1] "sst"      "sss"      "ph"       "chl"      "trb"      "o2"       "date"     "mon"      "day"  
-# # [10] "year"     "datetime"
-# 
-# 
-# # temperature counts of uptimes
-# 
-# sst_samples <- data1 %>%
-#   group_by(date) %>% 
-#   summarize(count=n())
-# 
-# sst_sample_count <- length(sst_samples$count)
-# 
-# uptime_sst <- data1 %>%
-#   filter(sst > 0, sst <30) %>%
-#   group_by(date) %>% 
-#   summarize(count=n()) %>%
-#   filter(count > threshold)
-# 
-# uptime_sst_count <- length(uptime_sst$count)
-# 
-# uptime_sst_percent <- uptime_sst_count/sst_sample_count
-# 
-# 
-# 
-# #salinity counts of uptimes
-# 
-# sss_samples <- data1 %>%
-#   group_by(date) %>% 
-#   summarize(count=n())
-# 
-# sss_sample_count <- length(sss_samples$count)
-# 
-# uptime_sss <- data1 %>%
-#   filter(sss > 0, sss <35) %>%
-#   group_by(date) %>% 
-#   summarize(count=n()) %>%
-#   filter(count > threshold)
-# 
-# uptime_sss_count <- length(uptime_sss$count)
-# 
-# uptime_sss_percent <- uptime_sss_count/sss_sample_count
-# 
-# 
-# #ph counts of uptimes
-# 
-# ph_samples <- data2 %>%
-#   group_by(date) %>% 
-#   summarize(count=n())
-# 
-# ph_sample_count <- length(ph_samples$count)
-# 
-# uptime_ph <- data2 %>%
-#   filter(pH > 7.0, pH <8.5) %>%
-#   group_by(date) %>% 
-#   summarize(count=n()) %>%
-#   filter(count > threshold)
-# 
-# uptime_ph_count <- length(uptime_ph$count)
-# 
-# uptime_ph_percent <- uptime_ph_count/ph_sample_count
-# 
-# 
-# #chl counts of uptimes
-# 
-# chl_samples <- data1 %>%
-#   group_by(date) %>% 
-#   summarize(count=n())
-# 
-# chl_sample_count <- length(chl_samples$count)
-# 
-# uptime_chl <- data1 %>%
-#   filter(chla > 0, chla <30) %>%
-#   group_by(date) %>% 
-#   summarize(count=n()) %>%
-#   filter(count > threshold)
-# 
-# uptime_chl_count <- length(uptime_chl$count)
-# 
-# uptime_chl_percent <- uptime_chl_count/chl_sample_count
-# 
-# #turbidity counts of uptimes
-# 
-# trb_samples <- data1 %>%
-#   group_by(date) %>% 
-#   summarize(count=n())
-# 
-# trb_sample_count <- length(trb_samples$count)
-# 
-# uptime_trb <- data1 %>%
-#   filter(turb > 0, turb <200) %>%
-#   group_by(date) %>% 
-#   summarize(count=n()) %>%
-#   filter(count > threshold)
-# 
-# uptime_trb_count <- length(uptime_trb$count)
-# 
-# uptime_trb_percent <- uptime_trb_count/trb_sample_count
-# 
-# #o2 counts of uptimes
-# 
-# o2_samples <- data1 %>%
-#   group_by(date) %>% 
-#   summarize(count=n())
-# 
-# o2_sample_count <- length(o2_samples$count)
-# 
-# uptime_o2 <- data1 %>%
-#   filter(o2 > 4, o2 <11) %>%
-#   group_by(date) %>% 
-#   summarize(count=n()) %>%
-#   filter(count > threshold)
-# 
-# uptime_o2_count <- length(uptime_o2$count)
-# 
-# uptime_o2_percent <- uptime_o2_count/o2_sample_count
-# 
-# 
-# #for search and replacing
-# #colnames(data)
-# # [1] "sst"      "sss"      "ph"       "chl"      "trb"      "o2"       "date"     "mon"      "day"  
-# # [10] "year"     "datetime"
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-#  #comment out ends here
-
-# EOS Pier 16-may-2020 to 01-dec-2020 uptime counts #############################
+# EOS Pier uptime counts #############################
 
 
 
@@ -219,7 +41,6 @@ load(file1)
 #load("data/eos-pier/EOS_YSI_20191201-20200515.RData")
 
 df1 <- eos_pier_2021
-rm(eos_pier_2021)
 
 str(df1)
 
@@ -445,14 +266,12 @@ uptime_table$eos_pier_depth <- paste0(uptime_depth_count,"/",
 
 
 
-# EOS MET 16-may-2020 01-dec-2020 uptime counts #############################
+# EOS MET uptime counts #############################
 
 
 
-load("data/eos-met/EOS_MET_20191120-20201219.RData")
+load(file2)
 
-# for first 6 months of year
-#load("data/eos-met/EOS_MET_20191201-20200515.RData")
 
 df1 <- eos_met_2020
 rm(eos_met_2020)
@@ -463,18 +282,25 @@ df1 <- df1 %>%
 
 
 
-# for first 6 months of year analysis
+# for first 6 months of annual analysis
+
+df1 <- df1 %>%
+  filter(date >= as.POSIXct("2020-12-01")) 
+
+
+df1 <- df1 %>%
+  filter(date <= as.POSIXct("2021-05-31")) 
+
+
+# # for last 6 months of annual analysis
 # 
 # df1 <- df1 %>%
-#   filter(date >= as.POSIXct("2019-12-01")) 
+#   filter(date >= as.POSIXct("2021-05-31")) 
+# 
+# 
+# df1 <- df1 %>%
+#   filter(date <= as.POSIXct("2021-12-01")) 
 
-
-df1 <- df1 %>%
-  filter(date >= as.POSIXct("2020-05-16")) 
-
-
-df1 <- df1 %>%
-  filter(date <= as.POSIXct("2020-12-01")) 
 
 
 report_interval <- interval(ymd("2020-05-16"), ymd("2020-12-01")) 
@@ -633,141 +459,14 @@ uptime_bp_percent <- uptime_bp_count/bp_sample_count
 
 
 
-# NO 2020 MARI data ############################################################
 
 
-# # commenting out starts here 
-# 
-# 
-# # load tidied data
-# 
-# rm(list=ls())
-# 
-# load("data/mari/mari.2019.RData")
-# 
-# data$date <- date(data$datetime)
-# 
-# data <- filter(data, date> "2019-05-31")
-# 
-# 
-# #samples per day
-# seconds_per_day <- 60*60*24
-# sampling_freq <- 1200 #seconds
-# sample_per_day <- seconds_per_day/sampling_freq
-# 
-# threshold <- 0.75*sample_per_day
-# 
-# days_sampling <- length(data$sst)/sample_per_day
-# 
-# 
-# #for search and replacing
-# # colnames(data)
-# # [1] "date"     "time"     "sst"      "sss"      "dep"      "ph"       "chl"      "trb"      "o2"  
-# # [10] "datetime"
-# 
-# 
-# # temperature counts of uptimes
-# 
-# sst_samples <- data %>%
-#   group_by(date) %>% 
-#   summarize(count=n())
-# 
-# sst_sample_count <- length(sst_samples$count)
-# 
-# uptime_sst <- data %>%
-#   filter(sst > 0, sst <30) %>%
-#   group_by(date) %>% 
-#   summarize(count=n()) %>%
-#   filter(count > threshold)
-# 
-# uptime_sst_count <- length(uptime_sst$count)
-# 
-# uptime_sst_percent <- uptime_sst_count/sst_sample_count
-# 
-# 
-# 
-# #salinity counts of uptimes
-# 
-# sss_samples <- data %>%
-#   group_by(date) %>% 
-#   summarize(count=n())
-# 
-# sss_sample_count <- length(sss_samples$count)
-# 
-# uptime_sss <- data %>%
-#   filter(sss > 0, sss <35) %>%
-#   group_by(date) %>% 
-#   summarize(count=n()) %>%
-#   filter(count > threshold)
-# 
-# uptime_sss_count <- length(uptime_sss$count)
-# 
-# uptime_sss_percent <- uptime_sss_count/sss_sample_count
-# 
-# 
-# #ph counts of uptimes
-# 
-# ph_samples <- data %>%
-#   group_by(date) %>% 
-#   summarize(count=n())
-# 
-# ph_sample_count <- length(ph_samples$count)
-# 
-# uptime_ph <- data %>%
-#   filter(pH > 7.0, pH <8.5) %>%
-#   group_by(date) %>% 
-#   summarize(count=n()) %>%
-#   filter(count > threshold)
-# 
-# uptime_ph_count <- length(uptime_ph$count)
-# 
-# uptime_ph_percent <- uptime_ph_count/ph_sample_count
-# 
-# 
-# 
-# #o2 counts of uptimes
-# 
-# o2_samples <- data %>%
-#   group_by(date) %>% 
-#   summarize(count=n())
-# 
-# o2_sample_count <- length(o2_samples$count)
-# 
-# uptime_o2 <- data %>%
-#   filter(o2 > 4, o2 <11) %>%
-#   group_by(date) %>% 
-#   summarize(count=n()) %>%
-#   filter(count > threshold)
-# 
-# uptime_o2_count <- length(uptime_o2$count)
-# 
-# uptime_o2_percent <- uptime_o2_count/o2_sample_count
-# 
-# 
-# 
-# uptime_all <- 128/145
-# 
-# 
-# #for search and replacing
-# # colnames(data)
-# # [1] "date"     "time"     "sst"      "sss"      "dep"      "ph"       "chl"      "trb"      "o2"  
-# # [10] "datetime"
-# 
-# 
-# 
-# # commenting out ends here
+# CMA uptime counts #############################
 
 
 
+load(file3)
 
-# CMA Pier 15-may-2020 to 01-dec-2020 to uptime counts #############################
-
-
-
-load("data/cma-pier/CMA_YSI_20191108-20201219.RData")
-
-# for first 6 months of year
-#load("data/cma-pier/CMA_YSI_20191201-20200515.RData")
 
 df1 <- cma_2020
 rm(cma_2020)
@@ -791,18 +490,24 @@ df1 <- df1 %>%
          date = date(datetime))
 
 
-# for first 6 months of year analysis
+# for first 6 months of annual analysis
+
+df1 <- df1 %>%
+  filter(date >= as.POSIXct("2020-12-01")) 
+
+
+df1 <- df1 %>%
+  filter(date <= as.POSIXct("2021-05-31")) 
+
+
+# # for last 6 months of annual analysis
 # 
 # df1 <- df1 %>%
-#   filter(date >= as.POSIXct("2019-12-01")) 
-
-
-df1 <- df1 %>%
-  filter(date >= as.POSIXct("2020-05-16")) 
-
-
-df1 <- df1 %>%
-  filter(date <= as.POSIXct("2020-12-01")) 
+#   filter(date >= as.POSIXct("2021-05-31")) 
+# 
+# 
+# df1 <- df1 %>%
+#   filter(date <= as.POSIXct("2021-12-01")) 
 
 
 report_interval <- interval(ymd("2020-05-16"), ymd("2020-12-01")) 
@@ -964,5 +669,358 @@ uptime_depth <- df1 %>%
 uptime_depth_count <- length(uptime_depth$count)
 
 uptime_depth_percent <- uptime_depth_count/depth_sample_count
+
+
+
+
+
+##### MARI uptime counts ###############################################
+
+
+# commenting out starts here
+
+
+# load tidied data
+
+
+load(file4)
+
+df1 <- mari_2021
+
+df1 <- df1 %>%
+  mutate(day = day(datetime),
+         date = date(datetime))
+
+
+# for first 6 months of annual analysis
+
+df1 <- df1 %>%
+  filter(date >= as.POSIXct("2020-12-01")) 
+
+
+df1 <- df1 %>%
+  filter(date <= as.POSIXct("2021-05-31")) 
+
+
+# # for last 6 months of annual analysis
+# 
+# df1 <- df1 %>%
+#   filter(date >= as.POSIXct("2021-05-31")) 
+# 
+# 
+# df1 <- df1 %>%
+#   filter(date <= as.POSIXct("2021-12-01")) 
+
+
+
+#samples per day
+seconds_per_day <- 60*60*24
+sampling_freq <- 1200 #seconds
+sample_per_day <- seconds_per_day/sampling_freq
+
+threshold <- 0.75*sample_per_day
+
+days_sampling <- length(data$sst)/sample_per_day
+
+
+#for search and replacing
+# colnames(data)
+# [1] "date"     "time"     "sst"      "sss"      "dep"      "ph"       "chl"      "trb"      "o2"
+# [10] "datetime"
+
+
+# temperature counts of uptimes
+
+sst_samples <- data %>%
+  group_by(date) %>%
+  summarize(count=n())
+
+sst_sample_count <- length(sst_samples$count)
+
+uptime_sst <- data %>%
+  filter(sst > 0, sst <30) %>%
+  group_by(date) %>%
+  summarize(count=n()) %>%
+  filter(count > threshold)
+
+uptime_sst_count <- length(uptime_sst$count)
+
+uptime_sst_percent <- uptime_sst_count/sst_sample_count
+
+
+
+#salinity counts of uptimes
+
+sss_samples <- data %>%
+  group_by(date) %>%
+  summarize(count=n())
+
+sss_sample_count <- length(sss_samples$count)
+
+uptime_sss <- data %>%
+  filter(sss > 0, sss <35) %>%
+  group_by(date) %>%
+  summarize(count=n()) %>%
+  filter(count > threshold)
+
+uptime_sss_count <- length(uptime_sss$count)
+
+uptime_sss_percent <- uptime_sss_count/sss_sample_count
+
+
+#ph counts of uptimes
+
+ph_samples <- data %>%
+  group_by(date) %>%
+  summarize(count=n())
+
+ph_sample_count <- length(ph_samples$count)
+
+uptime_ph <- data %>%
+  filter(pH > 7.0, pH <8.5) %>%
+  group_by(date) %>%
+  summarize(count=n()) %>%
+  filter(count > threshold)
+
+uptime_ph_count <- length(uptime_ph$count)
+
+uptime_ph_percent <- uptime_ph_count/ph_sample_count
+
+
+
+#o2 counts of uptimes
+
+o2_samples <- data %>%
+  group_by(date) %>%
+  summarize(count=n())
+
+o2_sample_count <- length(o2_samples$count)
+
+uptime_o2 <- data %>%
+  filter(o2 > 4, o2 <11) %>%
+  group_by(date) %>%
+  summarize(count=n()) %>%
+  filter(count > threshold)
+
+uptime_o2_count <- length(uptime_o2$count)
+
+uptime_o2_percent <- uptime_o2_count/o2_sample_count
+
+
+
+uptime_all <- 128/145
+
+
+#for search and replacing
+# colnames(data)
+# [1] "date"     "time"     "sst"      "sss"      "dep"      "ph"       "chl"      "trb"      "o2"
+# [10] "datetime"
+
+
+
+# commenting out ends here
+
+
+
+#### SCRAP ####
+
+
+##### BOB no 2021 data due to COVID-19 crisis mooring loss  #####################################
+
+
+# #comment out starts here
+#
+# 
+# #load tidied data
+# load("data/bob/ctd/bob.ctd.2019.RData")
+# data1 <- data
+# rm(data)
+# 
+# data1$date <- date(data1$datetime)
+# 
+# data1 <- filter(data1, date> "2019-05-31")
+# 
+# #load tidied data
+# load("data/bob/seafet/bob.seafet.2019.RData")
+# data2 <- data
+# rm(data)
+# 
+# data2$date <- date(data2$datetime)
+# 
+# data2 <- filter(data2, date> "2019-05-31")
+# 
+# 
+# date_start <- date("2019-06-01")
+# 
+# date_end <- date("2019-10-24")
+# 
+# date_end - date_start
+# 
+# buoy_season_days <- difftime(date_end, date_start, units = "days")
+# 
+# print(buoy_season_days)
+# 
+# #samples per day
+# seconds_per_day <- 60*60*24
+# sampling_freq1 <- 360 #seconds
+# sampling_freq2 <- 360 #seconds
+# sample_per_day <- seconds_per_day/sampling_freq
+# 
+# threshold <- 0.75*sample_per_day
+# 
+# days_sampling <- length(data$sst)/sample_per_day
+# 
+# 
+# #for search and replacing
+# #colnames(data)
+# # [1] "sst"      "sss"      "ph"       "chl"      "trb"      "o2"       "date"     "mon"      "day"  
+# # [10] "year"     "datetime"
+# 
+# 
+# # temperature counts of uptimes
+# 
+# sst_samples <- data1 %>%
+#   group_by(date) %>% 
+#   summarize(count=n())
+# 
+# sst_sample_count <- length(sst_samples$count)
+# 
+# uptime_sst <- data1 %>%
+#   filter(sst > 0, sst <30) %>%
+#   group_by(date) %>% 
+#   summarize(count=n()) %>%
+#   filter(count > threshold)
+# 
+# uptime_sst_count <- length(uptime_sst$count)
+# 
+# uptime_sst_percent <- uptime_sst_count/sst_sample_count
+# 
+# 
+# 
+# #salinity counts of uptimes
+# 
+# sss_samples <- data1 %>%
+#   group_by(date) %>% 
+#   summarize(count=n())
+# 
+# sss_sample_count <- length(sss_samples$count)
+# 
+# uptime_sss <- data1 %>%
+#   filter(sss > 0, sss <35) %>%
+#   group_by(date) %>% 
+#   summarize(count=n()) %>%
+#   filter(count > threshold)
+# 
+# uptime_sss_count <- length(uptime_sss$count)
+# 
+# uptime_sss_percent <- uptime_sss_count/sss_sample_count
+# 
+# 
+# #ph counts of uptimes
+# 
+# ph_samples <- data2 %>%
+#   group_by(date) %>% 
+#   summarize(count=n())
+# 
+# ph_sample_count <- length(ph_samples$count)
+# 
+# uptime_ph <- data2 %>%
+#   filter(pH > 7.0, pH <8.5) %>%
+#   group_by(date) %>% 
+#   summarize(count=n()) %>%
+#   filter(count > threshold)
+# 
+# uptime_ph_count <- length(uptime_ph$count)
+# 
+# uptime_ph_percent <- uptime_ph_count/ph_sample_count
+# 
+# 
+# #chl counts of uptimes
+# 
+# chl_samples <- data1 %>%
+#   group_by(date) %>% 
+#   summarize(count=n())
+# 
+# chl_sample_count <- length(chl_samples$count)
+# 
+# uptime_chl <- data1 %>%
+#   filter(chla > 0, chla <30) %>%
+#   group_by(date) %>% 
+#   summarize(count=n()) %>%
+#   filter(count > threshold)
+# 
+# uptime_chl_count <- length(uptime_chl$count)
+# 
+# uptime_chl_percent <- uptime_chl_count/chl_sample_count
+# 
+# #turbidity counts of uptimes
+# 
+# trb_samples <- data1 %>%
+#   group_by(date) %>% 
+#   summarize(count=n())
+# 
+# trb_sample_count <- length(trb_samples$count)
+# 
+# uptime_trb <- data1 %>%
+#   filter(turb > 0, turb <200) %>%
+#   group_by(date) %>% 
+#   summarize(count=n()) %>%
+#   filter(count > threshold)
+# 
+# uptime_trb_count <- length(uptime_trb$count)
+# 
+# uptime_trb_percent <- uptime_trb_count/trb_sample_count
+# 
+# #o2 counts of uptimes
+# 
+# o2_samples <- data1 %>%
+#   group_by(date) %>% 
+#   summarize(count=n())
+# 
+# o2_sample_count <- length(o2_samples$count)
+# 
+# uptime_o2 <- data1 %>%
+#   filter(o2 > 4, o2 <11) %>%
+#   group_by(date) %>% 
+#   summarize(count=n()) %>%
+#   filter(count > threshold)
+# 
+# uptime_o2_count <- length(uptime_o2$count)
+# 
+# uptime_o2_percent <- uptime_o2_count/o2_sample_count
+# 
+# 
+# #for search and replacing
+# #colnames(data)
+# # [1] "sst"      "sss"      "ph"       "chl"      "trb"      "o2"       "date"     "mon"      "day"  
+# # [10] "year"     "datetime"
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+#  #comment out ends here
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
