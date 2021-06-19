@@ -364,12 +364,16 @@ cma_2021 <- select(df, datetime, everything())
 
 save(cma_2021, file = "CMA_YSI_20201114-20210615.RData")
 
+rm(cma_2021)
+
 #restart R to confirm if data saved
 
 load(file = "CMA_YSI_20201114-20210615.RData")
 
+str(cma_2021)
 
-write.csv(cma_2021, file = "CMA_YSI_20201114-20210615.RData", row.names = F)
+
+write.csv(cma_2021, file = "CMA_YSI_20201114-20210615.csv", row.names = F)
 
 rm(cma_2021)
 
