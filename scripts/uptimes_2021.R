@@ -735,7 +735,7 @@ df1 <- df1 %>%
 # for first 6 months of annual analysis
 
 df1 <- df1 %>%
-  filter(date >= as.POSIXct("2020-12-01")) 
+  filter(datetime >= as.POSIXct("2020-12-21 18:40:00")) 
 
 
 df1 <- df1 %>%
