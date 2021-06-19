@@ -751,6 +751,19 @@ df1 <- df1 %>%
 # df1 <- df1 %>%
 #   filter(date <= as.POSIXct("2021-12-01")) 
 
+report_interval <- interval(ymd("2020-12-01"), ymd("2021-05-31")) 
+
+report_interval <- as.duration(report_interval)
+
+report_interval <- floor(as.numeric(report_interval, "days"))
+
+
+
+data_interval <- interval(ymd("2020-12-21"), ymd("2021-03-24")) 
+
+data_interval <- as.duration(data_interval)
+
+data_interval <- floor(as.numeric(data_interval, "days"))
 
 
 #samples per day
@@ -920,9 +933,9 @@ uptime_o2_percent <- uptime_o2_count/o2_sample_count
 
 
 
-uptime_table$mari_o2 <- paste0(uptime_o2_ext_count, "/",
-                                 o2_ext_sample_count,"(",
-                                 uptime_o2_ext_percent,")")
+uptime_table$mari_o2 <- paste0(uptime_o2_count, "/",
+                                 o2_sample_count,"(",
+                                 uptime_o2_percent,")")
 
 
 
