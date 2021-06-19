@@ -1,0 +1,24 @@
+               eos_pier_temp                 eos_pier_sal 
+             "180/182(98.9)"              "180/182(98.9)" 
+                 eos_pier_pH                 eos_pier_chl 
+"180/182(0.989010989010989)" "143/182(0.785714285714286)" 
+                eos_pier_trb                  eos_pier_o2 
+"180/182(0.989010989010989)" "180/182(0.989010989010989)" 
+              eos_pier_depth                 eos_met_temp 
+"180/182(0.989010989010989)"                 "182/182(1)" 
+                  eos_met_rh             eos_met_par_dens 
+                "182/182(1)"                 "182/182(1)" 
+                eos_met_rain              eos_met_windspd 
+                "182/182(1)"                 "182/182(1)" 
+               eos_met_press                cma_pier_temp 
+                "182/182(1)"               "163/163(100)" 
+                cma_pier_sal                  cma_pier_ph 
+              "163/163(100)"               "163/163(100)" 
+                cma_pier_chl                 cma_pier_trb 
+              "163/163(100)"                 "163/163(1)" 
+                 cma_pier_o2               cma_pier_depth 
+                "163/163(1)"                 "163/163(1)" 
+                   mari_temp                     mari_sal 
+              "99/100(0.99)"               "99/100(0.99)" 
+                 mari_ph_int                  mari_ph_ext 
+              "99/100(0.99)"               "99/100(0.99)" 

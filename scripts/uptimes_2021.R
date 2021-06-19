@@ -7,6 +7,7 @@ library(lubridate)
 library(here)
 
 
+
 ##### set working directory ###############################
 
 setwd(here())
@@ -924,15 +925,18 @@ uptime_table$mari_o2 <- paste0(uptime_o2_ext_count, "/",
                                  uptime_o2_ext_percent,")")
 
 
-#pier sond params
-# colnames(df1)
-# [1] "date"     "time"     "sst"      "sss"      "dep"      "ph"       "chl"      "trb"      "o2"
-# [10] "datetime"
+
+# export list info (I do not like this solution... but it works...)
+
+capture.output(unlist(uptime_table), file = "June-2021-uptimes.txt")
 
 
-uptime_all <- 128/145
-
-
+# param.stats <- c(uptime_table[2])
+# 
+# param <- c(names(uptime_table))
+# 
+# 
+# df_test <- data.frame()
 
 
 #pier sond params
