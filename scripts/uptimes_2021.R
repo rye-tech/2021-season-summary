@@ -53,9 +53,6 @@ str(df1)
 
 summary(df1)
 
-
-
-
 df1 <- df1 %>%
   mutate(day = day(datetime),
          date = date(datetime))
@@ -523,8 +520,6 @@ report_interval <- as.duration(report_interval)
 
 report_interval <- floor(as.numeric(report_interval, "days"))
 
-
-#LEFT OFF HERE
 
 
 
