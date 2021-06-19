@@ -1,3 +1,26 @@
+
+
+
+##### CeNCOOS Data Tidy Helper ####------------
+#Cut and past this piece of code with you.
+## Search and replace site names or params in code.
+# Save as copy after all looks good and runs up times or whatevs analysis
+
+#Metadata
+site <-  c("bob", "mari", "EOS-pier", "EOS-Met" , "CMA-pier")
+intr <-  c("MapCO2Sys + sbe-seafet + sbe-ctd16", "ysi-6600V4-sonde")
+param <- c("ph + c,t,d,odo,chl + sea-xco2,atm-xco2", "c,t,d,odo,")
+
+# add tech("int-isfet/ext-mosfet", "etc") ? phys("surface/EOS shore 12m contour?",
+# "20m-depth/EOS-20m contour) conditions/location?
+
+#### DATA TOOL END ######--------
+
+
+
+
+
+
 #### load libraries, set working directory, point to files ####
 
 library(tidyverse)
@@ -11,37 +34,41 @@ setwd(here())
 
 getwd()
 
-setwd(here("data", "eos-pier"))
+setwd(here("data", "cma-pier"))
 
 getwd()
 
 
 
 list.files(pattern = ".csv")
-# [1] "YSI_RTC_20201124-20201218.csv"
-# [2] "YSI_RTC_20201218-20201219.csv"
-# [3] "YSI_RTC_20201219-20210130.csv"
-# [4] "YSI_RTC_20210131-20210325.csv"
-# [5] "YSI_RTC_20210326-20210426.csv"
-# [6] "YSI_RTC_20210427-20210519.csv"
+# [1] "CMA_YSI_20201114-20201215.csv" "CMA_YSI_20201114-20210615.csv"
+# [3] "CMA_YSI_20201216-20201219.csv" "CMA_YSI_20201219-20210113.csv"
+# [5] "CMA_YSI_20210113-20210203.csv" "CMA_YSI_20210203-20210215.csv"
+# [7] "CMA_YSI_20210215-20210322.csv" "CMA_YSI_20210322-20210512.csv"
 
-list.files(path = here("data", "eos-pier", "rt"), pattern = ".txt")
-# [1] "20210519-20210615-realtime_raw_pier.txt"
-# [2] "rtcysi_rt_header.txt"  
+list.files(path = here("data", "cma-pier", "rt"), pattern = ".txt")
+# [1] "20210512-20210614-cma_realtime_raw.txt" "cma_ysi_rt_header.txt"  
 
 #assign file names
 
 #June 2021 Files
 
-file1 <- "YSI_RTC_20201124-20201218.csv"
-file2 <- "YSI_RTC_20201218-20201219.csv"    
-file3 <- "YSI_RTC_20201219-20210130.csv"
-file4 <- "YSI_RTC_20210131-20210325.csv"
-file5 <- "YSI_RTC_20210326-20210426.csv"
-file6 <- "YSI_RTC_20210427-20210519.csv"
-file7 <- here("data", "eos-pier", "rt",
-              "20210519-20210615-realtime_raw_pier.txt")
-file8 <- here("data", "eos-pier", "rt", "rtcysi_rt_header.txt")
+
+hdr_file <- here("data", "cma-pier", "rt",
+                 "cma_ysi_rt_header.txt")
+
+
+file1 <- "CMA_YSI_20201114-20201215.csv"  
+file2 <- "CMA_YSI_20201216-20201219.csv"  
+file3 <- "CMA_YSI_20201219-20210113.csv"  
+file4 <- "CMA_YSI_20210113-20210203.csv"  
+
+
+file5 <- "CMA_YSI_20210203-20210215.csv"
+file6 <- "CMA_YSI_20210215-20210322.csv"
+file7 <- "CMA_YSI_20210322-20210512.csv"
+file8 <- here("data", "cma-pier", "rt",
+              "20210512-20210614-cma_realtime_raw.txt")
 
 #### header troubleshooting if needed ####
 
@@ -61,20 +88,24 @@ file8 <- here("data", "eos-pier", "rt", "rtcysi_rt_header.txt")
 
 
 # # reading in the real time header
+
 # var_rt <- read.table(file8, as.is = T, skip = 1, nrows = 1, header = F)
-# units_rt <- read.table(file8, as.is = T, skip = 2, nrows = 1, header = F)
 # 
-# units_rt <- units_rt %>%
-#   mutate(V18 = NA, .after = "V10")
+# var_rt <- var_rt %>%
+#   mutate(V12 = "pH.1", V14 = "Chl.1", V15 = "Turbid.")
 # 
-# header_rt <- paste0(var_rt, "_", units_rt)
+# header_rt <- paste0(var_rt)
+# 
+# print(header_rt)
+
+
 
 
 #### real time header #####
 
 
 # reading in the real time header
-var_rt <- read.table(file8, as.is = T, skip = 1, nrows = 1, header = F)
+var_rt <- read.table(hdr_file, as.is = T, skip = 1, nrows = 1, header = F)
 
 var_rt <- var_rt %>%
   mutate(V12 = "pH.1", V14 = "Chl.1", V15 = "Turbid.")
@@ -103,6 +134,14 @@ df1 = read.csv(file1,
 
 #drop units row
 df1 <- df1[-1,]
+
+#for this data frame only fix the date wtf why
+
+df1$Date <- mdy(df1$Date)
+
+df1$Date <- as.character(df1$Date)
+
+df1$Date <- gsub("-", "/", df1$Date)
 
 # convert all character to numeric
 df1 <- df1 %>% 
@@ -156,22 +195,33 @@ df6 <- df6[-1,]
 df6 <- df6 %>% 
   mutate(across(where(is.character) & !c(Date, Time), as.numeric))
 
-# real time data has a different strategy 
-# since it did not come with headers in the text file
 
-df7 <- read.table(file7, as.is = T, header = F)
-# option as.is = T keeps the strings as strings and not factors
 
-# # assigns columns names pulled from header "file"
-colnames(df7) <- header_rt
+df7 = read.csv(file7,
+               header=T, stringsAsFactors=F, sep=",")
 
-# convert all character to numeric
+df7 <- df7[-1,]
+
 df7 <- df7 %>% 
   mutate(across(where(is.character) & !c(Date, Time), as.numeric))
 
 
-# add in as files come in
-# 
+# real time data has a different strategy 
+# since it did not come with headers in the text file
+
+df8 <- read.table(file8, as.is = T, header = F)
+# option as.is = T keeps the strings as strings and not factors
+
+# # assigns columns names pulled from header "file"
+colnames(df8) <- header_rt
+
+# convert all character to numeric
+df8 <- df8 %>% 
+  mutate(across(where(is.character) & !c(Date, Time), as.numeric))
+
+
+# add df in as files come in --------------------------------
+# NOTE DOUBLE CHECK FORMAT MATCHES WORKING CODE
 # 
 # df7.1 = read.csv(file7.1,
 #                header=T, stringsAsFactors=F, sep=",")
@@ -219,6 +269,7 @@ df7 <- df7 %>%
 # df15 <- df15[-1,]
 # 
 # 
+# end xtr df code ---------------------------
 
 
 # below helps me to see where mismatches happen
@@ -229,12 +280,23 @@ compare_df_cols(df1, df2, df3,
                 df4, df5, df6, df7, 
                 return = "mismatch")
 
+# THIS GOOD
+# [1] column_name df1         df2         df3        
+# [5] df4         df5         df6         df7        
+# <0 rows> (or 0-length row.names)
+
+
+#bind all df together
 
 df <- bind_rows(df1, df2, df3, df4,
                 df5, df6, df7, .id= NULL)
 
+
+# dub check headrs good
 names(df)
 
+
+#new cleaner names
 df <- df %>%
   rename(sst = Temp,
          sss = Sal,
@@ -246,22 +308,49 @@ df <- df %>%
          Turb = "Turbid.")
 
 
+# dub check headrs good
+names(df)
 
-
-
-
+# check data structure
 str(df)
 
+
+# create datetime object time anchor in UTC/GMT
 
 df <- df %>%
   mutate(datetime =  paste(df$Date, df$Time))
 
 df$datetime <- as.POSIXct(df$datetime, format = "%Y/%m/%d %H:%M:%S", tz = "GMT")
 
+#check that datetime is indeed POSIXct
 str(df)
 
+#if POSIXct, arrange ascending order by time
 df <- df %>%
   arrange(datetime)
+
+
+#check for anything weird like NA's
+summary(df$datetime) 
+
+#good data 
+# Min.               1st Qu. 
+# "2020-11-14 02:37:47" "2020-12-29 00:49:30" 
+# Median                  Mean 
+# "2021-02-11 22:55:29" "2021-02-11 23:34:26" 
+# 3rd Qu.                  Max. 
+# "2021-03-29 00:43:28" "2021-05-12 19:31:28" 
+
+#Example of bad data
+# Min.               1st Qu. 
+# "2020-12-16 00:31:29" "2021-01-21 23:43:29" 
+# Median                  Mean 
+# "2021-02-27 23:01:29" "2021-02-27 22:45:36" 
+# 3rd Qu.                  Max. 
+# "2021-04-05 23:31:28" "2021-05-12 19:31:28" 
+# NA's 
+#                "7632" 
+
 
 
 # remove duplicate rows with dplyr
@@ -270,23 +359,19 @@ df <- df %>%
   distinct(datetime, .keep_all = TRUE)
 
 
-eos_pier_2021 <- select(df, datetime, everything())
+cma_2021 <- select(df, datetime, everything())
 
 
-#save(eos_pier_2021, file = "EOS_YSI_20191124-20210130.RData")
-
-save(eos_pier_2021, file = "EOS_YSI_20201124-20210615.RData")
+save(cma_2021, file = "CMA_YSI_20201114-20210615.RData")
 
 #restart R to confirm if data saved
 
-load(file = "EOS_YSI_20201124-20210615.RData")
-
-str(eos_pier_2021)
+load(file = "CMA_YSI_20201114-20210615.RData")
 
 
-write.csv(eos_pier_2021, file = "EOS_YSI_20201124-20210615.csv", row.names = F)
+write.csv(cma_2021, file = "CMA_YSI_20201114-20210615.RData", row.names = F)
 
-rm(eos_pier_2021)
+rm(cma_2021)
 
 
 
@@ -407,5 +492,14 @@ rm(eos_pier_2021)
 
 
 
+# went a different route trying to create real time header
+
+# var_rt <- read.table(file8, as.is = T, skip = 1, nrows = 1, header = F)
+# units_rt <- read.table(file8, as.is = T, skip = 2, nrows = 1, header = F)
+# 
+# units_rt <- units_rt %>%
+#   mutate(V18 = NA, .after = "V10")
+# 
+# header_rt <- paste0(var_rt, "_", units_rt)
 
 
