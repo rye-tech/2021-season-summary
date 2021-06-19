@@ -51,10 +51,14 @@ getwd()
 
 
 list.files(pattern = ".csv")
-# [1] "CMA_YSI_20201114-20201215.csv" "CMA_YSI_20201114-20210615.csv"
-# [3] "CMA_YSI_20201216-20201219.csv" "CMA_YSI_20201219-20210113.csv"
-# [5] "CMA_YSI_20210113-20210203.csv" "CMA_YSI_20210203-20210215.csv"
-# [7] "CMA_YSI_20210215-20210322.csv" "CMA_YSI_20210322-20210512.csv"
+# [1] "CMA_YSI_20201114-20201215.csv"
+# [2] "CMA_YSI_20201114-20210615.csv"
+# [3] "CMA_YSI_20201216-20201219.csv"
+# [4] "CMA_YSI_20201219-20210113.csv"
+# [5] "CMA_YSI_20210113-20210203.csv"
+# [6] "CMA_YSI_20210203-20210215.csv"
+# [7] "CMA_YSI_20210215-20210322.csv"
+# [8] "CMA_YSI_20210322-20210512.csv"
 
 list.files(path = here("data", "cma-pier", "rt"), pattern = ".txt")
 # [1] "20210512-20210614-cma_realtime_raw.txt" "cma_ysi_rt_header.txt"  
@@ -286,8 +290,8 @@ df8 <- df8 %>%
 # when combining data frames
 # ignore numeric and integer mismatch
 
-compare_df_cols(df1, df2, df3,
-                df4, df5, df6, df7, 
+compare_df_cols(df1, df2, df3, df4,
+                df5, df6, df7, df8, 
                 return = "mismatch")
 
 # THIS GOOD
@@ -295,11 +299,21 @@ compare_df_cols(df1, df2, df3,
 # [5] df4         df5         df6         df7        
 # <0 rows> (or 0-length row.names)
 
+# integer mismatch from df8, which is fine
+
+# column_name     df1     df2     df3
+# 1        Cond numeric numeric numeric
+# 2      SpCond numeric numeric numeric
+# df4     df5     df6     df7     df8
+# 1 numeric numeric numeric numeric integer
+# 2 numeric numeric numeric numeric integer
+
 
 #bind all df together
 
 df <- bind_rows(df1, df2, df3, df4,
-                df5, df6, df7, .id= NULL)
+                df5, df6, df7, df8,
+                .id= NULL)
 
 
 # dub check headrs good
@@ -344,12 +358,10 @@ df <- df %>%
 summary(df$datetime) 
 
 #good data 
-# Min.               1st Qu. 
-# "2020-11-14 02:37:47" "2020-12-29 00:49:30" 
-# Median                  Mean 
-# "2021-02-11 22:55:29" "2021-02-11 23:34:26" 
-# 3rd Qu.                  Max. 
-# "2021-03-29 00:43:28" "2021-05-12 19:31:28" 
+# Min.               1st Qu.                Median 
+# "2020-11-14 02:37:47" "2021-01-05 00:55:30" "2021-02-26 01:37:29" 
+# Mean               3rd Qu.                  Max. 
+# "2021-02-26 09:16:24" "2021-04-19 01:01:28" "2021-06-15 06:55:28" 
 
 #Example of bad data
 # Min.               1st Qu. 
