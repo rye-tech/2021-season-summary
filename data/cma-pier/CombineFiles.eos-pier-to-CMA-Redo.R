@@ -4,9 +4,17 @@
 ##### CeNCOOS Data Tidy Helper ####------------
 #Cut and past this piece of code with you.
 ## Search and replace site names or params in code.
+
+#for search and replacing
+# colnames(data)
+# [1] "date"     "time"     "sst"      "sss"      "dep"      "ph"       "chl"      "trb"      "o2"
+# [10] "datetime"
+
 # Save as copy after all looks good and runs up times or whatevs analysis
 
-#Metadata
+#### DATA TOOL END ######--------
+
+# Metadata ---------------
 site <-  c("bob", "mari", "EOS-pier", "EOS-Met" , "CMA-pier")
 intr <-  c("MapCO2Sys + sbe-seafet + sbe-ctd16", "ysi-6600V4-sonde")
 param <- c("ph + c,t,d,odo,chl + sea-xco2,atm-xco2", "c,t,d,odo,")
@@ -14,7 +22,9 @@ param <- c("ph + c,t,d,odo,chl + sea-xco2,atm-xco2", "c,t,d,odo,")
 # add tech("int-isfet/ext-mosfet", "etc") ? phys("surface/EOS shore 12m contour?",
 # "20m-depth/EOS-20m contour) conditions/location?
 
-#### DATA TOOL END ######--------
+
+
+#### Metadata end  ######--------
 
 
 
