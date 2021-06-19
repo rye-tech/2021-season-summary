@@ -1,3 +1,5 @@
+  
+
 #load libraries #############################
 
 library(dplyr)
@@ -27,7 +29,18 @@ file4 <- here("data", "mari",
               "mari.2021.RData")
 
 
+#for search and replacing -----------------
+# colnames(data)
+# [1] "date"     "time"     "sst"      "sss"      "dep"      "ph"       "chl"      "trb"      "o2"
+# [10] "datetime"
 
+#for search and replacing
+#names(df1)
+# [1] "datetime"    "ctd_temp"    "ctd_sal"     "ctd_o2_mg_l"
+# [5] "pH_int"      "pH_ext"      "abs_pH_diff" "pH_int_v"   
+# [9] "pH_ext_v"    "abs_v_diff"  "pH_temp"     "press_dbar" 
+# [13] "cond_Sm"     "RH"          "pH_int_temp" "day"        
+# [17] "date"    
 
 
 
@@ -594,7 +607,7 @@ uptime_ph <- df1 %>%
 
 uptime_ph_count <- length(uptime_ph$count)
 
-uptime_ph_percent <- uptime_ph_count/ph_sample_count
+uptime_ph_percent <- (uptime_ph_count/ph_sample_count) * 100
 
 uptime_table$cma_pier_ph <- paste0(uptime_ph_count, "/", 
                                     ph_sample_count, "(", 
@@ -617,7 +630,14 @@ uptime_chl <- df1 %>%
 
 uptime_chl_count <- length(uptime_chl$count)
 
-uptime_chl_percent <- uptime_chl_count/chl_sample_count
+uptime_chl_percent <- (uptime_chl_count/chl_sample_count) * 100
+
+
+uptime_table$cma_pier_chl <- paste0(uptime_chl_count, "/", 
+                                   chl_sample_count, "(", 
+                                   uptime_chl_percent,")")
+
+
 
 #turbidity counts of uptimes
 
@@ -637,6 +657,13 @@ uptime_trb_count <- length(uptime_trb$count)
 
 uptime_trb_percent <- uptime_trb_count/trb_sample_count
 
+
+
+uptime_table$cma_pier_trb <- paste0(uptime_trb_count, "/", 
+                                    trb_sample_count, "(", 
+                                    uptime_trb_percent,")")
+
+
 #o2 counts of uptimes
 
 o2_samples <- df1 %>%
@@ -654,6 +681,13 @@ uptime_o2 <- df1 %>%
 uptime_o2_count <- length(uptime_o2$count)
 
 uptime_o2_percent <- uptime_o2_count/o2_sample_count
+
+
+uptime_table$cma_pier_o2 <- paste0(uptime_o2_count, "/", 
+                                    o2_sample_count, "(", 
+                                    uptime_o2_percent,")")
+
+
 
 
 # depth counts of uptimes
@@ -676,12 +710,13 @@ uptime_depth_percent <- uptime_depth_count/depth_sample_count
 
 
 
+uptime_table$cma_pier_depth <- paste0(uptime_depth_count, "/", 
+                                   depth_sample_count, "(", 
+                                   uptime_depth_percent,")")
+
 
 
 ##### MARI uptime counts ###############################################
-
-
-# commenting out starts here
 
 
 # load tidied data
@@ -724,85 +759,154 @@ sample_per_day <- seconds_per_day/sampling_freq
 
 threshold <- 0.75*sample_per_day
 
-days_sampling <- length(data$sst)/sample_per_day
+days_sampling <- length(data$ctd_temp)/sample_per_day
 
-
-#for search and replacing
+#pier sond params
 # colnames(data)
 # [1] "date"     "time"     "sst"      "sss"      "dep"      "ph"       "chl"      "trb"      "o2"
 # [10] "datetime"
 
+#mari sfx params
+#for search and replacing
+#names(df1)
+# [1] "datetime"    "ctd_temp"    "ctd_sal"     "ctd_o2_mg_l"
+# [5] "pH_int"      "pH_ext"      "abs_pH_diff" "pH_int_v"   
+# [9] "pH_ext_v"    "abs_v_diff"  "pH_temp"     "press_dbar" 
+# [13] "cond_Sm"     "RH"          "pH_int_temp" "day"        
+# [17] "date"   
+
 
 # temperature counts of uptimes
 
-sst_samples <- data %>%
+ctd_temp_samples <- df1 %>%
   group_by(date) %>%
   summarize(count=n())
 
-sst_sample_count <- length(sst_samples$count)
+ctd_temp_sample_count <- length(ctd_temp_samples$count)
 
-uptime_sst <- data %>%
-  filter(sst > 0, sst <30) %>%
+uptime_ctd_temp <- df1 %>%
+  filter(ctd_temp > 0, ctd_temp <30) %>%
   group_by(date) %>%
   summarize(count=n()) %>%
   filter(count > threshold)
 
-uptime_sst_count <- length(uptime_sst$count)
+uptime_ctd_temp_count <- length(uptime_ctd_temp$count)
 
-uptime_sst_percent <- uptime_sst_count/sst_sample_count
+uptime_ctd_temp_percent <- uptime_ctd_temp_count/ctd_temp_sample_count
 
-uptime_table$eos_pier_temp <- paste0(uptime_sst_count,"/",sst_sample_count,"(",uptime_sst_percent,")")
+uptime_table$mari_temp <- paste0(uptime_ctd_temp_count, "/",
+                                 ctd_temp_sample_count,"(",
+                                 uptime_ctd_temp_percent,")")
 
 
 #salinity counts of uptimes
 
-sss_samples <- data %>%
+ctd_sal_samples <- df1 %>%
   group_by(date) %>%
   summarize(count=n())
 
-sss_sample_count <- length(sss_samples$count)
+ctd_sal_sample_count <- length(ctd_sal_samples$count)
 
-uptime_sss <- data %>%
-  filter(sss > 0, sss <35) %>%
+uptime_ctd_sal <- df1 %>%
+  filter(ctd_sal > 0, ctd_sal <35) %>%
   group_by(date) %>%
   summarize(count=n()) %>%
   filter(count > threshold)
 
-uptime_sss_count <- length(uptime_sss$count)
+uptime_ctd_sal_count <- length(uptime_ctd_sal$count)
 
-uptime_sss_percent <- uptime_sss_count/sss_sample_count
+uptime_ctd_sal_percent <- uptime_ctd_sal_count/ctd_sal_sample_count
+
+uptime_table$mari_sal <- paste0(uptime_ctd_sal_count, "/",
+                                 ctd_sal_sample_count,"(",
+                                 uptime_ctd_sal_percent,")")
 
 
-#ph counts of uptimes
+#check pH_ext 
+summary(df1$pH_int)
+# Min.    1st Qu.  Median    Mean    3rd Qu.    Max. 
+# 7.786   7.823    7.838     7.852   7.858      8.077 
 
-ph_samples <- data %>%
+
+
+
+#ph_int counts of uptimes
+
+ph_int_samples <- df1 %>%
   group_by(date) %>%
   summarize(count=n())
 
-ph_sample_count <- length(ph_samples$count)
+ph_int_sample_count <- length(ph_int_samples$count)
 
-uptime_ph <- data %>%
-  filter(pH > 7.0, pH <8.5) %>%
+uptime_ph_int <- df1 %>%
+  filter(pH_int > 7.0, pH_int <8.5) %>%
   group_by(date) %>%
   summarize(count=n()) %>%
   filter(count > threshold)
 
-uptime_ph_count <- length(uptime_ph$count)
+uptime_ph_int_count <- length(uptime_ph_int$count)
 
-uptime_ph_percent <- uptime_ph_count/ph_sample_count
+uptime_ph_int_percent <- uptime_ph_int_count/ph_int_sample_count
 
+uptime_table$mari_ph_int <- paste0(uptime_ph_int_count, "/",
+                                 ph_int_sample_count,"(",
+                                 uptime_ph_int_percent,")")
+
+
+#check pH_ext 
+summary(df1$pH_ext)
+# Min.    1st Qu.  Median    Mean    3rd Qu.    Max. 
+# 7.759   7.830    7.851      7.862   7.869    8.113 
+
+#ph_ext counts of uptimes
+
+ph_ext_samples <- df1 %>%
+  group_by(date) %>%
+  summarize(count=n())
+
+ph_ext_sample_count <- length(ph_ext_samples$count)
+
+uptime_ph_ext <- df1 %>%
+  filter(pH_ext > 7.0, pH_ext <8.5) %>%
+  group_by(date) %>%
+  summarize(count=n()) %>%
+  filter(count > threshold)
+
+uptime_ph_ext_count <- length(uptime_ph_ext$count)
+
+uptime_ph_ext_percent <- uptime_ph_ext_count/ph_ext_sample_count
+
+uptime_table$mari_ph_ext <- paste0(uptime_ph_ext_count, "/",
+                                 ph_ext_sample_count,"(",
+                                 uptime_ph_ext_percent,")")
+
+
+#pier sond params
+# colnames(df1)
+# [1] "date"     "time"     "sst"      "sss"      "dep"      "ph"       "chl"      "trb"      "o2"
+# [10] "datetime"
+
+
+#check o2 range
+
+summary(df1$ctd_o2_mg_l)
+
+# max of 20.6 retrieval spike?
+
+# Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+# 7.233   7.986   8.288   8.197   8.404  20.640 
 
 
 #o2 counts of uptimes
 
-o2_samples <- data %>%
+o2_samples <- df1 %>%
   group_by(date) %>%
   summarize(count=n())
 
 o2_sample_count <- length(o2_samples$count)
 
-uptime_o2 <- data %>%
-  filter(o2 > 4, o2 <11) %>%
+uptime_o2 <- df1 %>%
+  filter(ctd_o2_mg_l > 4, ctd_o2_mg_l <11) %>%
   group_by(date) %>%
   summarize(count=n()) %>%
   filter(count > threshold)
@@ -813,11 +917,32 @@ uptime_o2_percent <- uptime_o2_count/o2_sample_count
 
 
 
+
+
+uptime_table$mari_o2 <- paste0(uptime_o2_ext_count, "/",
+                                 o2_ext_sample_count,"(",
+                                 uptime_o2_ext_percent,")")
+
+
+#pier sond params
+# colnames(df1)
+# [1] "date"     "time"     "sst"      "sss"      "dep"      "ph"       "chl"      "trb"      "o2"
+# [10] "datetime"
+
+
 uptime_all <- 128/145
 
 
+
+
+#pier sond params
+# colnames(df1)
+# [1] "date"     "time"     "sst"      "sss"      "dep"      "ph"       "chl"      "trb"      "o2"
+# [10] "datetime"
+
+
 #for search and replacing
-# colnames(data)
+# colnames(df1)
 # [1] "date"     "time"     "sst"      "sss"      "dep"      "ph"       "chl"      "trb"      "o2"
 # [10] "datetime"
 
@@ -832,7 +957,7 @@ uptime_all <- 128/145
 # if needed
 #for search and replacing
 # sst
-# colnames(data)
+# colnames(df1)
 # [1] "datetime"   "record"     "batt"       "airtemp"    "rh"         "bp"         "ws"         "wdir"       "par_dens"  # [10] "par_tot"    "sol_irr_kw" "sol_irr_mj" "rain"
 
 
@@ -840,14 +965,14 @@ uptime_all <- 128/145
 
 
 
-##### BOB no 2021 data due to COVID-19 crisis mooring loss  #####################################
+##### BOB no 2021 df1 due to COVID-19 crisis mooring loss  #####################################
 
 
 # #comment out starts here
 #
 # 
-# #load tidied data
-# load("data/bob/ctd/bob.ctd.2019.RData")
+# #load tidied df1
+# load("df1/bob/ctd/bob.ctd.2019.RData")
 # data1 <- data
 # rm(data)
 # 
