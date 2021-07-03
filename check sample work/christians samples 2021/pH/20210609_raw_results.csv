@@ -1,8 +1,8 @@
 Analyst, Sample ID, Sample Tag, Notes1, Type, 434 nm, 578 nm, 730 nm
-ctettelbach, Blank, no dye, 0.0000, Blank, -0.0001, 0.0000, -0.0001
-ctettelbach, BaySTD2, no dye, 0.0000, Measurement 1, 0.0592, 0.0423, 0.1168
-ctettelbach, T21-714-1, no dye, 0.0000, Measurement 1, 0.0498, 0.0393, 0.1153
-ctettelbach, T21-714-2, no dye, 0.0000, Measurement 1, 0.0500, 0.0394, 0.1152
-ctettelbach, BaySTD2, m-cresol added, 0.0000, Measurement 2, 0.6283, 0.8019, 0.1159
-ctettelbach, T21-714-1, m-cresol added, 0.0000, Measurement 2, 0.6629, 0.6950, 0.1140
-ctettelbach, T21-714-2, m-cresol added, 0.0000, Measurement 2, 0.6638, 0.6889, 0.1145
+ctettelbach, Blank, no dye,0, Blank,-0.0001,0,-0.0001
+ctettelbach, BaySTD2, no dye,0, Measurement 1,0.0592,0.0423,0.1168
+ctettelbach, T21-714-1, no dye,0, Measurement 1,0.0498,0.0393,0.1153
+ctettelbach, T21-714-2, no dye,0, Measurement 1,0.05,0.0394,0.1152
+ctettelbach, BaySTD2, m-cresol added,0, Measurement 2,0.6283,0.8019,0.1159
+ctettelbach, T21-714-1, m-cresol added,0, Measurement 2,0.6629,0.695,0.114
+ctettelbach, T21-714-2, m-cresol added,0, Measurement 2,0.6638,0.6889,0.1145
