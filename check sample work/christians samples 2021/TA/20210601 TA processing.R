@@ -23,8 +23,6 @@ library(seacarb)
 library(dplyr)
 library(here)
 
-rm(list = ls())
-
 setwd(here())
 
 getwd()
@@ -32,18 +30,18 @@ getwd()
 setwd(here("check sample work", 
            "christians samples 2021",
            "TA",
-           "2021-05-19-run"))
+           "2021-06-09-run"))
 
 getwd()
 
 
-results_filename <- "20210519-alk.titration.results"
+results_filename <- "20210609-alk.titration.results"
 
 
 
 #get character vector of samples ------------------------------------------------------
 
-df_env = read.csv("20210519 sample metadata.csv",
+df_env = read.csv("20210609 sample metadata.csv",
                   header=T, stringsAsFactors=F, sep=",")
 
 sample_list <- df_env$sample.id
