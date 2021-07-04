@@ -1,6 +1,8 @@
 
 #set work environment ------------------------------------------------------
 
+# refresh R session before running
+
 library(dplyr)
 library(stringr)
 library(here)
@@ -16,11 +18,9 @@ getwd()
 setwd(here("check sample work", 
            "christians samples 2021",
            "TA",
-           "2021-05-19-run"))
+           "2021-06-09-run"))
 
 getwd()
-
-rm(list=ls())
 
 
 list.files()
@@ -28,6 +28,8 @@ list.files()
 #### File Sets ####
 
 # Comment in each section to run the script
+
+# Copy each latest date to capture the next sample
 
 # 4/20/2021
 
@@ -82,15 +84,26 @@ list.files()
 
 # 5/19/2021
 
+# #   sample information file
+# file_1 <- "alk run 19may2021 samples only.csv"  
+# 
+# #   sample environmental data
+# file_2 <- "20210519 sample metadata.csv"
+# 
+# # alkalinity titration data file
+# file_3 <-  "alk run 19may2021 data only.csv"
+
+
+# 5/19/2021
+
 #   sample information file
-file_1 <- "alk run 19may2021 samples only.csv"  
+file_1 <- "alk run 09jun2021 samples only.csv"  
 
 #   sample environmental data
-file_2 <- "20210519 sample metadata.csv"
+file_2 <- "20210609 sample metadata.csv"
 
 # alkalinity titration data file
-file_3 <-  "alk run 19may2021 data only.csv"
-
+file_3 <-  "alk run 09jun2021 data only.csv"
 
 
 
