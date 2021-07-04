@@ -94,7 +94,7 @@ list.files()
 # file_3 <-  "alk run 19may2021 data only.csv"
 
 
-# 5/19/2021
+# 6/09/2021
 
 #   sample information file
 file_1 <- "alk run 09jun2021 samples only.csv"  
